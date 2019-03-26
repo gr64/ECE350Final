@@ -1,7 +1,8 @@
 # ECE350Final
 
 PRINTING:
--printing 1 of the arms on printer C-3 in the TEC
+-Gaby: printing 1 of the arms on printer C-3 in the TEC
+-Maddie: printing 4 corners
 
 PARTS:
 - (4) DS3218 Servo Motor with Horn
