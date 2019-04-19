@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Thu Apr 18 22:28:11 2019
+Analysis & Synthesis Status : Successful - Fri Apr 19 19:35:23 2019
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : ServoControl
-Top-level Entity Name : ServoControl
+Top-level Entity Name : ServoTranslator
 Family : Cyclone IV E
-Total logic elements : 58
-    Total combinational functions : 58
-    Dedicated logic registers : 28
-Total registers : 28
-Total pins : 18
+Total logic elements : 124
+    Total combinational functions : 124
+    Dedicated logic registers : 66
+Total registers : 66
+Total pins : 47
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

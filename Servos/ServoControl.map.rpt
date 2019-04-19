@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ServoControl
-Thu Apr 18 22:28:11 2019
+Fri Apr 19 19:35:23 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -13,11 +13,14 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Inverted Register Statistics
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  8. State Machine - |ServoTranslator|local_count_1
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +46,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Apr 18 22:28:11 2019       ;
+; Analysis & Synthesis Status        ; Successful - Fri Apr 19 19:35:23 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; ServoControl                                ;
-; Top-level Entity Name              ; ServoControl                                ;
+; Top-level Entity Name              ; ServoTranslator                             ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 58                                          ;
-;     Total combinational functions  ; 58                                          ;
-;     Dedicated logic registers      ; 28                                          ;
-; Total registers                    ; 28                                          ;
-; Total pins                         ; 18                                          ;
+; Total logic elements               ; 124                                         ;
+;     Total combinational functions  ; 124                                         ;
+;     Dedicated logic registers      ; 66                                          ;
+; Total registers                    ; 66                                          ;
+; Total pins                         ; 47                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -66,7 +69,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                                      ; ServoControl       ; ServoControl       ;
+; Top-level entity name                                                      ; ServoTranslator    ; ServoControl       ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -163,13 +166,14 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                  ; Library ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------+---------+
-; ServoControl.v                   ; yes             ; User Verilog HDL File  ; C:/Users/gr64/Documents/Servos/ServoControl.v ;         ;
-+----------------------------------+-----------------+------------------------+-----------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                               ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                 ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
+; ServoControl.v                   ; yes             ; User Verilog HDL File  ; C:/Users/gr64/Documents/ECE350Final/Servos/ServoControl.v    ;         ;
+; ServoTranslator.v                ; yes             ; User Verilog HDL File  ; C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -177,41 +181,77 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 58        ;
+; Estimated Total logic elements              ; 124       ;
 ;                                             ;           ;
-; Total combinational functions               ; 58        ;
+; Total combinational functions               ; 124       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 34        ;
-;     -- 3 input functions                    ; 3         ;
-;     -- <=2 input functions                  ; 21        ;
+;     -- 4 input functions                    ; 52        ;
+;     -- 3 input functions                    ; 17        ;
+;     -- <=2 input functions                  ; 55        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 40        ;
-;     -- arithmetic mode                      ; 18        ;
+;     -- normal mode                          ; 76        ;
+;     -- arithmetic mode                      ; 48        ;
 ;                                             ;           ;
-; Total registers                             ; 28        ;
-;     -- Dedicated logic registers            ; 28        ;
+; Total registers                             ; 66        ;
+;     -- Dedicated logic registers            ; 66        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 18        ;
+; I/O pins                                    ; 47        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 28        ;
-; Total fan-out                               ; 275       ;
-; Average fan-out                             ; 2.25      ;
+; Maximum fan-out                             ; 66        ;
+; Total fan-out                               ; 579       ;
+; Average fan-out                             ; 2.04      ;
 +---------------------------------------------+-----------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; |ServoControl              ; 58 (58)             ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |ServoControl       ; ServoControl ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                         ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                          ; Entity Name     ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+-----------------+--------------+
+; |ServoTranslator                 ; 124 (76)            ; 66 (42)                   ; 0           ; 0            ; 0       ; 0         ; 47   ; 0            ; |ServoTranslator                             ; ServoTranslator ; work         ;
+;    |ServoControl:myservocontrol| ; 48 (48)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ServoTranslator|ServoControl:myservocontrol ; ServoControl    ; work         ;
++----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |ServoTranslator|local_count_1                                                                                                                 ;
++----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+
+; Name                 ; local_count_1.000101 ; local_count_1.000100 ; local_count_1.000011 ; local_count_1.000010 ; local_count_1.000001 ; local_count_1.000000 ;
++----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+
+; local_count_1.000000 ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ;
+; local_count_1.000001 ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 1                    ;
+; local_count_1.000010 ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 1                    ;
+; local_count_1.000011 ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 1                    ;
+; local_count_1.000100 ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 1                    ;
+; local_count_1.000101 ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ;
++----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                       ;
++----------------------------------------+-------------------------------------------------+
+; Register name                          ; Reason for Removal                              ;
++----------------------------------------+-------------------------------------------------+
+; ServoControl:myservocontrol|servo4     ; Merged with ServoControl:myservocontrol|servo3  ;
+; top_servo_forward                      ; Merged with bottom_servo_forward                ;
+; ServoControl:myservocontrol|servo_l    ; Merged with ServoControl:myservocontrol|servo_b ;
+; ServoControl:myservocontrol|servo_r    ; Merged with ServoControl:myservocontrol|servo_b ;
+; ServoControl:myservocontrol|counter[0] ; Merged with global_count[0]                     ;
+; local_count_1~7                        ; Lost fanout                                     ;
+; local_count_1~8                        ; Lost fanout                                     ;
+; local_count_1~9                        ; Lost fanout                                     ;
+; local_count_1~10                       ; Lost fanout                                     ;
+; local_count_1~11                       ; Lost fanout                                     ;
+; local_count_1~12                       ; Lost fanout                                     ;
+; Total Number of Removed Registers = 11 ;                                                 ;
++----------------------------------------+-------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -219,12 +259,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 28    ;
+; Total registers                              ; 66    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 6     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Clock Enable       ; 17    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -234,16 +274,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; servo1~reg0                            ; 3       ;
-; servo2~reg0                            ; 3       ;
-; servo3~reg0                            ; 3       ;
-; servo4~reg0                            ; 3       ;
-; servo_t~reg0                           ; 3       ;
-; servo_l~reg0                           ; 3       ;
-; servo_b~reg0                           ; 3       ;
-; servo_r~reg0                           ; 3       ;
-; Total number of inverted registers = 8 ;         ;
+; ServoControl:myservocontrol|servo1     ; 3       ;
+; ServoControl:myservocontrol|servo2     ; 2       ;
+; ServoControl:myservocontrol|servo3     ; 4       ;
+; ServoControl:myservocontrol|servo_t    ; 2       ;
+; ServoControl:myservocontrol|servo_b    ; 4       ;
+; left_servo_forward                     ; 3       ;
+; bottom_servo_forward                   ; 4       ;
+; Total number of inverted registers = 7 ;         ;
 +----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |ServoTranslator|local_count_2[5] ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 24 LEs               ; 6 LEs                  ; No         ; |ServoTranslator|local_count_1    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 
 
 +-----------------------------------------------------+
@@ -251,22 +300,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 18                          ;
-; cycloneiii_ff         ; 28                          ;
-;     ENA               ; 8                           ;
-;     plain             ; 20                          ;
-; cycloneiii_lcell_comb ; 66                          ;
-;     arith             ; 18                          ;
-;         2 data inputs ; 17                          ;
-;         3 data inputs ; 1                           ;
-;     normal            ; 48                          ;
-;         1 data inputs ; 10                          ;
-;         2 data inputs ; 2                           ;
+; boundary_port         ; 47                          ;
+; cycloneiii_ff         ; 66                          ;
+;     ENA               ; 11                          ;
+;     ENA SLD           ; 6                           ;
+;     plain             ; 49                          ;
+; cycloneiii_lcell_comb ; 129                         ;
+;     arith             ; 48                          ;
+;         2 data inputs ; 46                          ;
 ;         3 data inputs ; 2                           ;
-;         4 data inputs ; 34                          ;
+;     normal            ; 81                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 15                          ;
+;         4 data inputs ; 52                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.38                        ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 3.67                        ;
 +-----------------------+-----------------------------+
 
 
@@ -285,25 +336,65 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Apr 18 22:28:02 2019
+    Info: Processing started: Fri Apr 19 19:35:13 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ServoControl -c ServoControl
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file servocontrol.v
-    Info (12023): Found entity 1: ServoControl File: C:/Users/gr64/Documents/Servos/ServoControl.v Line: 2
-Info (12127): Elaborating entity "ServoControl" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at ServoControl.v(262): truncated value with size 32 to match size of target (20) File: C:/Users/gr64/Documents/Servos/ServoControl.v Line: 262
+    Info (12023): Found entity 1: ServoControl File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoControl.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file servotranslator.v
+    Info (12023): Found entity 1: ServoTranslator File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 1
+Info (12127): Elaborating entity "ServoTranslator" for the top level hierarchy
+Warning (10034): Output port "address" at ServoTranslator.v(17) has no driver File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+Info (12128): Elaborating entity "ServoControl" for hierarchy "ServoControl:myservocontrol" File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 300
+Warning (10230): Verilog HDL assignment warning at ServoControl.v(262): truncated value with size 32 to match size of target (20) File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoControl.v Line: 262
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "address[0]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[1]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[2]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[3]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[4]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[5]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[6]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[7]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[8]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[9]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[10]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[11]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[12]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[13]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[14]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[15]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[16]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[17]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[18]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[19]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[20]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[21]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[22]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[23]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[24]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[25]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[26]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[27]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[28]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[29]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[30]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
+    Warning (13410): Pin "address[31]" is stuck at GND File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 17
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 76 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 10 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 58 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4783 megabytes
-    Info: Processing ended: Thu Apr 18 22:28:11 2019
-    Info: Elapsed time: 00:00:09
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "enable" File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 13
+Info (21057): Implemented 173 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 40 output pins
+    Info (21061): Implemented 126 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
+    Info: Peak virtual memory: 4784 megabytes
+    Info: Processing ended: Fri Apr 19 19:35:23 2019
+    Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:19
 
 

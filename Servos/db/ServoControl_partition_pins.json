@@ -36,10 +36,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "s1",
-					"strict" : false
-				},
-				{
 					"name" : "clk",
 					"strict" : false
 				},
@@ -48,31 +44,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "s2",
+					"name" : "dmem_out[0]",
 					"strict" : false
 				},
 				{
-					"name" : "s3",
+					"name" : "dmem_out[1]",
 					"strict" : false
 				},
 				{
-					"name" : "s4",
+					"name" : "dmem_out[2]",
 					"strict" : false
 				},
 				{
-					"name" : "f1",
-					"strict" : false
-				},
-				{
-					"name" : "f2",
-					"strict" : false
-				},
-				{
-					"name" : "f3",
-					"strict" : false
-				},
-				{
-					"name" : "f4",
+					"name" : "dmem_out[3]",
 					"strict" : false
 				}
 			]
