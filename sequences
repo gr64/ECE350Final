@@ -1,0 +1,1053 @@
+FrontTopLeftFront2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal Fc
+	jal Rc
+	jal D
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopLeftUp2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal D
+	jal F
+	jal D
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopLeftLeft2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightFront2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal F
+	jal L
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightRight2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftFront2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftDown2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal F
+	jal F
+	jal L
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftLeft2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightFront2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightDown2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal Fc
+	jal L
+	jal B
+	jal Rc
+	jal Bc
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightRight2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftBack2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	jal Dc
+	jal Dc
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftUp2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal Lc
+	jal Fc
+	jal Dc
+	jal Dc
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftLeft2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal Lc
+	jal Fc
+	jal D
+	jal D
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightBack2FrontTopRightUp: 
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightUp2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	jal Bc
+	jal Lc
+	jal Dc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightRight2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal R
+	jal F
+	jal Dc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftBack2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Dc
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftDown2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Lc
+	jal Fc
+	jal L
+	jal B
+	jal Rc
+	jal Bc
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftLeft2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightBack2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightDown2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Lc
+	jal Fc
+	jal L
+	jal B
+	jal Rc
+	jal Bc
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightRight2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopLeftFront2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal Fc
+	jal Rc
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopLeftLeft2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal L
+	jal B
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightFront2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal Dc
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightUp2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal Dc
+	jal R
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightRight2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal Dc
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftFront2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftDown2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Bc
+	jal Lc
+	jal B
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftLeft2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightFront2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightDown2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Lc
+	jal F
+	jal L
+	jal Fc
+	jal Dc
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightRight2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftBack2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftUp2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	jal D
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftLeft2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal Lc
+	jal Fc
+	jal D
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightBack2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	jal Bc
+	jal Lc
+	jal D
+	jal D
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightUp2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal Dc
+	jal Dc
+	jal B
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightRight2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal R
+	jal F
+	jal Dc
+	jal Dc
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftBack2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftDown2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal R
+	jal F
+	jal Rc
+	jal Bc
+	jal L
+	jal B
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftLeft2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightBack2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightDown2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal F
+	jal Lc
+	jal Fc
+	jal L
+	jal Dc
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightRight2FrontTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopLeftFront2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopLeftUp2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal Fc
+	jal Rc
+	jal Dc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopLeftLeft2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal L
+	jal B
+	jal Dc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightFront2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal F
+	jal L
+	jal D
+	jal D
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightUp2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal Fc
+	jal L
+	jal Dc
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightRight2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal D
+	jal D
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftFront2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftDown2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Lc
+	jal Dc
+	jal L
+	jal F
+	jal Lc
+	jal Fc
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftLeft2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightFront2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Dc
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightDown2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Lc
+	jal D
+	jal L
+	jal D
+	jal D
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightRight2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftBack2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftLeft2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal Lc
+	jal Fc
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightBack2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	jal Bc
+	jal Lc
+	jal D
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightUp2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal R
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightRight2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftBack2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftDown2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal Bc
+	jal R
+	jal F
+	jal Lc
+	jal Fc
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftLeft2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightBack2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightDown2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal B
+	jal Dc
+	jal Bc
+	jal D
+	jal D
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightRight2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopLeftFront2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal Fc
+	jal Rc
+	jal D
+	jal D
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopLeftUp2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal F
+	jal Rc
+	jal D
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopLeftLeft2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal L
+	jal B
+	jal D
+	jal D
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightFront2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal F
+	jal L
+	jal D
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightUp2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal D
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontTopRightRight2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal D
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftFront2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftDown2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal D
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomLeftLeft2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal D
+	jal D
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightFront2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightDown2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal D
+	jal D
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+FrontBottomRightRight2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftBack2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	jal Dc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftUp2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	jal F
+	jal L
+	jal Fc
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopLeftLeft2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightBack2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	jal Bc
+	jal Lc
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackTopRightRight2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal R
+	jal F
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftBack2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal L
+	jal Bc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftDown2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal R
+	jal D
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomLeftLeft2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightBack2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightDown2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal L
+	jal B
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
+BackBottomRightRight2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra

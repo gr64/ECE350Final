@@ -46,9 +46,9 @@ SolveFrontTopRightCorner:
 	addi $a2, $0, 2 #orange
 
 	#SWs FOR TESTING ()
-	sw $a0, 10($0)
-	sw $a1, 4($0)
-	sw $a2, 13 ($0)
+	sw $a0, 4($0)
+	sw $a1, 13($0)
+	sw $a2, 10($0)
 	#END TESTING
 	jal FrontTopRightUp
 	bne $v0, $0, SolveFrontTopLeftCorner
@@ -63,6 +63,8 @@ SolveFrontTopRightCorner:
 
 SolveFrontTopLeftCorner:
 	add $v0, $0, $0 #re-initialize output argument
+	#for testing
+	j exitSolve2by2
 
 SolveBackTopRightCorner:
 
@@ -535,228 +537,1059 @@ BackBottomRightRight:
 
 
 
-# move sequences from state 1 to state 2
 FrontTopLeftFront2FrontTopRightUp:
-	# RF'R'DF'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal Fc
+	jal Rc
+	jal D
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopLeftUp2FrontTopRightUp:
-	# F'DFDF'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal D
+	jal F
+	jal D
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopLeftLeft2FrontTopRightUp:
-	# F #yes this one is done
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightFront2FrontTopRightUp:
-	# L'FLBRB'
-# FrontTopRightUp2FrontTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal F
+	jal L
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightRight2FrontTopRightUp:
-	# BR'B'L'F'L
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftFront2FrontTopRightUp:
-	# DL'F'L
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftDown2FrontTopRightUp:
-	# L'FFLBRB'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal F
+	jal F
+	jal L
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftLeft2FrontTopRightUp:
-	# DBRB'
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightFront2FrontTopRightUp:
-	# BRB'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightDown2FrontTopRightUp:
-	# L'F'LBR'B'L'F'L
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal Fc
+	jal L
+	jal B
+	jal Rc
+	jal Bc
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightRight2FrontTopRightUp:
-	# L'F'L
-
-# direction of back corners taken from perspective of front
-# so BackTopLeft is adjacent to FrontTopLeft
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftBack2FrontTopRightUp:
-	# R'BRD'D'BRB'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	jal Dc
+	jal Dc
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftUp2FrontTopRightUp:
-	# FL'F'D'D'BRB'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal Lc
+	jal Fc
+	jal Dc
+	jal Dc
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftLeft2FrontTopRightUp:
-	# FL'F'DDL'F'L
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal Lc
+	jal Fc
+	jal D
+	jal D
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightBack2FrontTopRightUp: 
-	# R' 	#yes this one is done
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightUp2FrontTopRightUp:
-	# LB'L'D'R
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	jal Bc
+	jal Lc
+	jal Dc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightRight2FrontTopRightUp:
-	# F'RFD'R
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal R
+	jal F
+	jal Dc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftBack2FrontTopRightUp:
-	# D'D'BRB'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Dc
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftDown2FrontTopRightUp:
-	# DDL'F'LBR'B'L'F'L
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Lc
+	jal Fc
+	jal L
+	jal B
+	jal Rc
+	jal Bc
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftLeft2FrontTopRightUp:
-	# DDL'F'L
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightBack2FrontTopRightUp:
-	# D'L'F'L
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightDown2FrontTopRightUp:
-	# D'L'F'LBR'B'L'F'L
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Lc
+	jal Fc
+	jal L
+	jal B
+	jal Rc
+	jal Bc
+	jal Lc
+	jal Fc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightRight2FrontTopRightUp:
-	# D'BRB'
-
-
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal B
+	jal R
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopLeftFront2FrontTopLeftUp:
-	# RF'R'B'L'B
-#FrontTopLeftUp2FrontTopLeftUp
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal Fc
+	jal Rc
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopLeftLeft2FrontTopLeftUp:
-	# B'LBRFR'
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal L
+	jal B
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightFront2FrontTopLeftUp:
-	# FD'RFR'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal Dc
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightUp2FrontTopLeftUp:
-	# R'D'RF
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal Dc
+	jal R
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightRight2FrontTopLeftUp:
-	# BR'B'D'B'L'B
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal Dc
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftFront2FrontTopLeftUp:
-	# B'L'B
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftDown2FrontTopLeftUp:
-	# DDB'L'BRFR'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Bc
+	jal Lc
+	jal B
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftLeft2FrontTopLeftUp:
-	# RFR'
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightFront2FrontTopLeftUp:
-	# D'RFR'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightDown2FrontTopLeftUp:
-	# DDL'FLF'D'B'L'B
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Lc
+	jal F
+	jal L
+	jal Fc
+	jal Dc
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightRight2FrontTopLeftUp:
-	# D'B'L'B
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftBack2FrontTopLeftUp:
-	# L	# yes this one is done
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftUp2FrontTopLeftUp:
-	# R'BRDL'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	jal D
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftLeft2FrontTopLeftUp:
-	# FL'F'DL'
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal Lc
+	jal Fc
+	jal D
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightBack2FrontTopLeftUp:
-	# LB'L'DDB'L'B
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	jal Bc
+	jal Lc
+	jal D
+	jal D
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightUp2FrontTopLeftUp:
-	# B'D'D'BRFR'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal Dc
+	jal Dc
+	jal B
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightRight2FrontTopLeftUp:
-	# F'RFD'D'RFR'
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal R
+	jal F
+	jal Dc
+	jal Dc
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftBack2FrontTopLeftUp:
-	# DRFR'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftDown2FrontTopLeftUp:
-	# DRFR'B'LBRFR'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal R
+	jal F
+	jal Rc
+	jal Bc
+	jal L
+	jal B
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftLeft2FrontTopLeftUp:
-	# DL'
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightBack2FrontTopLeftUp:
-	# DDB'L'B
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Bc
+	jal Lc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightDown2FrontTopLeftUp:
-	# DFL'F'LD'RFR'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal F
+	jal Lc
+	jal Fc
+	jal L
+	jal Dc
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightRight2FrontTopLeftUp:
-	# DDRFR'
-
-
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal R
+	jal F
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopLeftFront2BackTopLeftUp:
-	# L'	#yes this is done
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopLeftUp2BackTopLeftUp:
-	# RF'R'D'L
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal Fc
+	jal Rc
+	jal Dc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopLeftLeft2BackTopLeftUp:
-	# B'LBD'L
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal L
+	jal B
+	jal Dc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightFront2BackTopLeftUp:
-	# L'FLDDFLF'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal F
+	jal L
+	jal D
+	jal D
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightUp2BackTopLeftUp:
-	# L'F'LD'FLF'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal Fc
+	jal L
+	jal Dc
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightRight2BackTopLeftUp:
-	# BR'B'DDR'B'R
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal D
+	jal D
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftFront2BackTopLeftUp:
-	# D'R'B'R
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftDown2BackTopLeftUp:
-	# D'L'D'LFL'F'R'B'R
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Lc
+	jal Dc
+	jal L
+	jal F
+	jal Lc
+	jal Fc
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftLeft2BackTopLeftUp:
-	# D'FLF'
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightFront2BackTopLeftUp:
-	# D'D'FLF'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Dc
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightDown2BackTopLeftUp:
-	# DDL'DLDDR'B'R
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Lc
+	jal D
+	jal L
+	jal D
+	jal D
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightRight2BackTopLeftUp:
-	# DDR'B'R
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftBack2BackTopLeftUp:
-	# R'BRFLF'
-#BackTopLeftUp2BackTopLeftUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftLeft2BackTopLeftUp:
-	# FL'F'R'B'R
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal Lc
+	jal Fc
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightBack2BackTopLeftUp:
-	# LB'L'DB'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	jal Bc
+	jal Lc
+	jal D
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightUp2BackTopLeftUp:
-	# F'RF 
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal R
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightRight2BackTopLeftUp:
-	# B
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftBack2BackTopLeftUp:
-	# FLF'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftDown2BackTopLeftUp:
-	# R'B'RFL'F'R'B'R
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal Bc
+	jal R
+	jal F
+	jal Lc
+	jal Fc
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftLeft2BackTopLeftUp:
-	# R'B'R
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightBack2BackTopLeftUp:
-	# DR'B'R
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal Rc
+	jal Bc
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightDown2BackTopLeftUp:
-	# DBD'B'DDFLF'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal B
+	jal Dc
+	jal Bc
+	jal D
+	jal D
+	jal F
+	jal L
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightRight2BackTopLeftUp:
-	# R'BR
-
-
-
-
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopLeftFront2BackTopRightUp:
-	# RF'R'DDF'R'F
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal Fc
+	jal Rc
+	jal D
+	jal D
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopLeftUp2BackTopRightUp:
-	# RFR'DF'R'F
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal R
+	jal F
+	jal Rc
+	jal D
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopLeftLeft2BackTopRightUp:
-	# B'LBDDLBL'
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal L
+	jal B
+	jal D
+	jal D
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightFront2BackTopRightUp:
-	# L'FLDLBL'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Lc
+	jal F
+	jal L
+	jal D
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightUp2BackTopRightUp:
-	# BR'B'DLBL'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal D
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontTopRightRight2BackTopRightUp:
-	# BR'B'DR'
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal D
+	jal Rc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftFront2BackTopRightUp:
-	# DDF'R'F
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftDown2BackTopRightUp:
-	# F'DR'F
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal D
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomLeftLeft2BackTopRightUp:
-	# B'DDB
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	jal D
+	jal D
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightFront2BackTopRightUp:
-	# DLBL'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightDown2BackTopRightUp:
-	# FDDF'
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal F
+	jal D
+	jal D
+	jal Fc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 FrontBottomRightRight2BackTopRightUp:
-	#
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftBack2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	jal Dc
+	jal B
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftUp2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Rc
+	jal B
+	jal R
+	jal F
+	jal L
+	jal Fc
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopLeftLeft2BackTopRightUp:
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Bc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightBack2BackTopRightUp:
-#BackTopRightUp2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	jal Bc
+	jal Lc
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackTopRightRight2BackTopRightUp:
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal R
+	jal F
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftBack2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal L
+	jal Bc
+	jal L
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftDown2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal B
+	jal Rc
+	jal Bc
+	jal R
+	jal D
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomLeftLeft2BackTopRightUp:
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Dc
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightBack2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightDown2BackTopRightUp:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal D
+	jal D
+	jal L
+	jal B
+	jal Fc
+	jal Rc
+	jal F
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 BackBottomRightRight2BackTopRightUp:
-
-
-
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	jal L
+	jal B
+	jal Lc
+	lw $ra 0($sp)
+	addi $sp, $sp, 4
+	jr $ra
 
 # moves
 L:  # 0000 - 0
@@ -776,7 +1609,7 @@ L:  # 0000 - 0
 	lw $t8, 18($0)
 	lw $t9, 20($0)
 	lw $s0, 21($0)
-	lw $s1, 23($0
+	lw $s1, 23($0)
 
 	sw $t0, 9($0)
 	sw $t1, 11($0)
@@ -801,7 +1634,6 @@ L:  # 0000 - 0
     addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
 
-
 Lc: # 0001 - 1
 	addi $sp, $sp, -12
 	sw $ra, 0($sp)
@@ -819,7 +1651,7 @@ Lc: # 0001 - 1
 	lw $t8, 18($0)
 	lw $t9, 20($0)
 	lw $s0, 21($0)
-	lw $s1, 23($0
+	lw $s1, 23($0)
 
 	sw $t0, 20($0)
 	sw $t1, 18($0)
@@ -835,7 +1667,7 @@ Lc: # 0001 - 1
 	sw $s1, 11($0)
 
 	addi $s0, $0, 1 	# storing code for Lc in $s0
-	sw $s0, 0($27)		# storing L in memory
+	sw $s0, 0($27)		# storing Lc in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
 	lw   $ra, 0($sp)    # read registers from stack
@@ -844,11 +1676,254 @@ Lc: # 0001 - 1
     addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
 R:  # 0010 - 2
+	addi $sp, $sp, -12
+	sw $ra, 0($sp)
+	sw $s0, 4($sp)
+	sw $s1, 8($sp)
+
+	lw $t0, 2($0)
+	lw $t1, 4($0)
+	lw $t2, 10($0)
+	lw $t3, 12($0)
+	lw $t4, 13($0)
+	lw $t5, 14($0)
+	lw $t6, 15($0)
+	lw $t7, 16($0)
+	lw $t8, 17($0)
+	lw $t9, 19($0)
+	lw $s0, 22($0)
+	lw $s1, 24($0)
+
+	sw $t0, 19($0)
+	sw $t1, 17($0)
+	sw $t2, 2($0)
+	sw $t3, 4($0)
+	sw $t4, 14($0)
+	sw $t5, 16($0)
+	sw $t6, 13($0)
+	sw $t7, 15($0)
+	sw $t8, 24($0)
+	sw $t9, 22($0)
+	sw $s0, 10($0)
+	sw $s1, 12($0)
+
+	addi $s0, $0, 2 	# storing code for R in $s0
+	sw $s0, 0($27)		# storing R in memory
+	addi $27, $27, 1 	# incrementing counter to store move location
+
+	lw   $ra, 0($sp)    # read registers from stack
+	lw   $s0, 4($sp)
+    lw   $s1, 8($sp)
+    addi $sp, $sp, 12   # bring back stack pointer
+    jr $ra
+
 Rc: # 0011 - 3
+	addi $sp, $sp, -12
+	sw $ra, 0($sp)
+	sw $s0, 4($sp)
+	sw $s1, 8($sp)
+
+	lw $t0, 2($0)
+	lw $t1, 4($0)
+	lw $t2, 10($0)
+	lw $t3, 12($0)
+	lw $t4, 13($0)
+	lw $t5, 14($0)
+	lw $t6, 15($0)
+	lw $t7, 16($0)
+	lw $t8, 17($0)
+	lw $t9, 19($0)
+	lw $s0, 22($0)
+	lw $s1, 24($0)
+
+	sw $t0, 10($0)
+	sw $t1, 12($0)
+	sw $t2, 22($0)
+	sw $t3, 24($0)
+	sw $t4, 15($0)
+	sw $t5, 13($0)
+	sw $t6, 16($0)
+	sw $t7, 14($0)
+	sw $t8, 4($0)
+	sw $t9, 2($0)
+	sw $s0, 19($0)
+	sw $s1, 17($0)
+
+	addi $s0, $0, 3 	# storing code for Rc in $s0
+	sw $s0, 0($27)		# storing Rc in memory
+	addi $27, $27, 1 	# incrementing counter to store move location
+
+	lw   $ra, 0($sp)    # read registers from stack
+	lw   $s0, 4($sp)
+    lw   $s1, 8($sp)
+    addi $sp, $sp, 12   # bring back stack pointer
+    jr $ra
+
 D:  # 0100 - 4
+	addi $sp, $sp, -12
+	sw $ra, 0($sp)
+	sw $s0, 4($sp)
+	sw $s1, 8($sp)
+
+	lw $t0, 7($0)
+	lw $t1, 8($0)
+	lw $t2, 11($0)
+	lw $t3, 12($0)
+	lw $t4, 15($0)
+	lw $t5, 16($0)
+	lw $t6, 19($0)
+	lw $t7, 20($0)
+	lw $t8, 21($0)
+	lw $t9, 22($0)
+	lw $s0, 23($0)
+	lw $s1, 24($0)
+
+	sw $t0, 11($0)
+	sw $t1, 12($0)
+	sw $t2, 15($0)
+	sw $t3, 16($0)
+	sw $t4, 19($0)
+	sw $t5, 20($0)
+	sw $t6, 7($0)
+	sw $t7, 8($0)
+	sw $t8, 22($0)
+	sw $t9, 24($0)
+	sw $s0, 21($0)
+	sw $s1, 23($0)
+
+	addi $s0, $0, 4 	# storing code for D in $s0
+	sw $s0, 0($27)		# storing D in memory
+	addi $27, $27, 1 	# incrementing counter to store move location
+
+	lw   $ra, 0($sp)    # read registers from stack
+	lw   $s0, 4($sp)
+    lw   $s1, 8($sp)
+    addi $sp, $sp, 12   # bring back stack pointer
+    jr $ra
+
 Dc: # 0101 - 5
+	addi $sp, $sp, -12
+	sw $ra, 0($sp)
+	sw $s0, 4($sp)
+	sw $s1, 8($sp)
+
+	lw $t0, 7($0)
+	lw $t1, 8($0)
+	lw $t2, 11($0)
+	lw $t3, 12($0)
+	lw $t4, 15($0)
+	lw $t5, 16($0)
+	lw $t6, 19($0)
+	lw $t7, 20($0)
+	lw $t8, 21($0)
+	lw $t9, 22($0)
+	lw $s0, 23($0)
+	lw $s1, 24($0)
+
+	sw $t0, 19($0)
+	sw $t1, 20($0)
+	sw $t2, 7($0)
+	sw $t3, 8($0)
+	sw $t4, 11($0)
+	sw $t5, 12($0)
+	sw $t6, 15($0)
+	sw $t7, 16($0)
+	sw $t8, 23($0)
+	sw $t9, 21($0)
+	sw $s0, 24($0)
+	sw $s1, 22($0)
+
+	addi $s0, $0, 5 	# storing code for Dc in $s0
+	sw $s0, 0($27)		# storing Dc in memory
+	addi $27, $27, 1 	# incrementing counter to store move location
+
+	lw   $ra, 0($sp)    # read registers from stack
+	lw   $s0, 4($sp)
+    lw   $s1, 8($sp)
+    addi $sp, $sp, 12   # bring back stack pointer
+    jr $ra
 U:  # 0110 - 6
+	addi $sp, $sp, -12
+	sw $ra, 0($sp)
+	sw $s0, 4($sp)
+	sw $s1, 8($sp)
+
+	lw $t0, 1($0)
+	lw $t1, 2($0)
+	lw $t2, 3($0)
+	lw $t3, 4($0)
+	lw $t4, 5($0)
+	lw $t5, 6($0)
+	lw $t6, 9($0)
+	lw $t7, 10($0)
+	lw $t8, 13($0)
+	lw $t9, 14($0)
+	lw $s0, 17($0)
+	lw $s1, 18($0)
+
+	sw $t0, 2($0)
+	sw $t1, 4($0)
+	sw $t2, 1($0)
+	sw $t3, 3($0)
+	sw $t4, 17($0)
+	sw $t5, 18($0)
+	sw $t6, 5($0)
+	sw $t7, 6($0)
+	sw $t8, 9($0)
+	sw $t9, 10($0)
+	sw $s0, 13($0)
+	sw $s1, 14($0)
+
+	addi $s0, $0, 6 	# storing code for U in $s0
+	sw $s0, 0($27)		# storing U in memory
+	addi $27, $27, 1 	# incrementing counter to store move location
+
+	lw   $ra, 0($sp)    # read registers from stack
+	lw   $s0, 4($sp)
+    lw   $s1, 8($sp)
+    addi $sp, $sp, 12   # bring back stack pointer
+    jr $ra
 Uc: # 0111 - 7
+	addi $sp, $sp, -12
+	sw $ra, 0($sp)
+	sw $s0, 4($sp)
+	sw $s1, 8($sp)
+
+	lw $t0, 1($0)
+	lw $t1, 2($0)
+	lw $t2, 3($0)
+	lw $t3, 4($0)
+	lw $t4, 5($0)
+	lw $t5, 6($0)
+	lw $t6, 9($0)
+	lw $t7, 10($0)
+	lw $t8, 13($0)
+	lw $t9, 14($0)
+	lw $s0, 17($0)
+	lw $s1, 18($0)
+
+	sw $t0, 3($0)
+	sw $t1, 1($0)
+	sw $t2, 4($0)
+	sw $t3, 2($0)
+	sw $t4, 9($0)
+	sw $t5, 10($0)
+	sw $t6, 13($0)
+	sw $t7, 14($0)
+	sw $t8, 17($0)
+	sw $t9, 18($0)
+	sw $s0, 5($0)
+	sw $s1, 6($0)
+
+	addi $s0, $0, 7 	# storing code for Uc in $s0
+	sw $s0, 0($27)		# storing Uc in memory
+	addi $27, $27, 1 	# incrementing counter to store move location
+
+	lw   $ra, 0($sp)    # read registers from stack
+	lw   $s0, 4($sp)
+    lw   $s1, 8($sp)
+    addi $sp, $sp, 12   # bring back stack pointer
+    jr $ra
 F:  # 1000 - 8
 	addi $sp, $sp, -12
 	sw $ra, 0($sp)
@@ -866,7 +1941,7 @@ F:  # 1000 - 8
 	lw $t8, 13($0)
 	lw $t9, 15($0)
 	lw $s0, 21($0)
-	lw $s1, 22($0
+	lw $s1, 22($0)
 
 	sw $t0, 13($0)
 	sw $t1, 15($0)
@@ -881,8 +1956,8 @@ F:  # 1000 - 8
 	sw $s0, 6($0)
 	sw $s1, 8($0)
 
-	addi $s0, $0, 8 	# storing code for Lc in $s0
-	sw $s0, 0($27)		# storing L in memory
+	addi $s0, $0, 8 	# storing code for F in $s0
+	sw $s0, 0($27)		# storing F in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
 	lw   $ra, 0($sp)    # read registers from stack
@@ -907,7 +1982,7 @@ Fc: # 1001 - 9
 	lw $t8, 13($0)
 	lw $t9, 15($0)
 	lw $s0, 21($0)
-	lw $s1, 22($0
+	lw $s1, 22($0)
 
 	sw $t0, 8($0)
 	sw $t1, 6($0)
@@ -922,8 +1997,8 @@ Fc: # 1001 - 9
 	sw $s0, 15($0)
 	sw $s1, 13($0)
 
-	addi $s0, $0, 9 	# storing code for Lc in $s0
-	sw $s0, 0($27)		# storing L in memory
+	addi $s0, $0, 9 	# storing code for Fc in $s0
+	sw $s0, 0($27)		# storing Fc in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
 	lw   $ra, 0($sp)    # read registers from stack
@@ -932,4 +2007,88 @@ Fc: # 1001 - 9
     addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
 B:  # 1010 - 10
+	addi $sp, $sp, -12
+	sw $ra, 0($sp)
+	sw $s0, 4($sp)
+	sw $s1, 8($sp)
+
+	lw $t0, 1($0)
+	lw $t1, 2($0)
+	lw $t2, 5($0)
+	lw $t3, 7($0)
+	lw $t4, 14($0)
+	lw $t5, 16($0)
+	lw $t6, 17($0)
+	lw $t7, 18($0)
+	lw $t8, 19($0)
+	lw $t9, 20($0)
+	lw $s0, 23($0)
+	lw $s1, 24($0)
+
+	sw $t0, 7($0)
+	sw $t1, 5($0)
+	sw $t2, 23($0)
+	sw $t3, 24($0)
+	sw $t4, 1($0)
+	sw $t5, 2($0)
+	sw $t6, 18($0)
+	sw $t7, 20($0)
+	sw $t8, 17($0)
+	sw $t9, 19($0)
+	sw $s0, 16($0)
+	sw $s1, 14($0)
+
+	addi $s0, $0, 10 	# storing code for B in $s0
+	sw $s0, 0($27)		# storing B in memory
+	addi $27, $27, 1 	# incrementing counter to store move location
+
+	lw   $ra, 0($sp)    # read registers from stack
+	lw   $s0, 4($sp)
+    lw   $s1, 8($sp)
+    addi $sp, $sp, 12   # bring back stack pointer
+    jr $ra
+
 Bc: # 1011 - 11
+	addi $sp, $sp, -12
+	sw $ra, 0($sp)
+	sw $s0, 4($sp)
+	sw $s1, 8($sp)
+
+	lw $t0, 1($0)
+	lw $t1, 2($0)
+	lw $t2, 5($0)
+	lw $t3, 7($0)
+	lw $t4, 14($0)
+	lw $t5, 16($0)
+	lw $t6, 17($0)
+	lw $t7, 18($0)
+	lw $t8, 19($0)
+	lw $t9, 20($0)
+	lw $s0, 23($0)
+	lw $s1, 24($0)
+
+	sw $t0, 14($0)
+	sw $t1, 16($0)
+	sw $t2, 2($0)
+	sw $t3, 1($0)
+	sw $t4, 24($0)
+	sw $t5, 23($0)
+	sw $t6, 19($0)
+	sw $t7, 17($0)
+	sw $t8, 20($0)
+	sw $t9, 18($0)
+	sw $s0, 5($0)
+	sw $s1, 7($0)
+
+	addi $s0, $0, 11 	# storing code for Bc in $s0
+	sw $s0, 0($27)		# storing Bc in memory
+	addi $27, $27, 1 	# incrementing counter to store move location
+
+	lw   $ra, 0($sp)    # read registers from stack
+	lw   $s0, 4($sp)
+    lw   $s1, 8($sp)
+    addi $sp, $sp, 12   # bring back stack pointer
+    jr $ra
+
+exitSolve2by2:
+	nop
