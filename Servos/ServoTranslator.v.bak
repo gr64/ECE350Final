@@ -1,0 +1,8 @@
+module ServoTranslator(dmem_out,enable,servocontrol_in);
+
+	input enable;
+	input [3:0] dmem_out;
+	output sevocontrol_in;
+
+
+endmodule
