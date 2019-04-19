@@ -1,0 +1,81 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "servo1",
+					"strict" : false
+				},
+				{
+					"name" : "servo2",
+					"strict" : false
+				},
+				{
+					"name" : "servo3",
+					"strict" : false
+				},
+				{
+					"name" : "servo4",
+					"strict" : false
+				},
+				{
+					"name" : "servo_t",
+					"strict" : false
+				},
+				{
+					"name" : "servo_l",
+					"strict" : false
+				},
+				{
+					"name" : "servo_b",
+					"strict" : false
+				},
+				{
+					"name" : "servo_r",
+					"strict" : false
+				},
+				{
+					"name" : "s1",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "s2",
+					"strict" : false
+				},
+				{
+					"name" : "s3",
+					"strict" : false
+				},
+				{
+					"name" : "s4",
+					"strict" : false
+				},
+				{
+					"name" : "f1",
+					"strict" : false
+				},
+				{
+					"name" : "f2",
+					"strict" : false
+				},
+				{
+					"name" : "f3",
+					"strict" : false
+				},
+				{
+					"name" : "f4",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
