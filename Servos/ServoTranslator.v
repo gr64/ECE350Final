@@ -3,7 +3,9 @@ module ServoTranslator(dmem_out,enable, clk,
 									//Back and forth
 									servo1,servo2,servo3,servo4,
 									//90 degree rotation
-									servo_t,servo_l,servo_b,servo_r);
+									servo_t,servo_l,servo_b,servo_r,
+									//Dmem address to index into
+									address);
 								
 //2 counters; one every second, one coutning number of moves in each sequence and resets and moves to next dmem instruction when reaches that mov's total count
 
@@ -25,7 +27,7 @@ module ServoTranslator(dmem_out,enable, clk,
 	end
 	
 	// MOVE: L
-	if(dmem_out <= 4'b0) begin
+	if(dmem_out <= 4'b0000) begin
 		if((global_count >= global_count_max) & (local_count_1 >= 0)) begin
 			//Retract Up and Down
 			s3 <= 1'b0;
