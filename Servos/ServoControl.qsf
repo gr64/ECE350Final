@@ -38,33 +38,30 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
-set_global_assignment -name TOP_LEVEL_ENTITY ServoControl
+set_global_assignment -name TOP_LEVEL_ENTITY ServoTranslator
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:07:29  APRIL 17, 2019"
-set_global_assignment -name LAST_QUARTUS_VERSION 16.0.0
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
 set_global_assignment -name VERILOG_FILE ServoControl.v
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
-set_location_assignment PIN_AB28 -to s1
-set_location_assignment PIN_AC28 -to s2
-set_location_assignment PIN_AC27 -to s3
-set_location_assignment PIN_AD27 -to s4
 set_location_assignment PIN_Y23 -to rst
 set_location_assignment PIN_AC15 -to servo1
 set_location_assignment PIN_Y17 -to servo2
 set_location_assignment PIN_Y16 -to servo3
 set_location_assignment PIN_AE16 -to servo4
 set_location_assignment PIN_Y2 -to clk
-set_location_assignment PIN_AB27 -to f1
-set_location_assignment PIN_AC26 -to f2
-set_location_assignment PIN_Y24 -to f3
-set_location_assignment PIN_AB26 -to f4
-set_location_assignment PIN_AF21 -to servo_b
-set_location_assignment PIN_AF15 -to servo_l
-set_location_assignment PIN_AE21 -to servo_r
-set_location_assignment PIN_AC22 -to servo_t
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_location_assignment PIN_AC22 -to servo_b
+set_location_assignment PIN_AE21 -to servo_l
+set_location_assignment PIN_AF21 -to servo_r
+set_location_assignment PIN_AF15 -to servo_t
 set_global_assignment -name VERILOG_FILE ServoTranslator.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_AC28 -to dmem_out[0]
+set_location_assignment PIN_AC27 -to dmem_out[1]
+set_location_assignment PIN_AD27 -to dmem_out[2]
+set_location_assignment PIN_AB27 -to dmem_out[3]
+set_location_assignment PIN_Y24 -to enable
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
