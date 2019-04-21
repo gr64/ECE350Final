@@ -53,12 +53,94 @@ SolveFrontTopRightCorner:
 	jal FrontTopRightUp
 	bne $v0, $0, SolveFrontTopLeftCorner
 	
-	jal FrontTopLeftFront
-	bne $v0, $0, FrontTopLeftFront2FrontTopRightUp
 	# at the end of each 2FrontTopRightUp, jump to SolveFrontTopRightCorner
 	# so that it checks again to make sure it actually worked
 	# note though that if the movements don't work you'll be stuck in an 
 	# infinite loop
+
+	jal FrontTopLeftFront
+	bne $v0, $0, FrontTopLeftFront2FrontTopRightUp
+	nop
+	jal FrontTopLeftUp
+	bne $v0, $0, FrontTopLeftUp2FrontTopRightUp
+	nop
+	jal FrontTopLeftLeft
+	bne $v0, $0, FrontTopLeftLeft2FrontTopRightUp
+	nop
+
+	jal FrontTopRightFront
+	bne $v0, $0, FrontTopRightFront2FrontTopRightUp
+	nop
+	#jal FrontTopRightUp
+	#bne $v0, $0, FrontTopRightUp2FrontTopRightUp
+	#nop
+	jal FrontTopRightRight
+	bne $v0, $0, FrontTopRightRight2FrontTopRightUp
+	nop
+
+	jal FrontBottomLeftFront
+	bne $v0, $0, FrontBottomLeftFront2FrontTopRightUp
+	nop
+	jal FrontBottomLeftDown
+	bne $v0, $0, FrontBottomLeftDown2FrontTopRightUp
+	nop
+	jal FrontBottomLeftLeft
+	bne $v0, $0, FrontBottomLeftLeft2FrontTopRightUp
+	nop
+
+	jal FrontBottomRightFront
+	bne $v0, $0, FrontBottomRightFront2FrontTopRightUp
+	nop
+	jal FrontBottomRightDown
+	bne $v0, $0, FrontBottomRightDown2FrontTopRightUp
+	nop
+	jal FrontBottomRightRight
+	bne $v0, $0, FrontBottomRightRight2FrontTopRightUp
+	nop
+
+	jal BackTopLeftBack
+	bne $v0, $0, BackTopLeftBack2FrontTopRightUp
+	nop
+	jal BackTopLeftUp
+	bne $v0, $0, BackTopLeftUp2FrontTopRightUp
+	nop
+	jal BackTopLeftLeft
+	bne $v0, $0, BackTopLeftLeft2FrontTopRightUp
+	nop
+
+	jal BackTopRightBack
+	bne $v0, $0, BackTopRightBack2FrontTopRightUp
+	nop
+	jal BackTopRightUp
+	bne $v0, $0, BackTopRightUp2FrontTopRightUp
+	nop
+	jal BackTopRightRight
+	bne $v0, $0, BackTopRightRight2FrontTopRightUp
+	nop
+
+	jal BackBottomLeftBack
+	bne $v0, $0, BackBottomLeftBack2FrontTopRightUp
+	nop
+	jal BackBottomLeftDown
+	bne $v0, $0, BackBottomLeftDown2FrontTopRightUp
+	nop
+	jal BackBottomLeftLeft
+	bne $v0, $0, BackBottomLeftLeft2FrontTopRightUp
+	nop
+
+	jal BackBottomRightBack
+	bne $v0, $0, BackBottomRightBack2FrontTopRightUp
+	nop
+	jal BackBottomRightDown
+	bne $v0, $0, BackBottomRightDown2FrontTopRightUp
+	nop
+	jal BackBottomRightRight
+	bne $v0, $0, BackBottomRightRight2FrontTopRightUp
+	nop
+
+	#if none of these have worked, something has gone wrong
+	# maybe check the first condition again (duplicate code) and if it doesn't
+	# work throw an error and quit?
 
 
 SolveFrontTopLeftCorner:
@@ -537,6 +619,8 @@ BackBottomRightRight:
 
 
 
+#MOVE SEQUENCES
+
 FrontTopLeftFront2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -545,7 +629,7 @@ FrontTopLeftFront2FrontTopRightUp:
 	jal Rc
 	jal D
 	jal Fc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopLeftUp2FrontTopRightUp:
@@ -556,14 +640,14 @@ FrontTopLeftUp2FrontTopRightUp:
 	jal F
 	jal D
 	jal Fc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopLeftLeft2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightFront2FrontTopRightUp:
@@ -575,7 +659,7 @@ FrontTopRightFront2FrontTopRightUp:
 	jal B
 	jal R
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightRight2FrontTopRightUp:
@@ -587,7 +671,7 @@ FrontTopRightRight2FrontTopRightUp:
 	jal Lc
 	jal Fc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftFront2FrontTopRightUp:
@@ -597,7 +681,7 @@ FrontBottomLeftFront2FrontTopRightUp:
 	jal Lc
 	jal Fc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftDown2FrontTopRightUp:
@@ -610,7 +694,7 @@ FrontBottomLeftDown2FrontTopRightUp:
 	jal B
 	jal R
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftLeft2FrontTopRightUp:
@@ -620,7 +704,7 @@ FrontBottomLeftLeft2FrontTopRightUp:
 	jal B
 	jal R
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightFront2FrontTopRightUp:
@@ -629,7 +713,7 @@ FrontBottomRightFront2FrontTopRightUp:
 	jal B
 	jal R
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightDown2FrontTopRightUp:
@@ -644,7 +728,7 @@ FrontBottomRightDown2FrontTopRightUp:
 	jal Lc
 	jal Fc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightRight2FrontTopRightUp:
@@ -653,7 +737,7 @@ FrontBottomRightRight2FrontTopRightUp:
 	jal Lc
 	jal Fc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftBack2FrontTopRightUp:
@@ -667,7 +751,7 @@ BackTopLeftBack2FrontTopRightUp:
 	jal B
 	jal R
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftUp2FrontTopRightUp:
@@ -681,7 +765,7 @@ BackTopLeftUp2FrontTopRightUp:
 	jal B
 	jal R
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftLeft2FrontTopRightUp:
@@ -695,14 +779,14 @@ BackTopLeftLeft2FrontTopRightUp:
 	jal Lc
 	jal Fc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightBack2FrontTopRightUp: 
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightUp2FrontTopRightUp:
@@ -713,7 +797,7 @@ BackTopRightUp2FrontTopRightUp:
 	jal Lc
 	jal Dc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightRight2FrontTopRightUp:
@@ -724,7 +808,7 @@ BackTopRightRight2FrontTopRightUp:
 	jal F
 	jal Dc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftBack2FrontTopRightUp:
@@ -735,7 +819,7 @@ BackBottomLeftBack2FrontTopRightUp:
 	jal B
 	jal R
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftDown2FrontTopRightUp:
@@ -752,7 +836,7 @@ BackBottomLeftDown2FrontTopRightUp:
 	jal Lc
 	jal Fc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftLeft2FrontTopRightUp:
@@ -763,7 +847,7 @@ BackBottomLeftLeft2FrontTopRightUp:
 	jal Lc
 	jal Fc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightBack2FrontTopRightUp:
@@ -773,7 +857,7 @@ BackBottomRightBack2FrontTopRightUp:
 	jal Lc
 	jal Fc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightDown2FrontTopRightUp:
@@ -789,7 +873,7 @@ BackBottomRightDown2FrontTopRightUp:
 	jal Lc
 	jal Fc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightRight2FrontTopRightUp:
@@ -799,7 +883,7 @@ BackBottomRightRight2FrontTopRightUp:
 	jal B
 	jal R
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopLeftFront2FrontTopLeftUp:
@@ -811,7 +895,7 @@ FrontTopLeftFront2FrontTopLeftUp:
 	jal Bc
 	jal Lc
 	jal B
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopLeftLeft2FrontTopLeftUp:
@@ -823,7 +907,7 @@ FrontTopLeftLeft2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightFront2FrontTopLeftUp:
@@ -834,7 +918,7 @@ FrontTopRightFront2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightUp2FrontTopLeftUp:
@@ -844,7 +928,7 @@ FrontTopRightUp2FrontTopLeftUp:
 	jal Dc
 	jal R
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightRight2FrontTopLeftUp:
@@ -857,7 +941,7 @@ FrontTopRightRight2FrontTopLeftUp:
 	jal Bc
 	jal Lc
 	jal B
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftFront2FrontTopLeftUp:
@@ -866,7 +950,7 @@ FrontBottomLeftFront2FrontTopLeftUp:
 	jal Bc
 	jal Lc
 	jal B
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftDown2FrontTopLeftUp:
@@ -880,7 +964,7 @@ FrontBottomLeftDown2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftLeft2FrontTopLeftUp:
@@ -889,7 +973,7 @@ FrontBottomLeftLeft2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightFront2FrontTopLeftUp:
@@ -899,7 +983,7 @@ FrontBottomRightFront2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightDown2FrontTopLeftUp:
@@ -915,7 +999,7 @@ FrontBottomRightDown2FrontTopLeftUp:
 	jal Bc
 	jal Lc
 	jal B
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightRight2FrontTopLeftUp:
@@ -925,14 +1009,14 @@ FrontBottomRightRight2FrontTopLeftUp:
 	jal Bc
 	jal Lc
 	jal B
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftBack2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftUp2FrontTopLeftUp:
@@ -943,7 +1027,7 @@ BackTopLeftUp2FrontTopLeftUp:
 	jal R
 	jal D
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftLeft2FrontTopLeftUp:
@@ -954,7 +1038,7 @@ BackTopLeftLeft2FrontTopLeftUp:
 	jal Fc
 	jal D
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightBack2FrontTopLeftUp:
@@ -968,7 +1052,7 @@ BackTopRightBack2FrontTopLeftUp:
 	jal Bc
 	jal Lc
 	jal B
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightUp2FrontTopLeftUp:
@@ -981,7 +1065,7 @@ BackTopRightUp2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightRight2FrontTopLeftUp:
@@ -995,7 +1079,7 @@ BackTopRightRight2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftBack2FrontTopLeftUp:
@@ -1005,7 +1089,7 @@ BackBottomLeftBack2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftDown2FrontTopLeftUp:
@@ -1021,7 +1105,7 @@ BackBottomLeftDown2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftLeft2FrontTopLeftUp:
@@ -1029,7 +1113,7 @@ BackBottomLeftLeft2FrontTopLeftUp:
 	sw $ra, 0($sp)
 	jal D
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightBack2FrontTopLeftUp:
@@ -1040,7 +1124,7 @@ BackBottomRightBack2FrontTopLeftUp:
 	jal Bc
 	jal Lc
 	jal B
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightDown2FrontTopLeftUp:
@@ -1055,7 +1139,7 @@ BackBottomRightDown2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightRight2FrontTopLeftUp:
@@ -1066,14 +1150,14 @@ BackBottomRightRight2FrontTopLeftUp:
 	jal R
 	jal F
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopLeftFront2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopLeftUp2BackTopLeftUp:
@@ -1084,7 +1168,7 @@ FrontTopLeftUp2BackTopLeftUp:
 	jal Rc
 	jal Dc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopLeftLeft2BackTopLeftUp:
@@ -1095,7 +1179,7 @@ FrontTopLeftLeft2BackTopLeftUp:
 	jal B
 	jal Dc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightFront2BackTopLeftUp:
@@ -1109,7 +1193,7 @@ FrontTopRightFront2BackTopLeftUp:
 	jal F
 	jal L
 	jal Fc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightUp2BackTopLeftUp:
@@ -1122,7 +1206,7 @@ FrontTopRightUp2BackTopLeftUp:
 	jal F
 	jal L
 	jal Fc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightRight2BackTopLeftUp:
@@ -1136,7 +1220,7 @@ FrontTopRightRight2BackTopLeftUp:
 	jal Rc
 	jal Bc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftFront2BackTopLeftUp:
@@ -1146,7 +1230,7 @@ FrontBottomLeftFront2BackTopLeftUp:
 	jal Rc
 	jal Bc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftDown2BackTopLeftUp:
@@ -1162,7 +1246,7 @@ FrontBottomLeftDown2BackTopLeftUp:
 	jal Rc
 	jal Bc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftLeft2BackTopLeftUp:
@@ -1172,7 +1256,7 @@ FrontBottomLeftLeft2BackTopLeftUp:
 	jal F
 	jal L
 	jal Fc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightFront2BackTopLeftUp:
@@ -1183,7 +1267,7 @@ FrontBottomRightFront2BackTopLeftUp:
 	jal F
 	jal L
 	jal Fc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightDown2BackTopLeftUp:
@@ -1199,7 +1283,7 @@ FrontBottomRightDown2BackTopLeftUp:
 	jal Rc
 	jal Bc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightRight2BackTopLeftUp:
@@ -1210,7 +1294,7 @@ FrontBottomRightRight2BackTopLeftUp:
 	jal Rc
 	jal Bc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftBack2BackTopLeftUp:
@@ -1222,7 +1306,7 @@ BackTopLeftBack2BackTopLeftUp:
 	jal F
 	jal L
 	jal Fc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftLeft2BackTopLeftUp:
@@ -1234,7 +1318,7 @@ BackTopLeftLeft2BackTopLeftUp:
 	jal Rc
 	jal Bc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightBack2BackTopLeftUp:
@@ -1245,7 +1329,7 @@ BackTopRightBack2BackTopLeftUp:
 	jal Lc
 	jal D
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightUp2BackTopLeftUp:
@@ -1254,14 +1338,14 @@ BackTopRightUp2BackTopLeftUp:
 	jal Fc
 	jal R
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightRight2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal B
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftBack2BackTopLeftUp:
@@ -1270,7 +1354,7 @@ BackBottomLeftBack2BackTopLeftUp:
 	jal F
 	jal L
 	jal Fc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftDown2BackTopLeftUp:
@@ -1285,7 +1369,7 @@ BackBottomLeftDown2BackTopLeftUp:
 	jal Rc
 	jal Bc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftLeft2BackTopLeftUp:
@@ -1294,7 +1378,7 @@ BackBottomLeftLeft2BackTopLeftUp:
 	jal Rc
 	jal Bc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightBack2BackTopLeftUp:
@@ -1304,7 +1388,7 @@ BackBottomRightBack2BackTopLeftUp:
 	jal Rc
 	jal Bc
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightDown2BackTopLeftUp:
@@ -1319,7 +1403,7 @@ BackBottomRightDown2BackTopLeftUp:
 	jal F
 	jal L
 	jal Fc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightRight2BackTopLeftUp:
@@ -1328,7 +1412,7 @@ BackBottomRightRight2BackTopLeftUp:
 	jal Rc
 	jal B
 	jal R
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopLeftFront2BackTopRightUp:
@@ -1342,7 +1426,7 @@ FrontTopLeftFront2BackTopRightUp:
 	jal Fc
 	jal Rc
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopLeftUp2BackTopRightUp:
@@ -1355,7 +1439,7 @@ FrontTopLeftUp2BackTopRightUp:
 	jal Fc
 	jal Rc
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopLeftLeft2BackTopRightUp:
@@ -1369,7 +1453,7 @@ FrontTopLeftLeft2BackTopRightUp:
 	jal L
 	jal B
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightFront2BackTopRightUp:
@@ -1382,7 +1466,7 @@ FrontTopRightFront2BackTopRightUp:
 	jal L
 	jal B
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightUp2BackTopRightUp:
@@ -1395,7 +1479,7 @@ FrontTopRightUp2BackTopRightUp:
 	jal L
 	jal B
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontTopRightRight2BackTopRightUp:
@@ -1406,7 +1490,7 @@ FrontTopRightRight2BackTopRightUp:
 	jal Bc
 	jal D
 	jal Rc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftFront2BackTopRightUp:
@@ -1417,7 +1501,7 @@ FrontBottomLeftFront2BackTopRightUp:
 	jal Fc
 	jal Rc
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftDown2BackTopRightUp:
@@ -1427,7 +1511,7 @@ FrontBottomLeftDown2BackTopRightUp:
 	jal D
 	jal Rc
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomLeftLeft2BackTopRightUp:
@@ -1437,7 +1521,7 @@ FrontBottomLeftLeft2BackTopRightUp:
 	jal D
 	jal D
 	jal B
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightFront2BackTopRightUp:
@@ -1447,7 +1531,7 @@ FrontBottomRightFront2BackTopRightUp:
 	jal L
 	jal B
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightDown2BackTopRightUp:
@@ -1457,7 +1541,7 @@ FrontBottomRightDown2BackTopRightUp:
 	jal D
 	jal D
 	jal Fc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 FrontBottomRightRight2BackTopRightUp:
@@ -1467,7 +1551,7 @@ FrontBottomRightRight2BackTopRightUp:
 	jal Fc
 	jal Rc
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftBack2BackTopRightUp:
@@ -1478,7 +1562,7 @@ BackTopLeftBack2BackTopRightUp:
 	jal R
 	jal Dc
 	jal B
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftUp2BackTopRightUp:
@@ -1491,14 +1575,14 @@ BackTopLeftUp2BackTopRightUp:
 	jal L
 	jal Fc
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopLeftLeft2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal Bc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightBack2BackTopRightUp:
@@ -1510,7 +1594,7 @@ BackTopRightBack2BackTopRightUp:
 	jal Fc
 	jal Rc
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackTopRightRight2BackTopRightUp:
@@ -1522,7 +1606,7 @@ BackTopRightRight2BackTopRightUp:
 	jal L
 	jal B
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftBack2BackTopRightUp:
@@ -1532,7 +1616,7 @@ BackBottomLeftBack2BackTopRightUp:
 	jal L
 	jal Bc
 	jal L
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftDown2BackTopRightUp:
@@ -1546,7 +1630,7 @@ BackBottomLeftDown2BackTopRightUp:
 	jal L
 	jal B
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomLeftLeft2BackTopRightUp:
@@ -1556,7 +1640,7 @@ BackBottomLeftLeft2BackTopRightUp:
 	jal Fc
 	jal Rc
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightBack2BackTopRightUp:
@@ -1565,7 +1649,7 @@ BackBottomRightBack2BackTopRightUp:
 	jal Fc
 	jal Rc
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightDown2BackTopRightUp:
@@ -1578,7 +1662,7 @@ BackBottomRightDown2BackTopRightUp:
 	jal Fc
 	jal Rc
 	jal F
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 BackBottomRightRight2BackTopRightUp:
@@ -1587,9 +1671,10 @@ BackBottomRightRight2BackTopRightUp:
 	jal L
 	jal B
 	jal Lc
-	lw $ra 0($sp)
+	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
+
 
 # moves
 L:  # 0000 - 0
