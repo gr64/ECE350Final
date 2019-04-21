@@ -38,3 +38,4 @@ FrontTopRightUp:
 		jr $ra
 
 exit:
+	addi $rstatus, $0, 31

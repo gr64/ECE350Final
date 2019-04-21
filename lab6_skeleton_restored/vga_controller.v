@@ -26,6 +26,7 @@ reg [18:0] ADDR;
 reg [23:0] bgr_data;
 wire VGA_CLK_n;
 wire [7:0] index, cube_index, chosen_index;
+wire sel_index;
 wire [23:0] bgr_data_raw;
 wire cBLANK_n,cHS,cVS,rst;
 wire[9:0] addr_x, addr_y;
@@ -47,29 +48,30 @@ video_sync_generator LTM_ins (.vga_clk(iVGA_CLK),
 //	counter = 41'b0;
 //end
 
-initial begin 
-	selector_x <= 10'd210;
-	selector_y <= 10'd90;
-end
+//initial begin 
+//	selector_x <= 10'd210;
+//	selector_y <= 10'd90;
+//end
 
-always @(posedge VGA_CLK_n) begin
-	counter <= counter + 1;
-	if(counter >  5000000) begin //every 0.1 seconds
-		if(north == 1) begin
-			selector_y <= selector_y + 60;
-		end
-		else if (south == 1) begin
-			selector_y <= selector_y - 60;
-		end
-		else if (east== 1) begin
-			selector_x <= selector_x + 60;
-		end
-		else if (west== 1) begin
-			selector_x <= selector_x - 60;
-		end
-		counter <= 0;
-	end
-end
+//always @(posedge VGA_CLK_n) begin
+//	counter <= counter + 1;
+//	if(counter >  5000000) begin //every 0.1 seconds
+//	//MAKE SURE square_scale MATCHES THE X AND Y SCALE SET IN RENDERCUBE!! IN THIS CASE BOTH 60
+//		if(north == 1) begin
+//			selector_y <= selector_y + square_scale;
+//		end
+//		else if (south == 1) begin
+//			selector_y <= selector_y - square_scale;
+//		end
+//		else if (east== 1) begin
+//			selector_x <= selector_x + square_scale;
+//		end
+//		else if (west== 1) begin
+//			selector_x <= selector_x - square_scale;
+//		end
+//		counter <= 0;
+//	end
+//end
 
 ////Addresss generator
 always@(posedge iVGA_CLK,negedge iRST_n)
@@ -96,10 +98,10 @@ img_data	img_data_inst (
 
 //will take in address and output an index and whether that index should be used (aka select bit)
 //should also take in color changer pin/input (as well as location) and have an always @edge block on the inside that changes colors accordingly
-render_cube my_cube(VGA_CLK_n, selector_x, selector_y, ADDR, color_switch, cube_index, sel_index);
-
+render_cube my_cube(VGA_CLK_n, ADDR, color_switch, north, south, west, east, cube_index, sel_index);
 
 //////Color table output
+
 assign chosen_index = sel_index ? cube_index : index; //choose cube_index if sel_index = 1
 //assign chosen_index = 19'd4; //choose cube_index if sel_index = 1
 img_index	img_index_inst (

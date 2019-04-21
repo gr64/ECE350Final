@@ -8,7 +8,7 @@ SolveFrontTopRightCorner:
 
 	#SWs FOR TESTING ()
 	sw $a0, 4($0)
-	sw $a1, 13($0)
+	sw $a1, 13($0) 
 	sw $a2, 10($0)
 	#END TESTING
 	jal FrontTopRightUp
@@ -38,3 +38,4 @@ FrontTopRightUp:
 		jr $ra
 
 exit:
+	addi $rstatus, $0, 31 #for doneness

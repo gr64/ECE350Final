@@ -53,8 +53,6 @@ SolveFrontTopRightCorner:
 	jal FrontTopRightUp
 	bne $v0, $0, SolveFrontTopLeftCorner
 	
-	jal FrontTopLeftFront
-	bne $v0, $0, FrontTopLeftFront2FrontTopRightUp
 	# at the end of each 2FrontTopRightUp, jump to SolveFrontTopRightCorner
 	# so that it checks again to make sure it actually worked
 	# note though that if the movements don't work you'll be stuck in an 
@@ -62,59 +60,83 @@ SolveFrontTopRightCorner:
 
 	jal FrontTopLeftFront
 	bne $v0, $0, FrontTopLeftFront2FrontTopRightUp
+	nop
 	jal FrontTopLeftUp
 	bne $v0, $0, FrontTopLeftUp2FrontTopRightUp
+	nop
 	jal FrontTopLeftLeft
 	bne $v0, $0, FrontTopLeftLeft2FrontTopRightUp
+	nop
 
 	jal FrontTopRightFront
 	bne $v0, $0, FrontTopRightFront2FrontTopRightUp
-	jal FrontTopRightUp
-	bne $v0, $0, FrontTopRightUp2FrontTopRightUp
+	nop
+	#jal FrontTopRightUp
+	#bne $v0, $0, FrontTopRightUp2FrontTopRightUp
+	#nop
 	jal FrontTopRightRight
 	bne $v0, $0, FrontTopRightRight2FrontTopRightUp
+	nop
 
 	jal FrontBottomLeftFront
 	bne $v0, $0, FrontBottomLeftFront2FrontTopRightUp
+	nop
 	jal FrontBottomLeftDown
 	bne $v0, $0, FrontBottomLeftDown2FrontTopRightUp
+	nop
 	jal FrontBottomLeftLeft
 	bne $v0, $0, FrontBottomLeftLeft2FrontTopRightUp
+	nop
 
 	jal FrontBottomRightFront
 	bne $v0, $0, FrontBottomRightFront2FrontTopRightUp
+	nop
 	jal FrontBottomRightDown
 	bne $v0, $0, FrontBottomRightDown2FrontTopRightUp
+	nop
 	jal FrontBottomRightRight
 	bne $v0, $0, FrontBottomRightRight2FrontTopRightUp
+	nop
 
 	jal BackTopLeftBack
 	bne $v0, $0, BackTopLeftBack2FrontTopRightUp
+	nop
 	jal BackTopLeftUp
 	bne $v0, $0, BackTopLeftUp2FrontTopRightUp
+	nop
 	jal BackTopLeftLeft
 	bne $v0, $0, BackTopLeftLeft2FrontTopRightUp
+	nop
 
 	jal BackTopRightBack
 	bne $v0, $0, BackTopRightBack2FrontTopRightUp
+	nop
 	jal BackTopRightUp
 	bne $v0, $0, BackTopRightUp2FrontTopRightUp
+	nop
 	jal BackTopRightRight
 	bne $v0, $0, BackTopRightRight2FrontTopRightUp
+	nop
 
 	jal BackBottomLeftBack
 	bne $v0, $0, BackBottomLeftBack2FrontTopRightUp
+	nop
 	jal BackBottomLeftDown
 	bne $v0, $0, BackBottomLeftDown2FrontTopRightUp
+	nop
 	jal BackBottomLeftLeft
 	bne $v0, $0, BackBottomLeftLeft2FrontTopRightUp
+	nop
 
 	jal BackBottomRightBack
 	bne $v0, $0, BackBottomRightBack2FrontTopRightUp
+	nop
 	jal BackBottomRightDown
 	bne $v0, $0, BackBottomRightDown2FrontTopRightUp
+	nop
 	jal BackBottomRightRight
 	bne $v0, $0, BackBottomRightRight2FrontTopRightUp
+	nop
 
 	#if none of these have worked, something has gone wrong
 	# maybe check the first condition again (duplicate code) and if it doesn't

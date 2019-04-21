@@ -222,6 +222,26 @@
 				{
 					"name" : "resetn",
 					"strict" : false
+				},
+				{
+					"name" : "color_switch",
+					"strict" : false
+				},
+				{
+					"name" : "east",
+					"strict" : false
+				},
+				{
+					"name" : "south",
+					"strict" : false
+				},
+				{
+					"name" : "north",
+					"strict" : false
+				},
+				{
+					"name" : "west",
+					"strict" : false
 				}
 			]
 		}
