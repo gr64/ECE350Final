@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at vga_controller.v(48): always construct contains both blocking and non-blocking assignments File: C:/Users/gr64/Downloads/lab6_skeleton_restored/vga_controller.v Line: 48
+Warning (10268): Verilog HDL information at ServoTranslator.v(78): always construct contains both blocking and non-blocking assignments File: C:/Users/Madeline Wilkinson/Documents/School/ECE350/ECE350Final/lab6_skeleton_restored/ServoTranslator.v Line: 78

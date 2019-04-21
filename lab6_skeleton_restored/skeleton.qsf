@@ -170,6 +170,8 @@ set_location_assignment PIN_M23 -to east
 set_location_assignment PIN_M21 -to south
 set_location_assignment PIN_R24 -to west
 set_location_assignment PIN_AB28 -to color_switch
+set_global_assignment -name VERILOG_FILE ServoTranslator.v
+set_global_assignment -name VERILOG_FILE ServoControl.v
 set_global_assignment -name VERILOG_FILE xm_latch.v
 set_global_assignment -name VERILOG_FILE x_control.v
 set_global_assignment -name VERILOG_FILE wallace_mult_32s.v

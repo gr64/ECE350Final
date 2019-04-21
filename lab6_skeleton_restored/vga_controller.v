@@ -11,18 +11,23 @@ module vga_controller(iRST_n,
 							 east,
 							 west,
 							 color_switch,
-							 vga_data_out);
+							 store_switch,
+							 vga_data_out,
+							 vga_dmem_addr,
+							 enable);
 
 	
-input iRST_n, north,south,east,west, color_switch;
+input iRST_n, north,south,east,west, color_switch, store_switch;
 input iVGA_CLK;
 output reg oBLANK_n;
 output reg oHS;
 output reg oVS;
+output reg enable;
 output [7:0] b_data;
 output [7:0] g_data;  
 output [7:0] r_data;
-output [31:0] vga_data_out;                   
+output reg [31:0] vga_data_out;
+output reg [11:0] vga_dmem_addr;                   
 ///////// ////                     
 reg [18:0] ADDR;
 reg [23:0] bgr_data;
@@ -36,6 +41,9 @@ wire x_in_s, y_in_s;
 reg[9:0] x,y; //from lab
 reg[9:0] selector_x, selector_y; //for square chooser
 reg [40:0] counter;
+
+reg done;
+reg [4:0] storage_counter;
 ////
 assign rst = ~iRST_n;
 video_sync_generator LTM_ins (.vga_clk(iVGA_CLK),
@@ -44,6 +52,10 @@ video_sync_generator LTM_ins (.vga_clk(iVGA_CLK),
                               .HS(cHS),
                               .VS(cVS));
 
+initial begin
+	done <= 1'b0;
+	storage_counter <= 5'b0;
+end
 //initial begin
 //	x = 10'b0;
 //	y = 10'b0;
@@ -98,9 +110,14 @@ img_data	img_data_inst (
 /////////////////////////
 //////Add switch-input logic here
 
+wire [2:0] sq_1,sq_2,sq_3,sq_4,sq_5,sq_6,sq_7,sq_8,sq_9,sq_10,sq_11,sq_12; //color registers for each cube square
+wire [2:0] sq_13,sq_14,sq_15,sq_16,sq_17,sq_18,sq_19,sq_20,sq_21,sq_22,sq_23,sq_24;
+
 //will take in address and output an index and whether that index should be used (aka select bit)
 //should also take in color changer pin/input (as well as location) and have an always @edge block on the inside that changes colors accordingly
-render_cube my_cube(VGA_CLK_n, ADDR, color_switch, north, south, west, east, cube_index, sel_index);
+render_cube my_cube(VGA_CLK_n, ADDR, color_switch, north, south, west, east, cube_index, sel_index,
+							sq_1,sq_2,sq_3,sq_4,sq_5,sq_6,sq_7,sq_8,sq_9,sq_10,sq_11,sq_12,
+							sq_13,sq_14,sq_15,sq_16,sq_17,sq_18,sq_19,sq_20,sq_21,sq_22,sq_23,sq_24);
 
 //////Color table output
 
@@ -129,12 +146,39 @@ img_index	img_index_inst (
 // assign use_data = isin ? in_square_data : bgr_data_raw;
 //////latch valid data at falling edge;
 //always@(posedge VGA_CLK_n) bgr_data <= use_data;
-always@(posedge VGA_CLK_n) bgr_data <= bgr_data_raw;
+always@(posedge VGA_CLK_n) begin
+	counter <= counter + 1;
+	if(store_switch == 1 && done == 0) begin
+		storage_counter <= storage_counter + 1;
+		if(storage_counter == 1) begin
+			vga_data_out <= sq_1;
+		end
+		
+//		if(storage_counter == 24) begin
+//			done <= 1'b1; //don't want to store twice; should done be the enable signal?
+//		end
+		if(storage_counter == 25) begin
+			vga_data_out <= 0;
+		end
+		if(storage_counter == 26) begin
+			vga_data_out <= 8;
+		end
+		if(storage_counter == 27) begin
+			vga_data_out <= 1;
+		end
+		if(storage_counter == 28) begin
+			vga_data_out <= 6;
+			done <= 1'b1;
+		end
+		vga_dmem_addr <= storage_counter;
+	end
+	enable <= done;
+	bgr_data <= bgr_data_raw;
+end
+//assign enable = done;
 assign b_data =  bgr_data[23:16];
 assign g_data = bgr_data[15:8];
 assign r_data = bgr_data[7:0];
-
-
 
 
 ///////////////////

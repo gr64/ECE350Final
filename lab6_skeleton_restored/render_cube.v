@@ -3,7 +3,9 @@ module render_cube(
 	input[18:0] address,
 	input color_switch, north, south, west, east,
 	output reg [7:0] cube_index,
-	output reg sel_index
+	output reg sel_index,
+	output reg [2:0] sq_1,sq_2,sq_3,sq_4,sq_5,sq_6,sq_7,sq_8,sq_9,sq_10,sq_11,sq_12,
+	output reg [2:0] sq_13,sq_14,sq_15,sq_16,sq_17,sq_18,sq_19,sq_20,sq_21,sq_22,sq_23,sq_24
 );
 
 //will take in address and output an index and whether that index should be used (aka select bit)
@@ -11,8 +13,8 @@ module render_cube(
 	reg [40:0] counter, color_counter;
 	reg[3:0] sel_x, sel_y; //for square chooser
 
-	reg [2:0] sq_1,sq_2,sq_3,sq_4,sq_5,sq_6,sq_7,sq_8,sq_9,sq_10,sq_11,sq_12; //color registers for each cube square
-	reg [2:0] sq_13,sq_14,sq_15,sq_16,sq_17,sq_18,sq_19,sq_20,sq_21,sq_22,sq_23,sq_24;
+	//reg [2:0] sq_1,sq_2,sq_3,sq_4,sq_5,sq_6,sq_7,sq_8,sq_9,sq_10,sq_11,sq_12; //color registers for each cube square
+	//reg [2:0] sq_13,sq_14,sq_15,sq_16,sq_17,sq_18,sq_19,sq_20,sq_21,sq_22,sq_23,sq_24;
 	// good news, these numbers will double as mif file indices and eventual dmem storage values!
 	
 	reg [9:0] px_off, x_offset, y_offset, x_scale, y_scale, sel_scale, sel_xoff, sel_yoff;
