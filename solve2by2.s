@@ -24,10 +24,10 @@ main:
 # move is just add $rd, $r0, $rs
 # stack data begins at memory address 2^16 - 1 and grows down
 addi $sp, $sp 65535 #initializing stack pointer (unsure if necessary)
-addi $27, $0, 0 # $r27 will be used to count moves stored
+addi $27, $0, 25 # $r27 will be used to count moves stored
 # either store 25 in $r27 initially and add 0 with every sw
 # or store 0, and add 25 every time
-
+#first move is in data location 25
 # assume that somehow the 24 colors have been put 
 # into the appropriate positions in memory (0-23)
 

@@ -10,7 +10,8 @@ module vga_controller(iRST_n,
 							 south,
 							 east,
 							 west,
-							 color_switch);
+							 color_switch,
+							 vga_data_out);
 
 	
 input iRST_n, north,south,east,west, color_switch;
@@ -20,7 +21,8 @@ output reg oHS;
 output reg oVS;
 output [7:0] b_data;
 output [7:0] g_data;  
-output [7:0] r_data;                        
+output [7:0] r_data;
+output [31:0] vga_data_out;                   
 ///////// ////                     
 reg [18:0] ADDR;
 reg [23:0] bgr_data;

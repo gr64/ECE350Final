@@ -1,0 +1,21 @@
+DEPTH = 4096;
+WIDTH = 32;
+ADDRESS_RADIX = DEC;
+DATA_RADIX = BIN;
+CONTENT
+BEGIN
+0000 : 00101000100001000000000000000010; -- addi $2, $2, 2
+
+0001 : 00111000100001000000000000000000; -- sw $2, 0($2) #puts data in $2 into address 2
+
+0002 : 01000000110001000000000000000000; -- lw $3, 0($2) #gets data from address 2 into $3
+
+0003 : 00111000110010000000000000000000; -- sw $3, 0($4) #puts data from address 3 into address 0
+
+0004 : 00000000000000000000000000000000; -- add $0, $0, $0 #essentially nullop
+
+0005 : 00000000000000000000000000000000; -- add $0, $0, $0 #essentially nullop
+
+0006 : 01000001010010000000000000000000; -- lw $5, 0($4) #gets data from address 0 into address 5
+[0007..4095] : 00000000000000000000000000000000;
+END;
