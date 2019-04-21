@@ -159,6 +159,14 @@ east => east.IN1
 west => west.IN1
 color_switch => color_switch.IN1
 store_switch => store_switch.IN1
+servo1 <= ServoTranslator:comb_20.port4
+servo2 <= ServoTranslator:comb_20.port5
+servo3 <= ServoTranslator:comb_20.port6
+servo4 <= ServoTranslator:comb_20.port7
+servo_t <= ServoTranslator:comb_20.port8
+servo_l <= ServoTranslator:comb_20.port9
+servo_b <= ServoTranslator:comb_20.port10
+servo_r <= ServoTranslator:comb_20.port11
 
 
 |skeleton|pll:div
@@ -140684,7 +140692,7 @@ out[30] <= out.DB_MAX_OUTPUT_PORT_TYPE
 out[31] <= out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|skeleton|ServoTranslator:comb_23
+|skeleton|ServoTranslator:comb_20
 dmem_out[0] => Equal0.IN3
 dmem_out[0] => Equal1.IN3
 dmem_out[0] => Equal2.IN2
@@ -141176,7 +141184,7 @@ dmem_address[30] <= dmem_address[30]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 dmem_address[31] <= dmem_address[31]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|skeleton|ServoTranslator:comb_23|ServoControl:myservocontrol
+|skeleton|ServoTranslator:comb_20|ServoControl:myservocontrol
 s1 => servo1.OUTPUTSELECT
 s1 => servo1.OUTPUTSELECT
 s2 => servo2.OUTPUTSELECT

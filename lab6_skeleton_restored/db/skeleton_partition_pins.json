@@ -208,6 +208,38 @@
 					"strict" : false
 				},
 				{
+					"name" : "servo1",
+					"strict" : false
+				},
+				{
+					"name" : "servo2",
+					"strict" : false
+				},
+				{
+					"name" : "servo3",
+					"strict" : false
+				},
+				{
+					"name" : "servo4",
+					"strict" : false
+				},
+				{
+					"name" : "servo_t",
+					"strict" : false
+				},
+				{
+					"name" : "servo_l",
+					"strict" : false
+				},
+				{
+					"name" : "servo_b",
+					"strict" : false
+				},
+				{
+					"name" : "servo_r",
+					"strict" : false
+				},
+				{
 					"name" : "ps2_clock",
 					"strict" : false
 				},
@@ -241,6 +273,10 @@
 				},
 				{
 					"name" : "west",
+					"strict" : false
+				},
+				{
+					"name" : "store_switch",
 					"strict" : false
 				}
 			]

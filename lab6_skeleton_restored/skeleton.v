@@ -16,7 +16,9 @@ module skeleton(resetn,
 	south,
 	east,
 	west,
-	color_switch, store_switch);
+	color_switch, store_switch,
+	// Servo Outputs 
+	servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r);
 	
 //		  address_imem,                   // O: The address of the data to get from imem
 //        q_imem,                         // I: The data from imem
@@ -223,11 +225,11 @@ module skeleton(resetn,
 	
 //	input enable,clk,rst;
 //	input [3:0] dmem_out;
-//	output servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r;
+	output servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r;
 	wire enable;//,clk,rst;
-	wire [3:0] dmem_out;
-	wire servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r;
-	wire [31:0] servo_dmem_addr;
+//	wire [3:0] dmem_out;
+//	wire servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r;
+//	wire [31:0] servo_dmem_addr;
 	assign dmem_out = q_dmem;
 	ServoTranslator(dmem_out,enable, clock, ~resetn,
 								//output to each servo
