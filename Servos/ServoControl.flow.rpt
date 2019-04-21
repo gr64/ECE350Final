@@ -1,5 +1,5 @@
 Flow report for ServoControl
-Fri Apr 19 19:35:43 2019
+Sun Apr 21 04:43:21 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Apr 19 19:35:40 2019       ;
+; Flow Status                        ; Successful - Sun Apr 21 04:43:18 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; ServoControl                                ;
 ; Top-level Entity Name              ; ServoTranslator                             ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 125 / 114,480 ( < 1 % )                     ;
-;     Total combinational functions  ; 124 / 114,480 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 66 / 114,480 ( < 1 % )                      ;
-; Total registers                    ; 66                                          ;
+; Total logic elements               ; 361 / 114,480 ( < 1 % )                     ;
+;     Total combinational functions  ; 360 / 114,480 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 115 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 115                                         ;
 ; Total pins                         ; 47 / 529 ( 9 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                       ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/19/2019 19:35:13 ;
+; Start date & time ; 04/21/2019 04:42:46 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; ServoControl        ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-----------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name     ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 154946507233334.155571691311520        ; --            ; --              ; --         ;
+; COMPILER_SIGNATURE_ID               ; 154946504874177.155583616603884        ; --            ; --              ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --              ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --              ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; ServoTranslator ; Top        ;
@@ -90,11 +90,11 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 4784 MB             ; 00:00:19                           ;
-; Fitter                    ; 00:00:13     ; 1.0                     ; 5703 MB             ; 00:00:19                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 4698 MB             ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 4857 MB             ; 00:00:02                           ;
-; Total                     ; 00:00:27     ; --                      ; --                  ; 00:00:43                           ;
+; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 4790 MB             ; 00:00:23                           ;
+; Fitter                    ; 00:00:14     ; 1.0                     ; 5720 MB             ; 00:00:20                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 4700 MB             ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 4859 MB             ; 00:00:02                           ;
+; Total                     ; 00:00:32     ; --                      ; --                  ; 00:00:48                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -103,10 +103,10 @@ refer to the applicable agreement for further details.
 +---------------------------+------------------+------------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +---------------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis      ; 202a-pc09        ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter                    ; 202a-pc09        ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler                 ; 202a-pc09        ; Windows 10 ; 10.0       ; x86_64         ;
-; TimeQuest Timing Analyzer ; 202a-pc09        ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis      ; 02h-01           ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter                    ; 02h-01           ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler                 ; 02h-01           ; Windows 10 ; 10.0       ; x86_64         ;
+; TimeQuest Timing Analyzer ; 02h-01           ; Windows 10 ; 10.0       ; x86_64         ;
 +---------------------------+------------------+------------+------------+----------------+
 
 

@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at ServoControl.v(37): always construct contains both blocking and non-blocking assignments File: C:/Users/gr64/Documents/Servos/ServoControl.v Line: 37
+Warning (10268): Verilog HDL information at ServoTranslator.v(64): always construct contains both blocking and non-blocking assignments File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 64
