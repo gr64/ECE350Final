@@ -36,6 +36,134 @@
 					"strict" : false
 				},
 				{
+					"name" : "dmem_address[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[7]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[8]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[9]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[10]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[11]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[12]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[13]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[14]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[15]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[16]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[17]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[18]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[19]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[20]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[21]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[22]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[23]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[24]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[25]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[26]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[27]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[28]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[29]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[30]",
+					"strict" : false
+				},
+				{
+					"name" : "dmem_address[31]",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},
@@ -44,11 +172,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "dmem_out[0]",
+					"name" : "dmem_out[1]",
 					"strict" : false
 				},
 				{
-					"name" : "dmem_out[1]",
+					"name" : "dmem_out[0]",
 					"strict" : false
 				},
 				{
