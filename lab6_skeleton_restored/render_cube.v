@@ -56,7 +56,7 @@ module render_cube(
 
 //If in SQUARE 1
 always @(posedge clock) begin
-	if((addr_x > 180 + 5 && addr_x < 240 - 5) && (addr_y > 180 + 5 && addr_y < 240 - 5)) begin //col 3, row 1
+	if((addr_x > (180 + 5) && addr_x < (240 - 5)) && (addr_y > (180 + 5) && addr_y < (240 - 5))) begin //col 3, row 1
 		cube_index <= sq_1;
 	end
 	else begin
