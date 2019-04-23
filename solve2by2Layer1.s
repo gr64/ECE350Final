@@ -37,63 +37,63 @@ addi $27, $0, 25 # $r27 will be used to count moves stored
 # at address 24, after the cube state is stored?
 
 #FOR TESTING
-addi $t0, $0, 0 # green
-addi $t1, $0, 1 # white
-addi $t2, $0, 2 # orange
-addi $t3, $0, 3 # yellow  
-addi $t4, $0, 4 # red 
-addi $t5, $0, 5 # blue 
+#addi $t0, $0, 0 # green
+#addi $t1, $0, 1 # white
+#addi $t2, $0, 2 # orange
+#addi $t3, $0, 3 # yellow  
+#addi $t4, $0, 4 # red 
+#addi $t5, $0, 5 # blue 
 
-sw $t0, 1($0)
-nop
-sw $t0, 2($0)
-nop
-sw $t0, 3($0)
-nop
-sw $t0, 4($0)
-nop
-sw $t1, 5($0)
-nop
-sw $t1, 6($0)
-nop
-sw $t1, 7($0)
-nop
-sw $t1, 8($0)
-nop
-sw $t2, 9($0)
-nop
-sw $t2, 10($0)
-nop
-sw $t2, 11($0)
-nop
-sw $t2, 12($0)
-nop
-sw $t3, 13($0)
-nop
-sw $t3, 14($0)
-nop
-sw $t3, 15($0)
-nop
-sw $t3, 16($0)
-nop
-sw $t4, 17($0)
-nop
-sw $t4, 18($0)
-nop
-sw $t4, 19($0)
-nop
-sw $t4, 20($0)
-nop
-sw $t5, 21($0)
-nop
-sw $t5, 22($0)
-nop
-sw $t5, 23($0)
-nop
-sw $t5, 24($0)
-nop
+#sw $t0, 1($0)
+#nop
+#sw $t0, 2($0)
+#nop
+#sw $t0, 3($0)
+#nop
+#sw $t0, 4($0)
+#nop
+#sw $t1, 5($0)
+#nop
+#sw $t1, 6($0)
+#nop
+#sw $t1, 7($0)
+#nop
+#sw $t1, 8($0)
+#nop
+#sw $t2, 9($0)
+#nop
+#sw $t2, 10($0)
+#nop
+#sw $t2, 11($0)
+#nop
+#sw $t2, 12($0)
+#nop
+#sw $t3, 13($0)
+#nop
+#sw $t3, 14($0)
+#nop
+#sw $t3, 15($0)
+#nop
+#sw $t3, 16($0)
+#nop
+#sw $t4, 17($0)
+#nop
+#sw $t4, 18($0)
+#nop
+#w $t4, 19($0)
+#nop
+#sw $t4, 20($0)
+#nop
+#sw $t5, 21($0)
+#nop
+#sw $t5, 22($0)
+#nop
+#sw $t5, 23($0)
+#nop
+#sw $t5, 24($0)
+#nop
 
-jal R
+#jal R
 
 #End testing
 
@@ -102,25 +102,6 @@ jal R
 #	if not, check each other method to see what spot it is in
 #	do whatever method from whichever of the 23 other states
 # 	to get it to the correct spot
-#then, get GOW to FrontTopLeftUp
-#	have to check to see if it's already in that spot
-#	if not, check each other method to see what spot it is in
-#	do whatever method from whichever of the 20 other states
-# 	to get it to the correct spot
-#	(only 20 other states because 3 are taken up by FrontTopRight, 1 by correct FrontTopLeftUp)
-#	(which we've already established that GYO is occupying)
-#then, get GWR to BackTopLeftUp
-#	have to check to see if it's already in that spot
-#	if not, check each other method to see what spot it is in
-#	do whatever method from whichever of the 17 other states
-# 	to get it to the correct spot
-#	(only 17 other states because others are taken up by FrontTopRight and FrontTopLeft)
-#last, get GRY to BackTopRightUp
-#	have to check to see if it's already in that spot
-#	if not, check each other method to see what spot it is in
-#	do whatever method from whichever of the 14 other states
-# 	to get it to the correct spot
-#	(only 14 other states because others are taken up by FrontTopRight and FrontTopLeft and BackTopLeft)
 SolveFrontTopRightCorner:
 	addi $a0, $0, 0 #green
 	addi $a1, $0, 3 #yellow
@@ -133,9 +114,9 @@ SolveFrontTopRightCorner:
 	#END TESTING
 
 	#TESting
-	jal BackTopRightBack
-	bne $v0, $0, BackTopRightBack2FrontTopRightUp
-	nop
+	#jal BackTopRightBack
+	#bne $v0, $0, BackTopRightBack2FrontTopRightUp
+	#nop
 	#end
 	jal FrontTopRightUp
 	bne $v0, $0, SolveFrontTopLeftCorner
@@ -423,7 +404,7 @@ SolveBackTopLeftCorner: #green white red
 	addi $a2, $0, 4 #red
 
 	jal BackTopLeftUp
-	bne $v0, $0, OrientBottomCorners
+	bne $v0, $0, exitSolve2by2
 	nop
 
 	jal FrontTopLeftFront
@@ -506,166 +487,26 @@ SolveBackTopLeftCorner: #green white red
 	bne $v0, $0, BackBottomRightRight2BackTopLeftUp
 	nop
 
-OrientBottomCorners:
-	SolveFrontBottomRightCorner:
-		add $v0, $0, $0 #re-initialize output argument
-
-		addi $a0, $0, 5 #blue
-		addi $a1, $0, 2 #orange
-		addi $a2, $0, 3 #yellow
-
-		jal FrontBottomRight
-		bne $v0, $0, SolveFrontBottomLeftCorner
-		nop
-
-		jal FrontBottomLeft
-		bne $v0, $0, FrontBottomLeft2FrontBottomRight
-		nop
-
-		jal BackBottomRight
-		bne $v0, $0, BackBottomRight2FrontBottomRight
-		nop
-
-		jal BackBottomLeft
-		bne $v0, $0, BackBottomLeft2FrontBottomRight
-		nop
-
-	SolveFrontBottomLeftCorner:
-		add $v0, $0, $0 #re-initialize output argument
-
-		addi $a0, $0, 5 #blue
-		addi $a1, $0, 1 #white
-		addi $a2, $0, 2 #orange
-
-		jal FrontBottomLeft
-		bne $v0, $0, SolveBackBottomRightCorner
-		nop
-
-		jal BackBottomRight
-		bne $v0, $0, BackBottomRight2FrontBottomLeft
-		nop
-
-		jal BackBottomLeft
-		bne $v0, $0, BackBottomLeft2FrontBottomLeft
-		nop
-
-
-	SolveBackBottomRightCorner: #this should solve BackBottomRight too
-		add $v0, $0, $0 #re-initialize output argument
-
-		addi $a0, $0, 5 #blue
-		addi $a1, $0, 4 #red
-		addi $a2, $0, 3 #yellow
-
-		jal BackBottomRight
-		bne $v0, $0, BackBottomRight2FrontBottomLeft
-		nop
-
-		jal BackBottomLeft
-		bne $v0, $0, BackBottomLeft,2FrontBottomLeft
-		nop
-
-PermuteCorners:
-
-
-
-
-#full bottom corner positions, regardless of orientation
-FrontBottomRight:
-	addi $sp, $sp, -4
-	sw $ra, 0($sp)
-
-	#only one of these can be true, so only one can add 1 to $v0 so it's all good
-	jal FrontBottomRightFront
-	bne $v0, $0, exitFrontBottomRight
-	nop
-	jal FrontBottomRightRight
-	bne $v0, $0, exitFrontBottomRight
-	nop
-	jal FrontBottomRightDown
-	bne $v0, $0, exitFrontBottomRight
-	nop
-
-	exitFrontBottomRight:
-		lw $ra 0($sp)
-		nop
-		nop
-		addi $sp, $sp, 4
-		jr $ra
-    nop
-    nop
-
-FrontBottomLeft:
-	addi $sp, $sp, -4
-	sw $ra, 0($sp)
-
-	#only one of these can be true, so only one can add 1 to $v0 so it's all good
-	jal FrontBottomLeftFront
-	bne $v0, $0, exitFrontBottomLeft
-	nop
-	jal FrontBottomLeftLeft
-	bne $v0, $0, exitFrontBottomLeft
-	nop
-	jal FrontBottomLeftDown
-	bne $v0, $0, exitFrontBottomLeft
-	nop
-
-	exitFrontBottomLeft:
-		lw $ra 0($sp)
-		nop
-		nop
-		addi $sp, $sp, 4
-		jr $ra
-    nop
-    nop
-
-BackBottomRight:
-	addi $sp, $sp, -4
-	sw $ra, 0($sp)
-
-	#only one of these can be true, so only one can add 1 to $v0 so it's all good
-	jal BackBottomRightFront
-	bne $v0, $0, exitBackBottomRight
-	nop
-	jal BackBottomRightRight
-	bne $v0, $0, exitBackBottomRight
-	nop
-	jal BackBottomRightDown
-	bne $v0, $0, exitBackBottomRight
-	nop
-
-	BackBottomRight:
-		lw $ra 0($sp)
-		nop
-		nop
-		addi $sp, $sp, 4
-		jr $ra
-    nop
-    nop
-
-BackBottomLeft:
-	addi $sp, $sp, -4
-	sw $ra, 0($sp)
-
-	#only one of these can be true, so only one can add 1 to $v0 so it's all good
-	jal BackBottomLeftFront
-	bne $v0, $0, exitBackBottomLeft
-	nop
-	jal BackBottomLeftLeft
-	bne $v0, $0, exitBackBottomLeft
-	nop
-	jal BackBottomLeftDown
-	bne $v0, $0, exitBackBottomLeft
-	nop
-
-	exitFrontBottomRight:
-		lw $ra 0($sp)
-		nop
-		nop
-		addi $sp, $sp, 4
-		jr $ra
-    nop
-    nop
+	j exitSolve2by2
+#then, get GOW to FrontTopLeftUp
+#	have to check to see if it's already in that spot
+#	if not, check each other method to see what spot it is in
+#	do whatever method from whichever of the 20 other states
+# 	to get it to the correct spot
+#	(only 20 other states because 3 are taken up by FrontTopRight, 1 by correct FrontTopLeftUp)
+#	(which we've already established that GYO is occupying)
+#then, get GWR to BackTopLeftUp
+#	have to check to see if it's already in that spot
+#	if not, check each other method to see what spot it is in
+#	do whatever method from whichever of the 17 other states
+# 	to get it to the correct spot
+#	(only 17 other states because others are taken up by FrontTopRight and FrontTopLeft)
+#last, get GRY to BackTopRightUp
+#	have to check to see if it's already in that spot
+#	if not, check each other method to see what spot it is in
+#	do whatever method from whichever of the 14 other states
+# 	to get it to the correct spot
+#	(only 14 other states because others are taken up by FrontTopRight and FrontTopLeft and BackTopLeft)
 
 # you put in what you expect to be there, method loads what's actually there
 # and tells you if it matches
@@ -1936,7 +1777,7 @@ FrontTopLeftFront2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontTopLeftUp2BackTopLeftUp:
@@ -1951,7 +1792,7 @@ FrontTopLeftUp2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontTopLeftLeft2BackTopLeftUp:
@@ -1966,7 +1807,7 @@ FrontTopLeftLeft2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontTopRightFront2BackTopLeftUp:
@@ -1984,7 +1825,7 @@ FrontTopRightFront2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontTopRightUp2BackTopLeftUp:
@@ -2001,7 +1842,7 @@ FrontTopRightUp2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontTopRightRight2BackTopLeftUp:
@@ -2019,7 +1860,7 @@ FrontTopRightRight2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontBottomLeftFront2BackTopLeftUp:
@@ -2033,7 +1874,7 @@ FrontBottomLeftFront2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontBottomLeftDown2BackTopLeftUp:
@@ -2053,7 +1894,7 @@ FrontBottomLeftDown2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontBottomLeftLeft2BackTopLeftUp:
@@ -2067,7 +1908,7 @@ FrontBottomLeftLeft2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontBottomRightFront2BackTopLeftUp:
@@ -2082,7 +1923,7 @@ FrontBottomRightFront2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontBottomRightDown2BackTopLeftUp:
@@ -2102,7 +1943,7 @@ FrontBottomRightDown2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontBottomRightRight2BackTopLeftUp:
@@ -2117,7 +1958,7 @@ FrontBottomRightRight2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackTopLeftBack2BackTopLeftUp:
@@ -2133,7 +1974,7 @@ BackTopLeftBack2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackTopLeftLeft2BackTopLeftUp:
@@ -2149,7 +1990,7 @@ BackTopLeftLeft2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackTopRightBack2BackTopLeftUp:
@@ -2164,7 +2005,7 @@ BackTopRightBack2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackTopRightUp2BackTopLeftUp:
@@ -2177,7 +2018,7 @@ BackTopRightUp2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackTopRightRight2BackTopLeftUp:
@@ -2188,7 +2029,7 @@ BackTopRightRight2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackBottomLeftBack2BackTopLeftUp:
@@ -2201,7 +2042,7 @@ BackBottomLeftBack2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackBottomLeftDown2BackTopLeftUp:
@@ -2220,7 +2061,7 @@ BackBottomLeftDown2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackBottomLeftLeft2BackTopLeftUp:
@@ -2233,7 +2074,7 @@ BackBottomLeftLeft2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackBottomRightBack2BackTopLeftUp:
@@ -2247,7 +2088,7 @@ BackBottomRightBack2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackBottomRightDown2BackTopLeftUp:
@@ -2266,7 +2107,7 @@ BackBottomRightDown2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 BackBottomRightRight2BackTopLeftUp:
@@ -2279,7 +2120,7 @@ BackBottomRightRight2BackTopLeftUp:
 		nop
 		nop
 	addi $sp, $sp, 4
-	j OrientBottomCorners
+	j exitSolve2by2
     nop
     nop
 FrontTopLeftFront2BackTopRightUp:
