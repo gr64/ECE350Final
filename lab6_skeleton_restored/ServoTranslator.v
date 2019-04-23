@@ -5,7 +5,8 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 									//90 degree rotation
 									servo_t,servo_l,servo_b,servo_r,
 									//Dmem address to index into
-									dmem_address);
+									dmem_address,
+									finished_LED);
 								
 	//2 counters; one every second, 
 	//one coutning number of moves in each sequence and resets and moves to next dmem instruction when reaches that mov's total count
@@ -14,7 +15,8 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 	input [3:0] dmem_out;
 	output servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r;
 	//addresses start at 25
-	output reg [31:0] dmem_address;
+	output reg [11:0] dmem_address;
+	output reg finished_LED;
 	
 	reg [26:0] global_count;
 	reg [26:0] global_count_max;
@@ -35,7 +37,7 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 		finished_move_flag <= 1'b0;
 		
 		//dmem_addresses begin at 25
-		dmem_address <= 32'd25;
+		dmem_address <= 11'd25;
 		
 		//initializing counts
 		global_count <= 27'b0;
@@ -87,7 +89,7 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 //		s4 <= bottom_servo_forward;
 //		f4 <= bottom_servo_rotate;
 
-		if(finished_move_flag == 1'b1) begin
+		if((finished_move_flag == 1'b1)) begin
 			//reset all counters
 			global_count <= 27'b0;
 			local_count_1 <= 6'b0;
@@ -105,7 +107,7 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 			//reset flag
 			finished_move_flag <= 1'b0;
 			//move to next dmem_address
-			dmem_address = dmem_address + 32'b1;
+			dmem_address <= dmem_address + 12'd1;
 			
 		end
 	
@@ -1604,12 +1606,12 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 					local_count_10 <= 6'd44;
 						
 				end
-			else if((global_count == global_count_max) & (local_count_12 == 44)) begin
+			else if((global_count == global_count_max) & (local_count_10 == 44)) begin
 				//retract left and right
 				left_servo_forward <= back;
 				right_servo_forward <= back;
 				
-				local_count_12 <= 6'd45;
+				local_count_10 <= 6'd45;
 				global_count <= 0;
 			end
 			else if((global_count == global_count_max) & (local_count_10 == 45)) begin
@@ -1981,12 +1983,12 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 				local_count_11 <= 6'd30;
 				global_count <= 0;
 			end
-			else if((global_count == global_count_max) & (local_count_12 == 30)) begin
+			else if((global_count == global_count_max) & (local_count_11 == 30)) begin
 				//retract left and right
 				left_servo_forward <= back;
 				right_servo_forward <= back;
 				
-				local_count_12 <= 6'd31;
+				local_count_11 <= 6'd31;
 				global_count <= 0;
 			end
 			else if((global_count == global_count_max) & (local_count_11 == 31)) begin

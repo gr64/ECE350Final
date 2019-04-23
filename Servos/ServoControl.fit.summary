@@ -1,12 +1,12 @@
-Fitter Status : Successful - Sun Apr 21 16:43:48 2019
+Fitter Status : Successful - Mon Apr 22 18:57:20 2019
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : ServoControl
 Top-level Entity Name : ServoTranslator
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 1,240 / 114,480 ( 1 % )
-    Total combinational functions : 1,239 / 114,480 ( 1 % )
+Total logic elements : 1,258 / 114,480 ( 1 % )
+    Total combinational functions : 1,257 / 114,480 ( 1 % )
     Dedicated logic registers : 372 / 114,480 ( < 1 % )
 Total registers : 372
 Total pins : 47 / 529 ( 9 % )

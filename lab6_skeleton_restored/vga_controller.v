@@ -43,7 +43,7 @@ reg[9:0] selector_x, selector_y; //for square chooser
 reg [40:0] counter;
 
 reg done;
-reg [4:0] storage_counter;
+reg [31:0] storage_counter;
 ////
 assign rst = ~iRST_n;
 video_sync_generator LTM_ins (.vga_clk(iVGA_CLK),
@@ -54,7 +54,7 @@ video_sync_generator LTM_ins (.vga_clk(iVGA_CLK),
 
 initial begin
 	done <= 1'b0;
-	storage_counter <= 5'b0;
+	storage_counter <= 32'b0;
 end
 //initial begin
 //	x = 10'b0;
@@ -148,26 +148,52 @@ img_index	img_index_inst (
 //always@(posedge VGA_CLK_n) bgr_data <= use_data;
 always@(posedge VGA_CLK_n) begin
 	counter <= counter + 1;
-	if(store_switch == 1 && done == 0) begin
+	if((store_switch == 1) && (done == 0)) begin
 		storage_counter <= storage_counter + 1;
 		if(storage_counter == 1) begin
 			vga_data_out <= sq_1;
+			vga_dmem_addr <= storage_counter;
 		end
 		
 //		if(storage_counter == 24) begin
 //			done <= 1'b1; //don't want to store twice; should done be the enable signal?
 //		end
-		if(storage_counter == 25) begin
-			vga_data_out <= 0;
+		else if(storage_counter == 25) begin
+			vga_data_out <= 9;
+			//done <= 1'b1;
 		end
-		if(storage_counter == 26) begin
+		else if(storage_counter == 26) begin
+			vga_data_out <= 10;
+		end
+		else if(storage_counter == 27) begin
+			vga_data_out <= 11;
+		end
+		else if(storage_counter == 28) begin
+			vga_data_out <= 3;
+		end
+		else if(storage_counter == 29) begin
+			vga_data_out <= 4;
+		end
+		else if(storage_counter == 30) begin
+			vga_data_out <= 5;
+		end
+		else if(storage_counter == 31) begin
+			vga_data_out <= 6;
+		end
+		else if(storage_counter == 32) begin
+			vga_data_out <= 7;
+		end
+		else if(storage_counter == 33) begin
 			vga_data_out <= 8;
 		end
-		if(storage_counter == 27) begin
-			vga_data_out <= 1;
+		else if(storage_counter == 34) begin
+			vga_data_out <= 9;
 		end
-		if(storage_counter == 28) begin
-			vga_data_out <= 6;
+		else if(storage_counter == 35) begin
+			vga_data_out <= 10;
+		end
+		else if(storage_counter == 36) begin
+			vga_data_out <= 11;
 			done <= 1'b1;
 		end
 		vga_dmem_addr <= storage_counter;

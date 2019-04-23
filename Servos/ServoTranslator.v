@@ -39,7 +39,7 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 		
 		//initializing counts
 		global_count <= 27'b0;
-		global_count_max <= 27'd1000;
+		global_count_max <= 27'd50000000;
 		local_count_1 <= 6'b0;
 		local_count_2 <= 6'b0;
 		local_count_3 <= 6'b0;
@@ -110,8 +110,8 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 		end
 	
 		// MOVE: L
-		else if(dmem_out == 4'b0000) begin
-			if((global_count == global_count_max) & (local_count_1 === 0)) begin
+		if(dmem_out == 4'b0000) begin
+			if((global_count == global_count_max) & (local_count_1 == 0)) begin
 				//Retract Up and Down
 				top_servo_forward <= back;
 				bottom_servo_forward <= back;
@@ -119,7 +119,7 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 				global_count <= 0;
 				local_count_1 <= 6'd1;
 			end			
-			else if((global_count == global_count_max) & (local_count_1 === 1)) begin
+			else if((global_count == global_count_max) & (local_count_1 == 1)) begin
 				//Rotate Left Servo 90 cc
 				left_servo_rotate <= ccw;
 				

@@ -18,7 +18,8 @@ module skeleton(resetn,
 	west,
 	color_switch, store_switch,
 	// Servo Outputs 
-	servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r);
+	servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r,
+	finished_LED);
 	
 //		  address_imem,                   // O: The address of the data to get from imem
 //        q_imem,                         // I: The data from imem
@@ -94,16 +95,16 @@ module skeleton(resetn,
 	lcd mylcd(clock, ~resetn, 1'b1, ps2_out, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
 	// example for sending ps2 data to the first two seven segment displays
-	Hexadecimal_To_Seven_Segment hex1(ps2_out[3:0], seg1);
+	Hexadecimal_To_Seven_Segment hex1(4'd13, seg1);
 	Hexadecimal_To_Seven_Segment hex2(ps2_out[7:4], seg2);
 	
 	// the other seven segment displays are currently set to 0
-	Hexadecimal_To_Seven_Segment hex3(4'b0, seg3);
-	Hexadecimal_To_Seven_Segment hex4(4'b0, seg4);
-	Hexadecimal_To_Seven_Segment hex5(4'b0, seg5);
-	Hexadecimal_To_Seven_Segment hex6(4'b0, seg6);
+	Hexadecimal_To_Seven_Segment hex3(q_dmem[3:0], seg3);
+	Hexadecimal_To_Seven_Segment hex4(finished_LED, seg4);
+	Hexadecimal_To_Seven_Segment hex5(address_dmem[3:0], seg5);
+	Hexadecimal_To_Seven_Segment hex6(address_dmem[7:4], seg6);
 	Hexadecimal_To_Seven_Segment hex7(4'b0, seg7);
-	Hexadecimal_To_Seven_Segment hex8(4'b0, seg8);
+	Hexadecimal_To_Seven_Segment hex8(enable, seg8);
 	
 	// some LEDs that you could use for debugging if you wanted
 	assign leds = 8'b00101011;
@@ -155,18 +156,21 @@ module skeleton(resetn,
     );
 
 	 wire [11:0] address_dmem;
-    wire [31:0] data;
-    wire wren;
+    wire [31:0] proc_data;
+    wire wren, proc_wren;
     wire [31:0] q_dmem;
 	 wire [31:0] data_dmem;
+	 wire wren_out1;
 	 
 	 //vga_controller and processor both write to dmem; ServoTranslator only reads
 	 //0 for vga data, 1 for proc data; can switch these if necessary
-	 assign sel_dmem_data = 0; //temporary
-	 mux_2 dmem_datamux(sel_dmem_data, vga_data_out, data, data_dmem);
+	 assign sel_dmem_data = 1'b0; //temporary
+	 mux_2 dmem_datamux(enable, vga_data_out, proc_data, data_dmem);
 	 
 	 //will eventually need two muxes for address cause you need that for reading and writing
 	 mux_2 dmem_addrmux(enable, vga_dmem_addr, servo_dmem_addr, address_dmem);
+	 mux_2 dmem_wrenmux(enable, 1'b1, proc_wren, wren_out1);
+	 mux_2 dmem_wrenmux2(,wren_out1,1'b0,wren);
 	 
     dmem my_dmem(
         .address    (address_dmem),       // address of data
@@ -204,8 +208,8 @@ module skeleton(resetn,
 
         // Dmem
         proc_address_dmem,                   // O: The address of the data to get or put from/to dmem
-        data,                           // O: The data to write to dmem
-        wren,                           // O: Write enable for dmem
+        proc_data,                           // O: The data to write to dmem
+        proc_wren,                           // O: Write enable for dmem
         q_dmem,                         // I: The data from dmem
 
         // Regfile
@@ -225,20 +229,21 @@ module skeleton(resetn,
 	
 //	input enable,clk,rst;
 //	input [3:0] dmem_out;
-	output servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r;
+	output servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r,finished_LED;
 	wire enable;//,clk,rst;
-//	wire [3:0] dmem_out;
+	wire [3:0] dmem_out;
 //	wire servo1,servo2,servo3,servo4,servo_t,servo_l,servo_b,servo_r;
-//	wire [31:0] servo_dmem_addr;
+	wire [31:0] servo_dmem_addr;
 	assign dmem_out = q_dmem;
-	ServoTranslator(dmem_out,enable, clock, ~resetn,
+	ServoTranslator(dmem_out[3:0],enable, CLOCK_50, ~resetn,
 								//output to each servo
 									//Back and forth
 									servo1,servo2,servo3,servo4,
 									//90 degree rotation
 									servo_t,servo_l,servo_b,servo_r,
 									//Dmem address to index into
-									servo_dmem_addr);
+									servo_dmem_addr,
+									finished_LED);
 	
 	
 endmodule

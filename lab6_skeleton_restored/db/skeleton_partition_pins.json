@@ -44,34 +44,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "seg1[0]",
-					"strict" : false
-				},
-				{
-					"name" : "seg1[1]",
-					"strict" : false
-				},
-				{
-					"name" : "seg1[2]",
-					"strict" : false
-				},
-				{
-					"name" : "seg1[3]",
-					"strict" : false
-				},
-				{
-					"name" : "seg1[4]",
-					"strict" : false
-				},
-				{
-					"name" : "seg1[5]",
-					"strict" : false
-				},
-				{
-					"name" : "seg1[6]",
-					"strict" : false
-				},
-				{
 					"name" : "seg2[0]",
 					"strict" : false
 				},
@@ -97,6 +69,106 @@
 				},
 				{
 					"name" : "seg2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg3[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg3[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg3[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg5[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg5[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg5[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg5[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg5[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg5[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg6[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg6[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg6[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg6[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg6[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg6[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg6[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg8[5]",
 					"strict" : false
 				},
 				{
@@ -256,15 +328,11 @@
 					"strict" : false
 				},
 				{
+					"name" : "store_switch",
+					"strict" : false
+				},
+				{
 					"name" : "color_switch",
-					"strict" : false
-				},
-				{
-					"name" : "east",
-					"strict" : false
-				},
-				{
-					"name" : "south",
 					"strict" : false
 				},
 				{
@@ -272,11 +340,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "west",
+					"name" : "south",
 					"strict" : false
 				},
 				{
-					"name" : "store_switch",
+					"name" : "east",
+					"strict" : false
+				},
+				{
+					"name" : "west",
 					"strict" : false
 				}
 			]

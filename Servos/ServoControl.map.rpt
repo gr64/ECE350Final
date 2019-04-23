@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ServoControl
-Sun Apr 21 16:43:29 2019
+Mon Apr 22 18:57:01 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -59,13 +59,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Apr 21 16:43:29 2019       ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 22 18:57:01 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; ServoControl                                ;
 ; Top-level Entity Name              ; ServoTranslator                             ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,239                                       ;
-;     Total combinational functions  ; 1,239                                       ;
+; Total logic elements               ; 1,257                                       ;
+;     Total combinational functions  ; 1,257                                       ;
 ;     Dedicated logic registers      ; 372                                         ;
 ; Total registers                    ; 372                                         ;
 ; Total pins                         ; 47                                          ;
@@ -196,16 +196,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 1,239     ;
+; Estimated Total logic elements              ; 1,257     ;
 ;                                             ;           ;
-; Total combinational functions               ; 1239      ;
+; Total combinational functions               ; 1257      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 901       ;
-;     -- 3 input functions                    ; 193       ;
-;     -- <=2 input functions                  ; 145       ;
+;     -- 4 input functions                    ; 941       ;
+;     -- 3 input functions                    ; 158       ;
+;     -- <=2 input functions                  ; 158       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 1184      ;
+;     -- normal mode                          ; 1202      ;
 ;     -- arithmetic mode                      ; 55        ;
 ;                                             ;           ;
 ; Total registers                             ; 372       ;
@@ -218,8 +218,8 @@ refer to the applicable agreement for further details.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 372       ;
-; Total fan-out                               ; 5501      ;
-; Average fan-out                             ; 3.23      ;
+; Total fan-out                               ; 5683      ;
+; Average fan-out                             ; 3.30      ;
 +---------------------------------------------+-----------+
 
 
@@ -228,8 +228,8 @@ refer to the applicable agreement for further details.
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                          ; Entity Name     ; Library Name ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+-----------------+--------------+
-; |ServoTranslator                 ; 1239 (1207)         ; 372 (364)                 ; 0           ; 0            ; 0       ; 0         ; 47   ; 0            ; |ServoTranslator                             ; ServoTranslator ; work         ;
-;    |ServoControl:myservocontrol| ; 32 (32)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ServoTranslator|ServoControl:myservocontrol ; ServoControl    ; work         ;
+; |ServoTranslator                 ; 1257 (1222)         ; 372 (364)                 ; 0           ; 0            ; 0       ; 0         ; 47   ; 0            ; |ServoTranslator                             ; ServoTranslator ; work         ;
+;    |ServoControl:myservocontrol| ; 35 (35)             ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ServoTranslator|ServoControl:myservocontrol ; ServoControl    ; work         ;
 +----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -704,72 +704,72 @@ Encoding Type:  One-Hot
 ; local_count_12~69                       ; Lost fanout                            ;
 ; local_count_12~70                       ; Lost fanout                            ;
 ; local_count_12~71                       ; Lost fanout                            ;
-; local_count_11~16                       ; Lost fanout                            ;
-; local_count_11~17                       ; Lost fanout                            ;
-; local_count_11~18                       ; Lost fanout                            ;
-; local_count_11~19                       ; Lost fanout                            ;
-; local_count_11~20                       ; Lost fanout                            ;
-; local_count_11~21                       ; Lost fanout                            ;
-; local_count_10~40                       ; Lost fanout                            ;
-; local_count_10~41                       ; Lost fanout                            ;
-; local_count_10~42                       ; Lost fanout                            ;
-; local_count_10~43                       ; Lost fanout                            ;
-; local_count_10~44                       ; Lost fanout                            ;
-; local_count_10~45                       ; Lost fanout                            ;
-; local_count_9~15                        ; Lost fanout                            ;
-; local_count_9~16                        ; Lost fanout                            ;
-; local_count_9~17                        ; Lost fanout                            ;
-; local_count_9~18                        ; Lost fanout                            ;
-; local_count_9~19                        ; Lost fanout                            ;
-; local_count_9~20                        ; Lost fanout                            ;
-; local_count_8~15                        ; Lost fanout                            ;
-; local_count_8~16                        ; Lost fanout                            ;
-; local_count_8~17                        ; Lost fanout                            ;
-; local_count_8~18                        ; Lost fanout                            ;
-; local_count_8~19                        ; Lost fanout                            ;
-; local_count_8~20                        ; Lost fanout                            ;
-; local_count_7~3                         ; Lost fanout                            ;
-; local_count_7~4                         ; Lost fanout                            ;
-; local_count_7~5                         ; Lost fanout                            ;
-; local_count_7~6                         ; Lost fanout                            ;
-; local_count_7~7                         ; Lost fanout                            ;
-; local_count_7~8                         ; Lost fanout                            ;
-; local_count_6~15                        ; Lost fanout                            ;
-; local_count_6~16                        ; Lost fanout                            ;
-; local_count_6~17                        ; Lost fanout                            ;
-; local_count_6~18                        ; Lost fanout                            ;
-; local_count_6~19                        ; Lost fanout                            ;
-; local_count_6~20                        ; Lost fanout                            ;
-; local_count_5~3                         ; Lost fanout                            ;
-; local_count_5~4                         ; Lost fanout                            ;
-; local_count_5~5                         ; Lost fanout                            ;
-; local_count_5~6                         ; Lost fanout                            ;
-; local_count_5~7                         ; Lost fanout                            ;
-; local_count_5~8                         ; Lost fanout                            ;
-; local_count_4~15                        ; Lost fanout                            ;
-; local_count_4~16                        ; Lost fanout                            ;
-; local_count_4~17                        ; Lost fanout                            ;
-; local_count_4~18                        ; Lost fanout                            ;
-; local_count_4~19                        ; Lost fanout                            ;
-; local_count_4~20                        ; Lost fanout                            ;
-; local_count_3~3                         ; Lost fanout                            ;
-; local_count_3~4                         ; Lost fanout                            ;
-; local_count_3~5                         ; Lost fanout                            ;
-; local_count_3~6                         ; Lost fanout                            ;
-; local_count_3~7                         ; Lost fanout                            ;
-; local_count_3~8                         ; Lost fanout                            ;
-; local_count_2~15                        ; Lost fanout                            ;
-; local_count_2~16                        ; Lost fanout                            ;
-; local_count_2~17                        ; Lost fanout                            ;
-; local_count_2~18                        ; Lost fanout                            ;
-; local_count_2~19                        ; Lost fanout                            ;
-; local_count_2~20                        ; Lost fanout                            ;
-; local_count_1~3                         ; Lost fanout                            ;
-; local_count_1~4                         ; Lost fanout                            ;
-; local_count_1~5                         ; Lost fanout                            ;
-; local_count_1~6                         ; Lost fanout                            ;
-; local_count_1~7                         ; Lost fanout                            ;
-; local_count_1~8                         ; Lost fanout                            ;
+; local_count_11~52                       ; Lost fanout                            ;
+; local_count_11~53                       ; Lost fanout                            ;
+; local_count_11~54                       ; Lost fanout                            ;
+; local_count_11~55                       ; Lost fanout                            ;
+; local_count_11~56                       ; Lost fanout                            ;
+; local_count_11~57                       ; Lost fanout                            ;
+; local_count_10~66                       ; Lost fanout                            ;
+; local_count_10~67                       ; Lost fanout                            ;
+; local_count_10~68                       ; Lost fanout                            ;
+; local_count_10~69                       ; Lost fanout                            ;
+; local_count_10~70                       ; Lost fanout                            ;
+; local_count_10~71                       ; Lost fanout                            ;
+; local_count_9~51                        ; Lost fanout                            ;
+; local_count_9~52                        ; Lost fanout                            ;
+; local_count_9~53                        ; Lost fanout                            ;
+; local_count_9~54                        ; Lost fanout                            ;
+; local_count_9~55                        ; Lost fanout                            ;
+; local_count_9~56                        ; Lost fanout                            ;
+; local_count_8~21                        ; Lost fanout                            ;
+; local_count_8~22                        ; Lost fanout                            ;
+; local_count_8~23                        ; Lost fanout                            ;
+; local_count_8~24                        ; Lost fanout                            ;
+; local_count_8~25                        ; Lost fanout                            ;
+; local_count_8~26                        ; Lost fanout                            ;
+; local_count_7~9                         ; Lost fanout                            ;
+; local_count_7~10                        ; Lost fanout                            ;
+; local_count_7~11                        ; Lost fanout                            ;
+; local_count_7~12                        ; Lost fanout                            ;
+; local_count_7~13                        ; Lost fanout                            ;
+; local_count_7~14                        ; Lost fanout                            ;
+; local_count_6~21                        ; Lost fanout                            ;
+; local_count_6~22                        ; Lost fanout                            ;
+; local_count_6~23                        ; Lost fanout                            ;
+; local_count_6~24                        ; Lost fanout                            ;
+; local_count_6~25                        ; Lost fanout                            ;
+; local_count_6~26                        ; Lost fanout                            ;
+; local_count_5~9                         ; Lost fanout                            ;
+; local_count_5~10                        ; Lost fanout                            ;
+; local_count_5~11                        ; Lost fanout                            ;
+; local_count_5~12                        ; Lost fanout                            ;
+; local_count_5~13                        ; Lost fanout                            ;
+; local_count_5~14                        ; Lost fanout                            ;
+; local_count_4~21                        ; Lost fanout                            ;
+; local_count_4~22                        ; Lost fanout                            ;
+; local_count_4~23                        ; Lost fanout                            ;
+; local_count_4~24                        ; Lost fanout                            ;
+; local_count_4~25                        ; Lost fanout                            ;
+; local_count_4~26                        ; Lost fanout                            ;
+; local_count_3~9                         ; Lost fanout                            ;
+; local_count_3~10                        ; Lost fanout                            ;
+; local_count_3~11                        ; Lost fanout                            ;
+; local_count_3~12                        ; Lost fanout                            ;
+; local_count_3~13                        ; Lost fanout                            ;
+; local_count_3~14                        ; Lost fanout                            ;
+; local_count_2~21                        ; Lost fanout                            ;
+; local_count_2~22                        ; Lost fanout                            ;
+; local_count_2~23                        ; Lost fanout                            ;
+; local_count_2~24                        ; Lost fanout                            ;
+; local_count_2~25                        ; Lost fanout                            ;
+; local_count_2~26                        ; Lost fanout                            ;
+; local_count_1~9                         ; Lost fanout                            ;
+; local_count_1~10                        ; Lost fanout                            ;
+; local_count_1~11                        ; Lost fanout                            ;
+; local_count_1~12                        ; Lost fanout                            ;
+; local_count_1~13                        ; Lost fanout                            ;
+; local_count_1~14                        ; Lost fanout                            ;
 ; local_count_12.111111                   ; Lost fanout                            ;
 ; local_count_10.101100                   ; Lost fanout                            ;
 ; local_count_10.111111                   ; Lost fanout                            ;
@@ -809,30 +809,38 @@ Encoding Type:  One-Hot
 +-----------------------------------------+----------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                             ;
-+-----------------------+---------------------------+---------------------------------------------------------------------+
-; Register name         ; Reason for Removal        ; Registers Removed due to This Register                              ;
-+-----------------------+---------------------------+---------------------------------------------------------------------+
-; local_count_10.111010 ; Stuck at GND              ; local_count_10.111011, local_count_10.111100, local_count_10.111101 ;
-;                       ; due to stuck port data_in ;                                                                     ;
-; local_count_10.101111 ; Stuck at GND              ; local_count_10.110000, local_count_10.110011                        ;
-;                       ; due to stuck port data_in ;                                                                     ;
-; local_count_10.110110 ; Stuck at GND              ; local_count_10.110111, local_count_10.111000                        ;
-;                       ; due to stuck port data_in ;                                                                     ;
-; local_count_12~66     ; Lost Fanouts              ; local_count_12.111111                                               ;
-; local_count_10~40     ; Lost Fanouts              ; local_count_10.111111                                               ;
-; local_count_8~16      ; Lost Fanouts              ; local_count_8.010010                                                ;
-; local_count_7~4       ; Lost Fanouts              ; local_count_7.000110                                                ;
-; local_count_6~16      ; Lost Fanouts              ; local_count_6.010010                                                ;
-; local_count_5~4       ; Lost Fanouts              ; local_count_5.000110                                                ;
-; local_count_4~16      ; Lost Fanouts              ; local_count_4.010010                                                ;
-; local_count_3~4       ; Lost Fanouts              ; local_count_3.000110                                                ;
-; local_count_2~16      ; Lost Fanouts              ; local_count_2.010010                                                ;
-; local_count_1~4       ; Lost Fanouts              ; local_count_1.000110                                                ;
-; local_count_10.110001 ; Stuck at GND              ; local_count_10.110010                                               ;
-;                       ; due to stuck port data_in ;                                                                     ;
-+-----------------------+---------------------------+---------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                      ;
++-----------------------+---------------------------+----------------------------------------------+
+; Register name         ; Reason for Removal        ; Registers Removed due to This Register       ;
++-----------------------+---------------------------+----------------------------------------------+
+; local_count_10.101111 ; Stuck at GND              ; local_count_10.110011, local_count_10.111110 ;
+;                       ; due to stuck port data_in ;                                              ;
+; local_count_12~66     ; Lost Fanouts              ; local_count_12.111111                        ;
+; local_count_10~66     ; Lost Fanouts              ; local_count_10.111111                        ;
+; local_count_8~22      ; Lost Fanouts              ; local_count_8.010010                         ;
+; local_count_7~10      ; Lost Fanouts              ; local_count_7.000110                         ;
+; local_count_6~22      ; Lost Fanouts              ; local_count_6.010010                         ;
+; local_count_5~10      ; Lost Fanouts              ; local_count_5.000110                         ;
+; local_count_4~22      ; Lost Fanouts              ; local_count_4.010010                         ;
+; local_count_3~10      ; Lost Fanouts              ; local_count_3.000110                         ;
+; local_count_2~22      ; Lost Fanouts              ; local_count_2.010010                         ;
+; local_count_1~10      ; Lost Fanouts              ; local_count_1.000110                         ;
+; local_count_10.101101 ; Stuck at GND              ; local_count_10.101110                        ;
+;                       ; due to stuck port data_in ;                                              ;
+; local_count_10.110000 ; Stuck at GND              ; local_count_10.110001                        ;
+;                       ; due to stuck port data_in ;                                              ;
+; local_count_10.110100 ; Stuck at GND              ; local_count_10.110101                        ;
+;                       ; due to stuck port data_in ;                                              ;
+; local_count_10.110110 ; Stuck at GND              ; local_count_10.110111                        ;
+;                       ; due to stuck port data_in ;                                              ;
+; local_count_10.111000 ; Stuck at GND              ; local_count_10.111001                        ;
+;                       ; due to stuck port data_in ;                                              ;
+; local_count_10.111010 ; Stuck at GND              ; local_count_10.111011                        ;
+;                       ; due to stuck port data_in ;                                              ;
+; local_count_10.111100 ; Stuck at GND              ; local_count_10.111101                        ;
+;                       ; due to stuck port data_in ;                                              ;
++-----------------------+---------------------------+----------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -841,11 +849,11 @@ Encoding Type:  One-Hot
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 372   ;
-; Number of registers using Synchronous Clear  ; 2     ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 209   ;
+; Number of registers using Clock Enable       ; 304   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -866,10 +874,10 @@ Encoding Type:  One-Hot
 ; dmem_address[0]~reg0                    ; 3       ;
 ; dmem_address[3]~reg0                    ; 2       ;
 ; dmem_address[4]~reg0                    ; 2       ;
-; left_servo_forward                      ; 17      ;
-; right_servo_forward                     ; 15      ;
-; top_servo_forward                       ; 16      ;
-; bottom_servo_forward                    ; 20      ;
+; left_servo_forward                      ; 16      ;
+; right_servo_forward                     ; 14      ;
+; top_servo_forward                       ; 15      ;
+; bottom_servo_forward                    ; 18      ;
 ; Total number of inverted registers = 15 ;         ;
 +-----------------------------------------+---------+
 
@@ -879,18 +887,18 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; 9:1                ; 7 bits    ; 42 LEs        ; 35 LEs               ; 7 LEs                  ; No         ; |ServoTranslator|local_count_7  ;
-; 9:1                ; 7 bits    ; 42 LEs        ; 35 LEs               ; 7 LEs                  ; No         ; |ServoTranslator|local_count_5  ;
-; 9:1                ; 7 bits    ; 42 LEs        ; 35 LEs               ; 7 LEs                  ; No         ; |ServoTranslator|local_count_3  ;
-; 9:1                ; 7 bits    ; 42 LEs        ; 35 LEs               ; 7 LEs                  ; No         ; |ServoTranslator|local_count_1  ;
-; 21:1               ; 19 bits   ; 266 LEs       ; 247 LEs              ; 19 LEs                 ; No         ; |ServoTranslator|local_count_8  ;
-; 21:1               ; 19 bits   ; 266 LEs       ; 247 LEs              ; 19 LEs                 ; No         ; |ServoTranslator|local_count_6  ;
-; 21:1               ; 19 bits   ; 266 LEs       ; 247 LEs              ; 19 LEs                 ; No         ; |ServoTranslator|local_count_4  ;
-; 21:1               ; 19 bits   ; 266 LEs       ; 247 LEs              ; 19 LEs                 ; No         ; |ServoTranslator|local_count_2  ;
-; 51:1               ; 49 bits   ; 1666 LEs      ; 1617 LEs             ; 49 LEs                 ; No         ; |ServoTranslator|local_count_9  ;
-; 52:1               ; 50 bits   ; 1700 LEs      ; 1650 LEs             ; 50 LEs                 ; No         ; |ServoTranslator|local_count_11 ;
-; 65:1               ; 64 bits   ; 2752 LEs      ; 2688 LEs             ; 64 LEs                 ; No         ; |ServoTranslator|local_count_10 ;
-; 68:1               ; 64 bits   ; 2880 LEs      ; 2816 LEs             ; 64 LEs                 ; No         ; |ServoTranslator|local_count_12 ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |ServoTranslator|local_count_7  ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |ServoTranslator|local_count_5  ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |ServoTranslator|local_count_3  ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; No         ; |ServoTranslator|local_count_1  ;
+; 20:1               ; 19 bits   ; 247 LEs       ; 247 LEs              ; 0 LEs                  ; No         ; |ServoTranslator|local_count_8  ;
+; 20:1               ; 19 bits   ; 247 LEs       ; 247 LEs              ; 0 LEs                  ; No         ; |ServoTranslator|local_count_6  ;
+; 20:1               ; 19 bits   ; 247 LEs       ; 247 LEs              ; 0 LEs                  ; No         ; |ServoTranslator|local_count_4  ;
+; 20:1               ; 19 bits   ; 247 LEs       ; 247 LEs              ; 0 LEs                  ; No         ; |ServoTranslator|local_count_2  ;
+; 50:1               ; 49 bits   ; 1617 LEs      ; 1617 LEs             ; 0 LEs                  ; No         ; |ServoTranslator|local_count_9  ;
+; 50:1               ; 50 bits   ; 1650 LEs      ; 1650 LEs             ; 0 LEs                  ; No         ; |ServoTranslator|local_count_11 ;
+; 64:1               ; 64 bits   ; 2688 LEs      ; 2688 LEs             ; 0 LEs                  ; No         ; |ServoTranslator|local_count_10 ;
+; 67:1               ; 64 bits   ; 2816 LEs      ; 2816 LEs             ; 0 LEs                  ; No         ; |ServoTranslator|local_count_12 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 
 
@@ -901,22 +909,20 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; boundary_port         ; 47                          ;
 ; cycloneiii_ff         ; 372                         ;
-;     ENA               ; 208                         ;
-;     ENA SCLR          ; 1                           ;
-;     SCLR              ; 1                           ;
-;     plain             ; 162                         ;
-; cycloneiii_lcell_comb ; 1250                        ;
+;     ENA               ; 304                         ;
+;     plain             ; 68                          ;
+; cycloneiii_lcell_comb ; 1268                        ;
 ;     arith             ; 55                          ;
 ;         2 data inputs ; 53                          ;
 ;         3 data inputs ; 2                           ;
-;     normal            ; 1195                        ;
-;         1 data inputs ; 25                          ;
-;         2 data inputs ; 78                          ;
-;         3 data inputs ; 191                         ;
-;         4 data inputs ; 901                         ;
+;     normal            ; 1213                        ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 99                          ;
+;         3 data inputs ; 156                         ;
+;         4 data inputs ; 941                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 15.00                       ;
-; Average LUT depth     ; 8.15                        ;
+; Max LUT depth         ; 14.00                       ;
+; Average LUT depth     ; 8.58                        ;
 +-----------------------+-----------------------------+
 
 
@@ -925,7 +931,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:12     ;
 +----------------+--------------+
 
 
@@ -935,7 +941,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sun Apr 21 16:43:07 2019
+    Info: Processing started: Mon Apr 22 18:56:39 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ServoControl -c ServoControl
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -953,15 +959,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "enable" File: C:/Users/gr64/Documents/ECE350Final/Servos/ServoTranslator.v Line: 13
-Info (21057): Implemented 1286 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1311 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 40 output pins
-    Info (21061): Implemented 1239 logic cells
+    Info (21061): Implemented 1264 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4813 megabytes
-    Info: Processing ended: Sun Apr 21 16:43:29 2019
+    Info: Peak virtual memory: 4806 megabytes
+    Info: Processing ended: Mon Apr 22 18:57:01 2019
     Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:32
+    Info: Total CPU time (on all processors): 00:00:33
 
 
 +------------------------------------------+

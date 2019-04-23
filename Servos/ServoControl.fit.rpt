@@ -1,5 +1,5 @@
 Fitter report for ServoControl
-Sun Apr 21 16:43:48 2019
+Mon Apr 22 18:57:20 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -65,15 +65,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sun Apr 21 16:43:48 2019       ;
+; Fitter Status                      ; Successful - Mon Apr 22 18:57:20 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; ServoControl                                ;
 ; Top-level Entity Name              ; ServoTranslator                             ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,240 / 114,480 ( 1 % )                     ;
-;     Total combinational functions  ; 1,239 / 114,480 ( 1 % )                     ;
+; Total logic elements               ; 1,258 / 114,480 ( 1 % )                     ;
+;     Total combinational functions  ; 1,257 / 114,480 ( 1 % )                     ;
 ;     Dedicated logic registers      ; 372 / 114,480 ( < 1 % )                     ;
 ; Total registers                    ; 372                                         ;
 ; Total pins                         ; 47 / 529 ( 9 % )                            ;
@@ -156,9 +156,9 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.2%      ;
-;     Processor 3            ;   1.0%      ;
-;     Processor 4            ;   0.9%      ;
+;     Processor 2            ;   1.3%      ;
+;     Processor 3            ;   1.1%      ;
+;     Processor 4            ;   1.0%      ;
 +----------------------------+-------------+
 
 
@@ -168,8 +168,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+---------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                     ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 1717 ) ; 0.00 % ( 0 / 1717 )        ; 0.00 % ( 0 / 1717 )      ;
-;     -- Achieved     ; 0.00 % ( 0 / 1717 ) ; 0.00 % ( 0 / 1717 )        ; 0.00 % ( 0 / 1717 )      ;
+;     -- Requested    ; 0.00 % ( 0 / 1735 ) ; 0.00 % ( 0 / 1735 )        ; 0.00 % ( 0 / 1735 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 1735 ) ; 0.00 % ( 0 / 1735 )        ; 0.00 % ( 0 / 1735 )      ;
 ;                     ;                     ;                            ;                          ;
 ; Routing (by net)    ;                     ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -192,7 +192,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 1707 )   ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 1725 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 10 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -208,19 +208,19 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 +---------------------------------------------+-------------------------+
 ; Resource                                    ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Total logic elements                        ; 1,240 / 114,480 ( 1 % ) ;
-;     -- Combinational with no register       ; 868                     ;
+; Total logic elements                        ; 1,258 / 114,480 ( 1 % ) ;
+;     -- Combinational with no register       ; 886                     ;
 ;     -- Register only                        ; 1                       ;
 ;     -- Combinational with a register        ; 371                     ;
 ;                                             ;                         ;
 ; Logic element usage by number of LUT inputs ;                         ;
-;     -- 4 input functions                    ; 901                     ;
-;     -- 3 input functions                    ; 193                     ;
-;     -- <=2 input functions                  ; 145                     ;
+;     -- 4 input functions                    ; 941                     ;
+;     -- 3 input functions                    ; 158                     ;
+;     -- <=2 input functions                  ; 158                     ;
 ;     -- Register only                        ; 1                       ;
 ;                                             ;                         ;
 ; Logic elements by mode                      ;                         ;
-;     -- normal mode                          ; 1184                    ;
+;     -- normal mode                          ; 1202                    ;
 ;     -- arithmetic mode                      ; 55                      ;
 ;                                             ;                         ;
 ; Total registers*                            ; 372 / 117,053 ( < 1 % ) ;
@@ -245,12 +245,12 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )           ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )           ;
 ; Impedance control blocks                    ; 0 / 4 ( 0 % )           ;
-; Average interconnect usage (total/H/V)      ; 0.3% / 0.3% / 0.4%      ;
-; Peak interconnect usage (total/H/V)         ; 9.2% / 8.2% / 10.6%     ;
+; Average interconnect usage (total/H/V)      ; 0.4% / 0.3% / 0.4%      ;
+; Peak interconnect usage (total/H/V)         ; 16.7% / 15.9% / 17.7%   ;
 ; Maximum fan-out                             ; 372                     ;
-; Highest non-global fan-out                  ; 284                     ;
-; Total fan-out                               ; 5508                    ;
-; Average fan-out                             ; 3.21                    ;
+; Highest non-global fan-out                  ; 360                     ;
+; Total fan-out                               ; 5690                    ;
+; Average fan-out                             ; 3.28                    ;
 +---------------------------------------------+-------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -263,19 +263,19 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 +---------------------------------------------+------------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                    ; Low                            ;
 ;                                             ;                        ;                                ;
-; Total logic elements                        ; 1240 / 114480 ( 1 % )  ; 0 / 114480 ( 0 % )             ;
-;     -- Combinational with no register       ; 868                    ; 0                              ;
+; Total logic elements                        ; 1258 / 114480 ( 1 % )  ; 0 / 114480 ( 0 % )             ;
+;     -- Combinational with no register       ; 886                    ; 0                              ;
 ;     -- Register only                        ; 1                      ; 0                              ;
 ;     -- Combinational with a register        ; 371                    ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Logic element usage by number of LUT inputs ;                        ;                                ;
-;     -- 4 input functions                    ; 901                    ; 0                              ;
-;     -- 3 input functions                    ; 193                    ; 0                              ;
-;     -- <=2 input functions                  ; 145                    ; 0                              ;
+;     -- 4 input functions                    ; 941                    ; 0                              ;
+;     -- 3 input functions                    ; 158                    ; 0                              ;
+;     -- <=2 input functions                  ; 158                    ; 0                              ;
 ;     -- Register only                        ; 1                      ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Logic elements by mode                      ;                        ;                                ;
-;     -- normal mode                          ; 1184                   ; 0                              ;
+;     -- normal mode                          ; 1202                   ; 0                              ;
 ;     -- arithmetic mode                      ; 55                     ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Total registers                             ; 372                    ; 0                              ;
@@ -298,8 +298,8 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ;     -- Registered Output Connections        ; 0                      ; 0                              ;
 ;                                             ;                        ;                                ;
 ; Internal Connections                        ;                        ;                                ;
-;     -- Total Connections                    ; 5503                   ; 5                              ;
-;     -- Registered Connections               ; 1963                   ; 0                              ;
+;     -- Total Connections                    ; 5685                   ; 5                              ;
+;     -- Registered Connections               ; 1805                   ; 0                              ;
 ;                                             ;                        ;                                ;
 ; External Connections                        ;                        ;                                ;
 ;     -- Top                                  ; 0                      ; 0                              ;
@@ -332,8 +332,8 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; Name        ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +-------------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+---------------------------+----------------------+-----------+
 ; clk         ; Y2    ; 2        ; 0            ; 36           ; 14           ; 372                   ; 0                  ; yes    ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
-; dmem_out[0] ; AC28  ; 5        ; 115          ; 14           ; 0            ; 48                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
-; dmem_out[1] ; AC27  ; 5        ; 115          ; 15           ; 7            ; 35                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; dmem_out[0] ; AC28  ; 5        ; 115          ; 14           ; 0            ; 47                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
+; dmem_out[1] ; AC27  ; 5        ; 115          ; 15           ; 7            ; 40                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; dmem_out[2] ; AD27  ; 5        ; 115          ; 13           ; 7            ; 27                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; dmem_out[3] ; AB27  ; 5        ; 115          ; 18           ; 7            ; 29                    ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
 ; enable      ; Y24   ; 5        ; 115          ; 13           ; 0            ; 0                     ; 0                  ; no     ; no             ; no            ; yes             ; no       ; Off          ; 2.5 V        ; --                        ; User                 ; no        ;
@@ -346,38 +346,38 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 +------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
 ; Name             ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Output Register ; Output Enable Register ; Power Up High ; Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination                       ; Termination Control Block ; Output Buffer Pre-emphasis ; Voltage Output Differential ; Location assigned by ; Output Enable Source ; Output Enable Group ;
 +------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+---------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+----------------------+----------------------+---------------------+
-; dmem_address[0]  ; L24   ; 6        ; 115          ; 48           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[10] ; K25   ; 6        ; 115          ; 55           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[11] ; L23   ; 6        ; 115          ; 49           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[12] ; K28   ; 6        ; 115          ; 49           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[13] ; P25   ; 6        ; 115          ; 41           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[14] ; G28   ; 6        ; 115          ; 52           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[15] ; G27   ; 6        ; 115          ; 52           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[16] ; P27   ; 6        ; 115          ; 44           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[17] ; P21   ; 5        ; 115          ; 36           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[18] ; R21   ; 5        ; 115          ; 36           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[19] ; N21   ; 6        ; 115          ; 42           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[1]  ; K26   ; 6        ; 115          ; 55           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[20] ; L25   ; 6        ; 115          ; 54           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[21] ; N26   ; 6        ; 115          ; 44           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[22] ; M26   ; 6        ; 115          ; 46           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[23] ; M24   ; 6        ; 115          ; 41           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[24] ; M25   ; 6        ; 115          ; 47           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[25] ; M23   ; 6        ; 115          ; 40           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[26] ; R22   ; 5        ; 115          ; 36           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[27] ; K27   ; 6        ; 115          ; 50           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[28] ; M27   ; 6        ; 115          ; 46           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[29] ; L26   ; 6        ; 115          ; 50           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[2]  ; J26   ; 6        ; 115          ; 51           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[30] ; P26   ; 6        ; 115          ; 40           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[31] ; L28   ; 6        ; 115          ; 47           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[3]  ; L27   ; 6        ; 115          ; 48           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[4]  ; M28   ; 6        ; 115          ; 45           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[5]  ; J25   ; 6        ; 115          ; 51           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[6]  ; N25   ; 6        ; 115          ; 45           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[7]  ; F28   ; 6        ; 115          ; 56           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[8]  ; M21   ; 6        ; 115          ; 53           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
-; dmem_address[9]  ; F27   ; 6        ; 115          ; 56           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[0]  ; V26   ; 5        ; 115          ; 23           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[10] ; AB26  ; 5        ; 115          ; 15           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[11] ; Y25   ; 5        ; 115          ; 19           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[12] ; V25   ; 5        ; 115          ; 23           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[13] ; W25   ; 5        ; 115          ; 20           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[14] ; AB25  ; 5        ; 115          ; 16           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[15] ; W27   ; 5        ; 115          ; 20           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[16] ; V22   ; 5        ; 115          ; 26           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[17] ; V28   ; 5        ; 115          ; 22           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[18] ; AB28  ; 5        ; 115          ; 17           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[19] ; U22   ; 5        ; 115          ; 26           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[1]  ; V24   ; 5        ; 115          ; 24           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[20] ; V27   ; 5        ; 115          ; 22           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[21] ; V21   ; 5        ; 115          ; 25           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[22] ; Y26   ; 5        ; 115          ; 18           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[23] ; AC26  ; 5        ; 115          ; 11           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[24] ; AE28  ; 5        ; 115          ; 11           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[25] ; W21   ; 5        ; 115          ; 25           ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[26] ; AE27  ; 5        ; 115          ; 12           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[27] ; W26   ; 5        ; 115          ; 19           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[28] ; AA25  ; 5        ; 115          ; 17           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[29] ; AD26  ; 5        ; 115          ; 10           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[2]  ; V23   ; 5        ; 115          ; 24           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[30] ; U23   ; 5        ; 115          ; 22           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[31] ; W28   ; 5        ; 115          ; 21           ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[3]  ; AA26  ; 5        ; 115          ; 16           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[4]  ; U24   ; 5        ; 115          ; 28           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[5]  ; U21   ; 5        ; 115          ; 29           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[6]  ; U25   ; 5        ; 115          ; 27           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[7]  ; U26   ; 5        ; 115          ; 27           ; 7            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[8]  ; AD28  ; 5        ; 115          ; 12           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
+; dmem_address[9]  ; U28   ; 5        ; 115          ; 28           ; 0            ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; Fitter               ; -                    ; -                   ;
 ; servo1           ; AC15  ; 4        ; 60           ; 0            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; servo2           ; Y17   ; 4        ; 96           ; 0            ; 21           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
 ; servo3           ; Y16   ; 4        ; 96           ; 0            ; 14           ; no              ; no                     ; no            ; 2         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; User                 ; -                    ; -                   ;
@@ -406,14 +406,7 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; P23      ; MSEL1                       ; -                        ; -                       ; Dedicated Programming Pin ;
 ; M22      ; MSEL2                       ; -                        ; -                       ; Dedicated Programming Pin ;
 ; P22      ; MSEL3                       ; -                        ; -                       ; Dedicated Programming Pin ;
-; P26      ; DIFFIO_R24n, INIT_DONE      ; Use as regular IO        ; dmem_address[30]        ; Dual Purpose Pin          ;
-; P25      ; DIFFIO_R24p, CRC_ERROR      ; Use as regular IO        ; dmem_address[13]        ; Dual Purpose Pin          ;
 ; P28      ; DIFFIO_R23n, nCEO           ; Use as programming pin   ; ~ALTERA_nCEO~           ; Dual Purpose Pin          ;
-; P27      ; DIFFIO_R23p, CLKUSR         ; Use as regular IO        ; dmem_address[16]        ; Dual Purpose Pin          ;
-; G28      ; DIFFIO_R15n, nWE            ; Use as regular IO        ; dmem_address[14]        ; Dual Purpose Pin          ;
-; G27      ; DIFFIO_R15p, nOE            ; Use as regular IO        ; dmem_address[15]        ; Dual Purpose Pin          ;
-; F28      ; DIFFIO_R13n, nAVD           ; Use as regular IO        ; dmem_address[7]         ; Dual Purpose Pin          ;
-; F27      ; DIFFIO_R13p                 ; Use as regular IO        ; dmem_address[9]         ; Dual Purpose Pin          ;
 +----------+-----------------------------+--------------------------+-------------------------+---------------------------+
 
 
@@ -426,8 +419,8 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; 2        ; 1 / 63 ( 2 % )   ; 2.5V          ; --           ;
 ; 3        ; 0 / 73 ( 0 % )   ; 2.5V          ; --           ;
 ; 4        ; 8 / 71 ( 11 % )  ; 2.5V          ; --           ;
-; 5        ; 9 / 65 ( 14 % )  ; 2.5V          ; --           ;
-; 6        ; 30 / 58 ( 52 % ) ; 2.5V          ; --           ;
+; 5        ; 38 / 65 ( 58 % ) ; 2.5V          ; --           ;
+; 6        ; 1 / 58 ( 2 % )   ; 2.5V          ; --           ;
 ; 7        ; 0 / 72 ( 0 % )   ; 2.5V          ; --           ;
 ; 8        ; 0 / 71 ( 0 % )   ; 2.5V          ; --           ;
 +----------+------------------+---------------+--------------+
@@ -488,8 +481,8 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; AA22     ; 275        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AA23     ; 280        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AA24     ; 279        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; AA25     ; 294        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; AA26     ; 293        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; AA25     ; 294        ; 5        ; dmem_address[28]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; AA26     ; 293        ; 5        ; dmem_address[3]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; AA27     ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; AA28     ;            ; 5        ; VCCIO5                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; AB1      ; 86         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -516,10 +509,10 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; AB22     ; 265        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; AB23     ; 276        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AB24     ; 274        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; AB25     ; 292        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; AB26     ; 291        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; AB25     ; 292        ; 5        ; dmem_address[14]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; AB26     ; 291        ; 5        ; dmem_address[10]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; AB27     ; 296        ; 5        ; dmem_out[3]                                               ; input  ; 2.5 V        ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; AB28     ; 295        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; AB28     ; 295        ; 5        ; dmem_address[18]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; AC1      ; 94         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AC2      ; 93         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AC3      ; 95         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -545,7 +538,7 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; AC23     ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; AC24     ; 273        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AC25     ; 272        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; AC26     ; 282        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; AC26     ; 282        ; 5        ; dmem_address[23]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; AC27     ; 290        ; 5        ; dmem_out[1]                                               ; input  ; 2.5 V        ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; AC28     ; 289        ; 5        ; dmem_out[0]                                               ; input  ; 2.5 V        ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; AD1      ; 98         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -573,9 +566,9 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; AD23     ;            ; 4        ; VCCIO4                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; AD24     ; 260        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; AD25     ; 255        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
-; AD26     ; 281        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; AD26     ; 281        ; 5        ; dmem_address[29]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; AD27     ; 286        ; 5        ; dmem_out[2]                                               ; input  ; 2.5 V        ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; AD28     ; 285        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; AD28     ; 285        ; 5        ; dmem_address[8]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; AE1      ; 106        ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AE2      ; 105        ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AE3      ; 122        ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -602,8 +595,8 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; AE24     ; 256        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; AE25     ; 243        ; 4        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
 ; AE26     ; 278        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; AE27     ; 284        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; AE28     ; 283        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; AE27     ; 284        ; 5        ; dmem_address[26]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; AE28     ; 283        ; 5        ; dmem_address[24]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; AF1      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; AF2      ; 123        ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; AF3      ; 138        ; 3        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Column I/O ;                 ; no       ; On           ;
@@ -824,8 +817,8 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; F24      ; 396        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; F25      ; 395        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; F26      ; 379        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; F27      ; 373        ; 6        ; dmem_address[9]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F28      ; 372        ; 6        ; dmem_address[7]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; F27      ; 373        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; F28      ; 372        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G1       ; 26         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G2       ; 25         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G3       ; 13         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -852,8 +845,8 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; G24      ; 397        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G25      ; 393        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; G26      ; 392        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; G27      ; 367        ; 6        ; dmem_address[15]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; G28      ; 366        ; 6        ; dmem_address[14]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; G27      ; 367        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; G28      ; 366        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; H1       ;            ; 1        ; VCCIO1                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; H2       ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; H3       ; 15         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -906,8 +899,8 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; J22      ; 394        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; J23      ; 387        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J24      ; 386        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; J25      ; 365        ; 6        ; dmem_address[5]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J26      ; 364        ; 6        ; dmem_address[2]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; J25      ; 365        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; J26      ; 364        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; J27      ; 338        ; 6        ; GND+                                                      ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; J28      ; 337        ; 6        ; GND+                                                      ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; K1       ; 28         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -934,10 +927,10 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; K22      ; 388        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; K23      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; K24      ;            ; 6        ; VCCIO6                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
-; K25      ; 371        ; 6        ; dmem_address[10]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; K26      ; 370        ; 6        ; dmem_address[1]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; K27      ; 362        ; 6        ; dmem_address[27]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; K28      ; 361        ; 6        ; dmem_address[12]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; K25      ; 371        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; K26      ; 370        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; K27      ; 362        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; K28      ; 361        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L1       ; 49         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L2       ; 48         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L3       ; 32         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -960,12 +953,12 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; L20      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; L21      ; 385        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; L22      ; 384        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; L23      ; 360        ; 6        ; dmem_address[11]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L24      ; 359        ; 6        ; dmem_address[0]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L25      ; 369        ; 6        ; dmem_address[20]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L26      ; 363        ; 6        ; dmem_address[29]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L27      ; 358        ; 6        ; dmem_address[3]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L28      ; 357        ; 6        ; dmem_address[31]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; L23      ; 360        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; L24      ; 359        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; L25      ; 369        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; L26      ; 363        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; L27      ; 358        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; L28      ; 357        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M1       ; 51         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M2       ; 50         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; M3       ; 34         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -986,14 +979,14 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; M18      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; M19      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; M20      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; M21      ; 368        ; 6        ; dmem_address[8]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; M21      ; 368        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; M22      ; 342        ; 6        ; ^MSEL2                                                    ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; M23      ; 344        ; 6        ; dmem_address[25]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M24      ; 347        ; 6        ; dmem_address[23]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M25      ; 356        ; 6        ; dmem_address[24]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M26      ; 355        ; 6        ; dmem_address[22]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M27      ; 354        ; 6        ; dmem_address[28]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M28      ; 353        ; 6        ; dmem_address[4]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; M23      ; 344        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; M24      ; 347        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; M25      ; 356        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; M26      ; 355        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; M27      ; 354        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; M28      ; 353        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N1       ;            ; 1        ; VCCIO1                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; N2       ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; N3       ; 45         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -1014,12 +1007,12 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; N18      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; N19      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; N20      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
-; N21      ; 348        ; 6        ; dmem_address[19]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N21      ; 348        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; N22      ; 340        ; 6        ; ^MSEL0                                                    ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; N23      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; N24      ;            ; 6        ; VCCIO6                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
-; N25      ; 352        ; 6        ; dmem_address[6]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; N26      ; 351        ; 6        ; dmem_address[21]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; N25      ; 352        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; N26      ; 351        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; N27      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; N28      ;            ; 6        ; VCCIO6                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
 ; P1       ; 53         ; 1        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -1042,13 +1035,13 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; P18      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; P19      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; P20      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; P21      ; 334        ; 5        ; dmem_address[17]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; P21      ; 334        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; P22      ; 343        ; 6        ; ^MSEL3                                                    ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; P23      ; 341        ; 6        ; ^MSEL1                                                    ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; P24      ; 339        ; 6        ; ^CONF_DONE                                                ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; P25      ; 346        ; 6        ; dmem_address[13]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; P26      ; 345        ; 6        ; dmem_address[30]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; P27      ; 350        ; 6        ; dmem_address[16]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; P25      ; 346        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; P26      ; 345        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; P27      ; 350        ; 6        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; P28      ; 349        ; 6        ; ~ALTERA_nCEO~ / RESERVED_OUTPUT_OPEN_DRAIN                ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; R1       ; 68         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R2       ; 67         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -1070,8 +1063,8 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; R18      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; R19      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; R20      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
-; R21      ; 333        ; 5        ; dmem_address[18]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
-; R22      ; 332        ; 5        ; dmem_address[26]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; R21      ; 333        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; R22      ; 332        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R23      ; 331        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R24      ; 330        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; R25      ; 327        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -1126,14 +1119,14 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; U18      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; U19      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; U20      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
-; U21      ; 319        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; U22      ; 313        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; U23      ; 305        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; U24      ; 316        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; U25      ; 315        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; U26      ; 314        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; U21      ; 319        ; 5        ; dmem_address[5]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U22      ; 313        ; 5        ; dmem_address[19]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U23      ; 305        ; 5        ; dmem_address[30]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U24      ; 316        ; 5        ; dmem_address[4]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U25      ; 315        ; 5        ; dmem_address[6]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; U26      ; 314        ; 5        ; dmem_address[7]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; U27      ; 318        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; U28      ; 317        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; U28      ; 317        ; 5        ; dmem_address[9]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; V1       ; 84         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; V2       ; 83         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; V3       ; 82         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -1154,14 +1147,14 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; V18      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; V19      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; V20      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; V21      ; 311        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; V22      ; 312        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; V23      ; 309        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; V24      ; 308        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; V25      ; 307        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; V26      ; 306        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; V27      ; 304        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; V28      ; 303        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; V21      ; 311        ; 5        ; dmem_address[21]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V22      ; 312        ; 5        ; dmem_address[16]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V23      ; 309        ; 5        ; dmem_address[2]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V24      ; 308        ; 5        ; dmem_address[1]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V25      ; 307        ; 5        ; dmem_address[12]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V26      ; 306        ; 5        ; dmem_address[0]                                           ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V27      ; 304        ; 5        ; dmem_address[20]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; V28      ; 303        ; 5        ; dmem_address[17]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; W1       ; 88         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; W2       ; 87         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; W3       ; 112        ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -1182,14 +1175,14 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; W18      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; W19      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; W20      ;            ;          ; VCCINT                                                    ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
-; W21      ; 310        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; W21      ; 310        ; 5        ; dmem_address[25]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; W22      ; 321        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; W23      ;            ;          ; GND                                                       ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; W24      ;            ; 5        ; VCCIO5                                                    ; power  ;              ; 2.5V    ; --         ;                 ; --       ; --           ;
-; W25      ; 300        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; W26      ; 299        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; W27      ; 301        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; W28      ; 302        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; W25      ; 300        ; 5        ; dmem_address[13]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; W26      ; 299        ; 5        ; dmem_address[27]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; W27      ; 301        ; 5        ; dmem_address[15]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; W28      ; 302        ; 5        ; dmem_address[31]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; Y1       ; 66         ; 2        ; GND+                                                      ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; Y2       ; 65         ; 2        ; clk                                                       ; input  ; 2.5 V        ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; Y3       ; 92         ; 2        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
@@ -1214,8 +1207,8 @@ The pin-out file can be found in C:/Users/gr64/Documents/ECE350Final/Servos/Serv
 ; Y22      ; 320        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
 ; Y23      ; 288        ; 5        ; rst                                                       ; input  ; 2.5 V        ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; Y24      ; 287        ; 5        ; enable                                                    ; input  ; 2.5 V        ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; Y25      ; 298        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
-; Y26      ; 297        ; 5        ; RESERVED_INPUT_WITH_WEAK_PULLUP                           ;        ;              ;         ; Row I/O    ;                 ; no       ; On           ;
+; Y25      ; 298        ; 5        ; dmem_address[11]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
+; Y26      ; 297        ; 5        ; dmem_address[22]                                          ; output ; 2.5 V        ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; Y27      ; 336        ; 5        ; GND+                                                      ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; Y28      ; 335        ; 5        ; GND+                                                      ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 +----------+------------+----------+-----------------------------------------------------------+--------+--------------+---------+------------+-----------------+----------+--------------+
@@ -1314,8 +1307,8 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+----------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node       ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name                          ; Entity Name     ; Library Name ;
 +----------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+----------------------------------------------+-----------------+--------------+
-; |ServoTranslator                 ; 1240 (1213) ; 372 (364)                 ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 47   ; 0            ; 868 (849)    ; 1 (1)             ; 371 (358)        ; |ServoTranslator                             ; ServoTranslator ; work         ;
-;    |ServoControl:myservocontrol| ; 32 (32)     ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 19 (19)      ; 0 (0)             ; 13 (13)          ; |ServoTranslator|ServoControl:myservocontrol ; ServoControl    ; work         ;
+; |ServoTranslator                 ; 1258 (1232) ; 372 (364)                 ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 47   ; 0            ; 886 (868)    ; 1 (1)             ; 371 (354)        ; |ServoTranslator                             ; ServoTranslator ; work         ;
+;    |ServoControl:myservocontrol| ; 35 (35)     ; 8 (8)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0    ; 0            ; 18 (18)      ; 0 (0)             ; 17 (17)          ; |ServoTranslator|ServoControl:myservocontrol ; ServoControl    ; work         ;
 +----------------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+----------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1392,24 +1385,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - ServoControl:myservocontrol|servo2  ; 0                 ; 6       ;
 ;      - ServoControl:myservocontrol|servo1  ; 0                 ; 6       ;
 ; dmem_out[1]                                ;                   ;         ;
-;      - left_servo_forward~14               ; 1                 ; 6       ;
-;      - left_servo_forward~19               ; 1                 ; 6       ;
-;      - left_servo_forward~81               ; 1                 ; 6       ;
+;      - left_servo_forward~6                ; 1                 ; 6       ;
+;      - left_servo_forward~11               ; 1                 ; 6       ;
+;      - left_servo_forward~80               ; 1                 ; 6       ;
 ;      - Equal0~0                            ; 1                 ; 6       ;
-;      - left_servo_forward~102              ; 1                 ; 6       ;
-;      - left_servo_forward~114              ; 1                 ; 6       ;
-;      - right_servo_forward~93              ; 1                 ; 6       ;
+;      - left_servo_forward~115              ; 1                 ; 6       ;
+;      - left_servo_forward~117              ; 1                 ; 6       ;
+;      - right_servo_forward~81              ; 1                 ; 6       ;
+;      - right_servo_forward~89              ; 1                 ; 6       ;
+;      - top_servo_forward~8                 ; 1                 ; 6       ;
+;      - top_servo_forward~10                ; 1                 ; 6       ;
+;      - top_servo_forward~57                ; 1                 ; 6       ;
+;      - top_servo_forward~97                ; 1                 ; 6       ;
+;      - top_servo_forward~101               ; 1                 ; 6       ;
+;      - bottom_servo_forward~21             ; 1                 ; 6       ;
+;      - bottom_servo_forward~23             ; 1                 ; 6       ;
+;      - bottom_servo_forward~74             ; 1                 ; 6       ;
+;      - bottom_servo_forward~103            ; 1                 ; 6       ;
+;      - bottom_servo_forward~105            ; 1                 ; 6       ;
 ;      - Equal0~1                            ; 1                 ; 6       ;
 ;      - Equal0~2                            ; 1                 ; 6       ;
-;      - right_servo_forward~101             ; 1                 ; 6       ;
-;      - top_servo_forward~19                ; 1                 ; 6       ;
-;      - top_servo_forward~66                ; 1                 ; 6       ;
-;      - top_servo_forward~94                ; 1                 ; 6       ;
-;      - top_servo_forward~100               ; 1                 ; 6       ;
-;      - bottom_servo_forward~19             ; 1                 ; 6       ;
-;      - bottom_servo_forward~69             ; 1                 ; 6       ;
-;      - bottom_servo_forward~93             ; 1                 ; 6       ;
-;      - bottom_servo_forward~97             ; 1                 ; 6       ;
 ;      - Equal0~3                            ; 1                 ; 6       ;
 ;      - Equal0~4                            ; 1                 ; 6       ;
 ;      - Equal0~5                            ; 1                 ; 6       ;
@@ -1419,37 +1414,46 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - Equal0~9                            ; 1                 ; 6       ;
 ;      - Equal0~10                           ; 1                 ; 6       ;
 ;      - Equal0~11                           ; 1                 ; 6       ;
-;      - top_servo_rotate~24                 ; 1                 ; 6       ;
-;      - top_servo_rotate~43                 ; 1                 ; 6       ;
-;      - bottom_servo_rotate~23              ; 1                 ; 6       ;
+;      - top_servo_rotate~7                  ; 1                 ; 6       ;
+;      - top_servo_rotate~32                 ; 1                 ; 6       ;
+;      - top_servo_rotate~42                 ; 1                 ; 6       ;
+;      - top_servo_rotate~52                 ; 1                 ; 6       ;
+;      - bottom_servo_rotate~20              ; 1                 ; 6       ;
 ;      - finished_move_flag~0                ; 1                 ; 6       ;
-;      - finished_move_flag~4                ; 1                 ; 6       ;
+;      - finished_move_flag~1                ; 1                 ; 6       ;
+;      - finished_move_flag~2                ; 1                 ; 6       ;
 ;      - finished_move_flag~5                ; 1                 ; 6       ;
 ;      - finished_move_flag~6                ; 1                 ; 6       ;
-;      - local_count_12~153                  ; 1                 ; 6       ;
+;      - local_count_12~186                  ; 1                 ; 6       ;
 ; dmem_out[0]                                ;                   ;         ;
-;      - left_servo_forward~14               ; 0                 ; 6       ;
-;      - left_servo_forward~81               ; 0                 ; 6       ;
+;      - left_servo_forward~6                ; 0                 ; 6       ;
+;      - left_servo_forward~80               ; 0                 ; 6       ;
 ;      - Equal0~0                            ; 0                 ; 6       ;
-;      - left_servo_forward~113              ; 0                 ; 6       ;
-;      - right_servo_forward~30              ; 0                 ; 6       ;
-;      - right_servo_forward~32              ; 0                 ; 6       ;
-;      - right_servo_forward~55              ; 0                 ; 6       ;
-;      - right_servo_forward~83              ; 0                 ; 6       ;
+;      - left_servo_forward~103              ; 0                 ; 6       ;
+;      - left_servo_forward~104              ; 0                 ; 6       ;
+;      - left_servo_forward~115              ; 0                 ; 6       ;
+;      - left_servo_forward~116              ; 0                 ; 6       ;
+;      - right_servo_forward~24              ; 0                 ; 6       ;
+;      - right_servo_forward~26              ; 0                 ; 6       ;
+;      - right_servo_forward~43              ; 0                 ; 6       ;
+;      - right_servo_forward~64              ; 0                 ; 6       ;
+;      - right_servo_forward~76              ; 0                 ; 6       ;
 ;      - right_servo_forward~84              ; 0                 ; 6       ;
-;      - right_servo_forward~91              ; 0                 ; 6       ;
-;      - right_servo_forward~96              ; 0                 ; 6       ;
-;      - right_servo_forward~98              ; 0                 ; 6       ;
+;      - right_servo_forward~86              ; 0                 ; 6       ;
+;      - top_servo_forward~0                 ; 0                 ; 6       ;
+;      - top_servo_forward~8                 ; 0                 ; 6       ;
+;      - top_servo_forward~9                 ; 0                 ; 6       ;
+;      - top_servo_forward~57                ; 0                 ; 6       ;
+;      - top_servo_forward~91                ; 0                 ; 6       ;
+;      - top_servo_forward~97                ; 0                 ; 6       ;
+;      - bottom_servo_forward~10             ; 0                 ; 6       ;
+;      - bottom_servo_forward~21             ; 0                 ; 6       ;
+;      - bottom_servo_forward~22             ; 0                 ; 6       ;
+;      - bottom_servo_forward~74             ; 0                 ; 6       ;
+;      - bottom_servo_forward~99             ; 0                 ; 6       ;
+;      - bottom_servo_forward~103            ; 0                 ; 6       ;
 ;      - Equal0~1                            ; 0                 ; 6       ;
 ;      - Equal0~2                            ; 0                 ; 6       ;
-;      - top_servo_forward~18                ; 0                 ; 6       ;
-;      - top_servo_forward~66                ; 0                 ; 6       ;
-;      - top_servo_forward~100               ; 0                 ; 6       ;
-;      - top_servo_forward~104               ; 0                 ; 6       ;
-;      - bottom_servo_forward~18             ; 0                 ; 6       ;
-;      - bottom_servo_forward~69             ; 0                 ; 6       ;
-;      - bottom_servo_forward~97             ; 0                 ; 6       ;
-;      - bottom_servo_forward~99             ; 0                 ; 6       ;
 ;      - Equal0~3                            ; 0                 ; 6       ;
 ;      - Equal0~4                            ; 0                 ; 6       ;
 ;      - Equal0~5                            ; 0                 ; 6       ;
@@ -1459,36 +1463,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - Equal0~9                            ; 0                 ; 6       ;
 ;      - Equal0~10                           ; 0                 ; 6       ;
 ;      - Equal0~11                           ; 0                 ; 6       ;
-;      - top_servo_rotate~24                 ; 0                 ; 6       ;
-;      - top_servo_rotate~33                 ; 0                 ; 6       ;
-;      - top_servo_rotate~34                 ; 0                 ; 6       ;
-;      - top_servo_rotate~40                 ; 0                 ; 6       ;
-;      - top_servo_rotate~41                 ; 0                 ; 6       ;
+;      - top_servo_rotate~32                 ; 0                 ; 6       ;
+;      - top_servo_rotate~43                 ; 0                 ; 6       ;
+;      - top_servo_rotate~49                 ; 0                 ; 6       ;
+;      - top_servo_rotate~50                 ; 0                 ; 6       ;
 ;      - finished_move_flag~0                ; 0                 ; 6       ;
 ;      - finished_move_flag~1                ; 0                 ; 6       ;
 ;      - finished_move_flag~2                ; 0                 ; 6       ;
-;      - finished_move_flag~4                ; 0                 ; 6       ;
+;      - finished_move_flag~3                ; 0                 ; 6       ;
 ;      - finished_move_flag~5                ; 0                 ; 6       ;
-;      - finished_move_flag~6                ; 0                 ; 6       ;
-;      - finished_move_flag~7                ; 0                 ; 6       ;
-;      - finished_move_flag~8                ; 0                 ; 6       ;
-;      - local_count_12~153                  ; 0                 ; 6       ;
-;      - bottom_servo_forward~103            ; 0                 ; 6       ;
-;      - top_servo_forward~112               ; 0                 ; 6       ;
-;      - left_servo_forward~122              ; 0                 ; 6       ;
+;      - local_count_12~186                  ; 0                 ; 6       ;
 ; dmem_out[2]                                ;                   ;         ;
 ;      - Equal0~0                            ; 1                 ; 6       ;
-;      - left_servo_forward~115              ; 1                 ; 6       ;
-;      - left_servo_forward~116              ; 1                 ; 6       ;
-;      - right_servo_forward~93              ; 1                 ; 6       ;
-;      - right_servo_forward~100             ; 1                 ; 6       ;
+;      - left_servo_forward~118              ; 1                 ; 6       ;
+;      - left_servo_forward~119              ; 1                 ; 6       ;
+;      - right_servo_forward~81              ; 1                 ; 6       ;
+;      - right_servo_forward~88              ; 1                 ; 6       ;
+;      - right_servo_forward~89              ; 1                 ; 6       ;
+;      - top_servo_forward~102               ; 1                 ; 6       ;
+;      - top_servo_forward~103               ; 1                 ; 6       ;
+;      - bottom_servo_forward~106            ; 1                 ; 6       ;
+;      - bottom_servo_forward~107            ; 1                 ; 6       ;
 ;      - Equal0~1                            ; 1                 ; 6       ;
 ;      - Equal0~2                            ; 1                 ; 6       ;
-;      - right_servo_forward~101             ; 1                 ; 6       ;
-;      - top_servo_forward~105               ; 1                 ; 6       ;
-;      - top_servo_forward~106               ; 1                 ; 6       ;
-;      - bottom_servo_forward~100            ; 1                 ; 6       ;
-;      - bottom_servo_forward~101            ; 1                 ; 6       ;
 ;      - Equal0~3                            ; 1                 ; 6       ;
 ;      - Equal0~4                            ; 1                 ; 6       ;
 ;      - Equal0~5                            ; 1                 ; 6       ;
@@ -1498,27 +1495,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - Equal0~9                            ; 1                 ; 6       ;
 ;      - Equal0~10                           ; 1                 ; 6       ;
 ;      - Equal0~11                           ; 1                 ; 6       ;
-;      - top_servo_rotate~44                 ; 1                 ; 6       ;
-;      - top_servo_rotate~45                 ; 1                 ; 6       ;
-;      - bottom_servo_rotate~23              ; 1                 ; 6       ;
-;      - finished_move_flag~3                ; 1                 ; 6       ;
-;      - finished_move_flag~10               ; 1                 ; 6       ;
-;      - local_count_12~153                  ; 1                 ; 6       ;
+;      - top_servo_rotate~7                  ; 1                 ; 6       ;
+;      - top_servo_rotate~53                 ; 1                 ; 6       ;
+;      - top_servo_rotate~54                 ; 1                 ; 6       ;
+;      - bottom_servo_rotate~20              ; 1                 ; 6       ;
+;      - finished_move_flag~7                ; 1                 ; 6       ;
+;      - local_count_12~186                  ; 1                 ; 6       ;
 ; dmem_out[3]                                ;                   ;         ;
 ;      - Equal0~0                            ; 1                 ; 6       ;
-;      - left_servo_forward~115              ; 1                 ; 6       ;
-;      - right_servo_forward~33              ; 1                 ; 6       ;
-;      - right_servo_forward~55              ; 1                 ; 6       ;
-;      - right_servo_forward~77              ; 1                 ; 6       ;
-;      - right_servo_forward~83              ; 1                 ; 6       ;
-;      - right_servo_forward~84              ; 1                 ; 6       ;
-;      - right_servo_forward~91              ; 1                 ; 6       ;
-;      - right_servo_forward~99              ; 1                 ; 6       ;
+;      - left_servo_forward~118              ; 1                 ; 6       ;
+;      - right_servo_forward~27              ; 1                 ; 6       ;
+;      - right_servo_forward~43              ; 1                 ; 6       ;
+;      - right_servo_forward~63              ; 1                 ; 6       ;
+;      - right_servo_forward~64              ; 1                 ; 6       ;
+;      - right_servo_forward~76              ; 1                 ; 6       ;
+;      - right_servo_forward~87              ; 1                 ; 6       ;
+;      - right_servo_forward~89              ; 1                 ; 6       ;
+;      - top_servo_forward~102               ; 1                 ; 6       ;
+;      - bottom_servo_forward~106            ; 1                 ; 6       ;
 ;      - Equal0~1                            ; 1                 ; 6       ;
 ;      - Equal0~2                            ; 1                 ; 6       ;
-;      - right_servo_forward~101             ; 1                 ; 6       ;
-;      - top_servo_forward~105               ; 1                 ; 6       ;
-;      - bottom_servo_forward~100            ; 1                 ; 6       ;
 ;      - Equal0~3                            ; 1                 ; 6       ;
 ;      - Equal0~4                            ; 1                 ; 6       ;
 ;      - Equal0~5                            ; 1                 ; 6       ;
@@ -1528,32 +1524,37 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - Equal0~9                            ; 1                 ; 6       ;
 ;      - Equal0~10                           ; 1                 ; 6       ;
 ;      - Equal0~11                           ; 1                 ; 6       ;
-;      - top_servo_rotate~44                 ; 1                 ; 6       ;
-;      - top_servo_rotate~45                 ; 1                 ; 6       ;
-;      - bottom_servo_rotate~23              ; 1                 ; 6       ;
-;      - finished_move_flag~3                ; 1                 ; 6       ;
-;      - finished_move_flag~9                ; 1                 ; 6       ;
-;      - local_count_12~153                  ; 1                 ; 6       ;
+;      - top_servo_rotate~7                  ; 1                 ; 6       ;
+;      - top_servo_rotate~53                 ; 1                 ; 6       ;
+;      - top_servo_rotate~54                 ; 1                 ; 6       ;
+;      - bottom_servo_rotate~20              ; 1                 ; 6       ;
+;      - finished_move_flag~4                ; 1                 ; 6       ;
+;      - finished_move_flag~7                ; 1                 ; 6       ;
+;      - local_count_12~186                  ; 1                 ; 6       ;
 +--------------------------------------------+-------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                              ;
-+--------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; Name               ; Location           ; Fan-Out ; Usage                     ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+--------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
-; clk                ; PIN_Y2             ; 372     ; Clock                     ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-; finished_move_flag ; FF_X72_Y23_N17     ; 203     ; Clock enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
-; local_count_10~126 ; LCCOMB_X66_Y26_N30 ; 40      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; local_count_11~90  ; LCCOMB_X67_Y27_N24 ; 36      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; local_count_12~187 ; LCCOMB_X68_Y23_N18 ; 63      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; local_count_2~50   ; LCCOMB_X74_Y27_N8  ; 12      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; local_count_4~49   ; LCCOMB_X73_Y26_N10 ; 13      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; local_count_6~49   ; LCCOMB_X77_Y27_N30 ; 12      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; local_count_8~49   ; LCCOMB_X73_Y24_N22 ; 12      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; local_count_9~87   ; LCCOMB_X62_Y25_N20 ; 41      ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-; rst                ; PIN_Y23            ; 8       ; Clock enable              ; no     ; --                   ; --               ; --                        ;
-+--------------------+--------------------+---------+---------------------------+--------+----------------------+------------------+---------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                 ;
++--------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name               ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++--------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; clk                ; PIN_Y2             ; 372     ; Clock        ; yes    ; Global Clock         ; GCLK4            ; --                        ;
+; finished_move_flag ; FF_X61_Y18_N25     ; 48      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_10~155 ; LCCOMB_X68_Y23_N10 ; 45      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_11~130 ; LCCOMB_X60_Y17_N20 ; 44      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_12~188 ; LCCOMB_X62_Y19_N22 ; 63      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_1~26   ; LCCOMB_X69_Y16_N30 ; 5       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_2~54   ; LCCOMB_X70_Y17_N8  ; 18      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_3~27   ; LCCOMB_X67_Y16_N30 ; 5       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_4~53   ; LCCOMB_X65_Y21_N30 ; 18      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_5~26   ; LCCOMB_X70_Y19_N28 ; 5       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_6~54   ; LCCOMB_X73_Y20_N8  ; 18      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_7~26   ; LCCOMB_X58_Y20_N8  ; 5       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_8~54   ; LCCOMB_X58_Y19_N8  ; 18      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; local_count_9~125  ; LCCOMB_X69_Y20_N18 ; 50      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; rst                ; PIN_Y23            ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
++--------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------+
@@ -1561,7 +1562,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name ; Location ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; clk  ; PIN_Y2   ; 372     ; 93                                   ; Global Clock         ; GCLK4            ; --                        ;
+; clk  ; PIN_Y2   ; 372     ; 75                                   ; Global Clock         ; GCLK4            ; --                        ;
 +------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -1570,48 +1571,48 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+---------------------------+
 ; Routing Resource Type ; Usage                     ;
 +-----------------------+---------------------------+
-; Block interconnects   ; 1,784 / 342,891 ( < 1 % ) ;
-; C16 interconnects     ; 21 / 10,120 ( < 1 % )     ;
-; C4 interconnects      ; 800 / 209,544 ( < 1 % )   ;
-; Direct links          ; 299 / 342,891 ( < 1 % )   ;
+; Block interconnects   ; 1,821 / 342,891 ( < 1 % ) ;
+; C16 interconnects     ; 11 / 10,120 ( < 1 % )     ;
+; C4 interconnects      ; 818 / 209,544 ( < 1 % )   ;
+; Direct links          ; 305 / 342,891 ( < 1 % )   ;
 ; Global clocks         ; 1 / 20 ( 5 % )            ;
-; Local interconnects   ; 872 / 119,088 ( < 1 % )   ;
+; Local interconnects   ; 918 / 119,088 ( < 1 % )   ;
 ; R24 interconnects     ; 32 / 9,963 ( < 1 % )      ;
-; R4 interconnects      ; 936 / 289,782 ( < 1 % )   ;
+; R4 interconnects      ; 971 / 289,782 ( < 1 % )   ;
 +-----------------------+---------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +---------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 14.42) ; Number of LABs  (Total = 86) ;
+; Number of Logic Elements  (Average = 14.63) ; Number of LABs  (Total = 86) ;
 +---------------------------------------------+------------------------------+
-; 1                                           ; 3                            ;
-; 2                                           ; 2                            ;
+; 1                                           ; 2                            ;
+; 2                                           ; 1                            ;
 ; 3                                           ; 1                            ;
 ; 4                                           ; 0                            ;
-; 5                                           ; 2                            ;
-; 6                                           ; 0                            ;
-; 7                                           ; 0                            ;
-; 8                                           ; 0                            ;
+; 5                                           ; 0                            ;
+; 6                                           ; 1                            ;
+; 7                                           ; 2                            ;
+; 8                                           ; 1                            ;
 ; 9                                           ; 0                            ;
 ; 10                                          ; 0                            ;
 ; 11                                          ; 1                            ;
 ; 12                                          ; 1                            ;
-; 13                                          ; 1                            ;
-; 14                                          ; 4                            ;
-; 15                                          ; 8                            ;
-; 16                                          ; 63                           ;
+; 13                                          ; 3                            ;
+; 14                                          ; 2                            ;
+; 15                                          ; 3                            ;
+; 16                                          ; 68                           ;
 +---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.22) ; Number of LABs  (Total = 86) ;
+; LAB-wide Signals  (Average = 1.24) ; Number of LABs  (Total = 86) ;
 +------------------------------------+------------------------------+
-; 1 Clock                            ; 68                           ;
-; 1 Clock enable                     ; 36                           ;
+; 1 Clock                            ; 66                           ;
+; 1 Clock enable                     ; 40                           ;
 ; 2 Clock enables                    ; 1                            ;
 +------------------------------------+------------------------------+
 
@@ -1619,37 +1620,37 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 18.74) ; Number of LABs  (Total = 86) ;
+; Number of Signals Sourced  (Average = 18.95) ; Number of LABs  (Total = 86) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
-; 1                                            ; 3                            ;
-; 2                                            ; 1                            ;
+; 1                                            ; 2                            ;
+; 2                                            ; 0                            ;
 ; 3                                            ; 1                            ;
 ; 4                                            ; 1                            ;
-; 5                                            ; 2                            ;
-; 6                                            ; 0                            ;
-; 7                                            ; 0                            ;
-; 8                                            ; 0                            ;
+; 5                                            ; 0                            ;
+; 6                                            ; 1                            ;
+; 7                                            ; 2                            ;
+; 8                                            ; 1                            ;
 ; 9                                            ; 0                            ;
 ; 10                                           ; 0                            ;
-; 11                                           ; 0                            ;
+; 11                                           ; 1                            ;
 ; 12                                           ; 0                            ;
 ; 13                                           ; 0                            ;
-; 14                                           ; 1                            ;
-; 15                                           ; 3                            ;
-; 16                                           ; 9                            ;
-; 17                                           ; 14                           ;
-; 18                                           ; 3                            ;
-; 19                                           ; 4                            ;
-; 20                                           ; 5                            ;
-; 21                                           ; 8                            ;
-; 22                                           ; 9                            ;
-; 23                                           ; 6                            ;
-; 24                                           ; 6                            ;
-; 25                                           ; 2                            ;
-; 26                                           ; 4                            ;
-; 27                                           ; 1                            ;
-; 28                                           ; 1                            ;
+; 14                                           ; 0                            ;
+; 15                                           ; 0                            ;
+; 16                                           ; 13                           ;
+; 17                                           ; 13                           ;
+; 18                                           ; 4                            ;
+; 19                                           ; 1                            ;
+; 20                                           ; 3                            ;
+; 21                                           ; 10                           ;
+; 22                                           ; 8                            ;
+; 23                                           ; 9                            ;
+; 24                                           ; 7                            ;
+; 25                                           ; 5                            ;
+; 26                                           ; 0                            ;
+; 27                                           ; 2                            ;
+; 28                                           ; 0                            ;
 ; 29                                           ; 0                            ;
 ; 30                                           ; 1                            ;
 ; 31                                           ; 0                            ;
@@ -1660,77 +1661,74 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                        ;
 +-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 8.78) ; Number of LABs  (Total = 86) ;
+; Number of Signals Sourced Out  (Average = 8.63) ; Number of LABs  (Total = 86) ;
 +-------------------------------------------------+------------------------------+
 ; 0                                               ; 0                            ;
 ; 1                                               ; 5                            ;
-; 2                                               ; 6                            ;
+; 2                                               ; 7                            ;
 ; 3                                               ; 4                            ;
-; 4                                               ; 6                            ;
-; 5                                               ; 5                            ;
-; 6                                               ; 2                            ;
-; 7                                               ; 8                            ;
-; 8                                               ; 9                            ;
-; 9                                               ; 4                            ;
-; 10                                              ; 5                            ;
-; 11                                              ; 3                            ;
-; 12                                              ; 6                            ;
-; 13                                              ; 5                            ;
-; 14                                              ; 5                            ;
-; 15                                              ; 5                            ;
-; 16                                              ; 6                            ;
+; 4                                               ; 4                            ;
+; 5                                               ; 4                            ;
+; 6                                               ; 5                            ;
+; 7                                               ; 6                            ;
+; 8                                               ; 8                            ;
+; 9                                               ; 6                            ;
+; 10                                              ; 4                            ;
+; 11                                              ; 6                            ;
+; 12                                              ; 5                            ;
+; 13                                              ; 7                            ;
+; 14                                              ; 6                            ;
+; 15                                              ; 3                            ;
+; 16                                              ; 5                            ;
 ; 17                                              ; 0                            ;
-; 18                                              ; 1                            ;
-; 19                                              ; 0                            ;
-; 20                                              ; 0                            ;
-; 21                                              ; 0                            ;
-; 22                                              ; 1                            ;
+; 18                                              ; 0                            ;
+; 19                                              ; 1                            ;
 +-------------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 18.12) ; Number of LABs  (Total = 86) ;
+; Number of Distinct Inputs  (Average = 18.64) ; Number of LABs  (Total = 86) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
 ; 2                                            ; 0                            ;
-; 3                                            ; 2                            ;
-; 4                                            ; 4                            ;
-; 5                                            ; 1                            ;
-; 6                                            ; 4                            ;
-; 7                                            ; 2                            ;
+; 3                                            ; 3                            ;
+; 4                                            ; 2                            ;
+; 5                                            ; 0                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 3                            ;
 ; 8                                            ; 1                            ;
-; 9                                            ; 3                            ;
-; 10                                           ; 3                            ;
-; 11                                           ; 2                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 2                            ;
+; 11                                           ; 6                            ;
 ; 12                                           ; 4                            ;
-; 13                                           ; 4                            ;
+; 13                                           ; 5                            ;
 ; 14                                           ; 5                            ;
-; 15                                           ; 1                            ;
-; 16                                           ; 4                            ;
-; 17                                           ; 4                            ;
-; 18                                           ; 2                            ;
-; 19                                           ; 4                            ;
-; 20                                           ; 2                            ;
-; 21                                           ; 3                            ;
+; 15                                           ; 4                            ;
+; 16                                           ; 1                            ;
+; 17                                           ; 6                            ;
+; 18                                           ; 7                            ;
+; 19                                           ; 3                            ;
+; 20                                           ; 1                            ;
+; 21                                           ; 4                            ;
 ; 22                                           ; 2                            ;
 ; 23                                           ; 1                            ;
 ; 24                                           ; 4                            ;
-; 25                                           ; 2                            ;
+; 25                                           ; 4                            ;
 ; 26                                           ; 2                            ;
 ; 27                                           ; 2                            ;
-; 28                                           ; 7                            ;
-; 29                                           ; 2                            ;
-; 30                                           ; 0                            ;
-; 31                                           ; 3                            ;
-; 32                                           ; 0                            ;
-; 33                                           ; 2                            ;
+; 28                                           ; 0                            ;
+; 29                                           ; 3                            ;
+; 30                                           ; 1                            ;
+; 31                                           ; 4                            ;
+; 32                                           ; 1                            ;
+; 33                                           ; 0                            ;
 ; 34                                           ; 1                            ;
-; 35                                           ; 1                            ;
+; 35                                           ; 0                            ;
 ; 36                                           ; 1                            ;
-; 37                                           ; 1                            ;
+; 37                                           ; 3                            ;
 +----------------------------------------------+------------------------------+
 
 
@@ -1938,14 +1936,14 @@ Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:05
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:04
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 6% of the available device resources in the region that extends from location X58_Y24 to location X68_Y36
+    Info (170196): Router estimated peak interconnect usage is 12% of the available device resources in the region that extends from location X58_Y12 to location X68_Y23
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
-Info (11888): Total time spent on timing analysis during the Fitter is 0.68 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.82 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1953,8 +1951,8 @@ Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file C:/Users/gr64/Documents/ECE350Final/Servos/ServoControl.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5725 megabytes
-    Info: Processing ended: Sun Apr 21 16:43:48 2019
+    Info: Peak virtual memory: 5728 megabytes
+    Info: Processing ended: Mon Apr 22 18:57:20 2019
     Info: Elapsed time: 00:00:18
     Info: Total CPU time (on all processors): 00:00:27
 

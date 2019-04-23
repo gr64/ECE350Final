@@ -88,10 +88,10 @@ always @(posedge clock) begin
 		else if (south == 0 && ((sel_y < 6 && (sel_x > 2 && sel_x < 5)) || (sel_y < 4 && (sel_x < 3 || sel_x > 4)))) begin
 			sel_y <= sel_y + 1;
 		end
-		else if (east == 0 && ((sel_x < 8 && (sel_y > 2 && sel_y < 5)) || (sel_x < 4 && (sel_y < 3 && sel_y > 4)))) begin
+		else if (east == 0 && ((sel_x < 8 && (sel_y > 2 && sel_y < 5)) || (sel_x < 4 && (sel_y < 2 && sel_y > 5)))) begin
 			sel_x <= sel_x + 1;
 		end
-		else if (west == 0 && ((sel_x > 1 && (sel_y > 2 && sel_y < 5)) || (sel_x > 3 && (sel_y < 3 && sel_y > 4)))) begin
+		else if (west == 0 && ((sel_x > 1 && (sel_y > 2 && sel_y < 5)) || (sel_x > 3 && (sel_y < 2 && sel_y > 5)))) begin
 			sel_x <= sel_x - 1;
 		end
 		counter <= 0;
@@ -401,7 +401,7 @@ always @(posedge clock) begin
 	end
 	//If in SQUARE 16
 	else if((addr_x > (5 * x_scale + px_off) && addr_x < (6 * x_scale - px_off)) && (addr_y > (3 * y_scale + px_off) && addr_y < (4 * y_scale - px_off))) begin //col 6, row 4
-		if(sel_x == 6 && sel_y == 4 && (addr_x > (5 * x_scale + px_off) && addr_x < (6 * x_scale - px_off)) && (addr_y > (3 * y_scale + sel_yoff) && addr_y < (4 * y_scale - sel_yoff))) begin
+		if(sel_x == 6 && sel_y == 4 && (addr_x > (5 * x_scale + sel_xoff) && addr_x < (6 * x_scale - sel_xoff)) && (addr_y > (3 * y_scale + sel_yoff) && addr_y < (4 * y_scale - sel_yoff))) begin
 			cube_index <=  8'd7;
 		end
 		else begin
@@ -411,7 +411,7 @@ always @(posedge clock) begin
 	end
 	//If in SQUARE 17
 	else if((addr_x > (6 * x_scale + px_off) && addr_x < (7 * x_scale - px_off)) && (addr_y > (2 * y_scale + px_off) && addr_y < (3 * y_scale - px_off))) begin //col 7, row 3
-		if(sel_x == 7 && sel_y == 3 && (addr_x > (6 * x_scale + px_off) && addr_x < (7 * x_scale - px_off)) && (addr_y > (2 * y_scale + sel_yoff) && addr_y < (3 * y_scale - sel_yoff))) begin
+		if(sel_x == 7 && sel_y == 3 && (addr_x > (6 * x_scale + sel_xoff) && addr_x < (7 * x_scale - sel_xoff)) && (addr_y > (2 * y_scale + sel_yoff) && addr_y < (3 * y_scale - sel_yoff))) begin
 			cube_index <=  8'd7;
 		end
 		else begin
@@ -421,7 +421,7 @@ always @(posedge clock) begin
 	end
 	//If in SQUARE 18
 	else if((addr_x > (7 * x_scale + px_off) && addr_x < (8 * x_scale - px_off)) && (addr_y > (2 * y_scale + px_off) && addr_y < (3 * y_scale - px_off))) begin //col 8, row 3
-		if(sel_x == 8 && sel_y == 3 && (addr_x > (7 * x_scale + px_off) && addr_x < (8 * x_scale - px_off)) && (addr_y > (2 * y_scale + sel_yoff) && addr_y < (3 * y_scale - sel_yoff))) begin
+		if(sel_x == 8 && sel_y == 3 && (addr_x > (7 * x_scale + sel_xoff) && addr_x < (8 * x_scale - sel_xoff)) && (addr_y > (2 * y_scale + sel_yoff) && addr_y < (3 * y_scale - sel_yoff))) begin
 			cube_index <=  8'd7;
 		end
 		else begin
@@ -431,7 +431,7 @@ always @(posedge clock) begin
 	end
 	//If in SQUARE 19
 	else if((addr_x > (6 * x_scale + px_off) && addr_x < (7 * x_scale - px_off)) && (addr_y > (3 * y_scale + px_off) && addr_y < (4 * y_scale - px_off))) begin //col 7, row 4
-		if(sel_x == 7 && sel_y == 4 && (addr_x > (6 * x_scale + px_off) && addr_x < (7 * x_scale - px_off)) && (addr_y > (3 * y_scale + sel_yoff) && addr_y < (4 * y_scale - sel_yoff))) begin
+		if(sel_x == 7 && sel_y == 4 && (addr_x > (6 * x_scale + sel_xoff) && addr_x < (7 * x_scale - sel_xoff)) && (addr_y > (3 * y_scale + sel_yoff) && addr_y < (4 * y_scale - sel_yoff))) begin
 			cube_index <=  8'd7;
 		end
 		else begin
