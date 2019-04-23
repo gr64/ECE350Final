@@ -47,9 +47,9 @@ SolveFrontTopRightCorner:
 	addi $a2, $0, 2 #orange
 
 	#SWs FOR TESTING ()
-	sw $a0, 4($0)
-	sw $a1, 13($0)
-	sw $a2, 10($0)
+	#sw $a0, 4($0)
+	#sw $a1, 13($0)
+	#sw $a2, 10($0)
 	#END TESTING
 	jal FrontTopRightUp
 	bne $v0, $0, SolveFrontTopLeftCorner
