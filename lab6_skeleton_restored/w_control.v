@@ -6,7 +6,8 @@ module w_control(
 	output[1:0] select_pc,
 	output j_or_jal,
 	output[2:0] sel_excep, //chooses 1 through 5 or T to write into $rstatus depending on instruction
-	output is_setx
+	output is_setx,
+	output is_div
 );
 	wire out0, out1, out2, out3, out4, out5, out6, out7, 
 	out8, out9, out10, out11, out12, out13, out14, out15, 
@@ -65,5 +66,6 @@ module w_control(
 	or sel_excep_or2(sel_excep[2], mul_x, div_x, setx);
 	
 	assign is_setx = setx;
+	assign is_div = div;
 	
 endmodule 

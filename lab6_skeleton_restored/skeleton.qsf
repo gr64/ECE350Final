@@ -251,4 +251,13 @@ set_global_assignment -name VERILOG_FILE render_cube.v
 set_global_assignment -name CDF_FILE output_files/Chain2.cdf
 set_global_assignment -name CDF_FILE output_files/Chain3.cdf
 set_global_assignment -name CDF_FILE output_files/Chain7.cdf
+set_location_assignment PIN_AC15 -to servo1
+set_location_assignment PIN_Y17 -to servo2
+set_location_assignment PIN_Y16 -to servo3
+set_location_assignment PIN_AE16 -to servo4
+set_location_assignment PIN_AC22 -to servo_b
+set_location_assignment PIN_AE21 -to servo_l
+set_location_assignment PIN_AF21 -to servo_r
+set_location_assignment PIN_AF15 -to servo_t
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VERILOG_FILE mips_tb.v

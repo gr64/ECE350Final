@@ -74,13 +74,15 @@ module processor(
 	 //extra outputs for testing
 	 alu_inputA, alu_inputB, alu_output,
 	 select_pc,
-	 fd_inst_in, fd_inst_out
+	 fd_inst_in, fd_inst_out,
+	 assert_done
 );
 
 	 //extra outputs for testing
 	 output [31:0] alu_inputA, alu_inputB, alu_output;
 	 output[1:0] select_pc;
 	 output [31:0] fd_inst_in, fd_inst_out;
+	 output assert_done; //will be set when div reaches writeback, because we're not using div for anything else lol
 	 
     // Control signals
     input clock, reset;
@@ -428,7 +430,7 @@ module processor(
 	
 	/**********		WRITEBACK  	**********/
 	
-	w_control w_control(mw_opcode, mw_aluop_R, mw_excep_out, w_reg_wren, w_dmem_wren, w_select_immed, w_select_writeval, w_select_readReg, w_select_pc, w_j_or_jal, w_sel_excep, w_setx);
+	w_control w_control(mw_opcode, mw_aluop_R, mw_excep_out, w_reg_wren, w_dmem_wren, w_select_immed, w_select_writeval, w_select_readReg, w_select_pc, w_j_or_jal, w_sel_excep, w_setx, w_div);
 	
 	mux_2 choose_writeval(w_select_writeval, mw_alu_out, q_dmem, data_writeReg_nj);
 	mux_8 choose_writeval_ex(w_sel_excep, data_writeReg_nj, 32'd1, 32'd2, 32'd3, 32'd4, 32'd5, mw_target_JI, 32'd0, data_writeReg_ex); //the 0 should never be chosen
@@ -439,4 +441,9 @@ module processor(
 	mux_2 choose_writeReg(w_j_or_jal, writeReg_ex_out, 5'd31, ctrl_writeReg);
 	//assign ctrl_writeReg = mw_rd; //or $r31 for jal, or $rstatus for exceptions and setx
 	assign ctrl_writeEnable = w_reg_wren;
+	
+	//this is for project
+	//assign assert_done = w_div; //using div as signal that cube calculation is done
+	dffe_ref done(assert_done, w_div, ~clock, w_div, 1'b0);
+	
 endmodule

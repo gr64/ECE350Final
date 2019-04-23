@@ -30,6 +30,7 @@ addi $27, $0, 25 # $r27 will be used to count moves stored
 #first move is in data location 25
 # assume that somehow the 24 colors have been put 
 # into the appropriate positions in memory (0-23)
+# number of moves stored in data memory 24
 
 # keep track of a counter in a register to see 
 # how many moves you've used? store moves in dmem starting
@@ -2176,4 +2177,9 @@ Bc: # 1011 - 11
     jr $ra
 
 exitSolve2by2:
+	addi $26, $0, 25	 #adding in 25 to subtract from address count to get
+	sub $28, $27, $26	 #subtracts 25 from address counter ($27 - $26) to get move count
+	addi $26, $0, 24 	#adding in 24 to store move count in data
+	sw $28, 0($26) 		#storing move count3 in dmem
+
 	nop
