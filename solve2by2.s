@@ -23,7 +23,7 @@ main:
 # B': 1011
 # move is just add $rd, $r0, $rs
 # stack data begins at memory address 2^16 - 1 and grows down
-addi $sp, $sp 65535 #initializing stack pointer (unsure if necessary)
+addi $sp, $sp 4000 #initializing stack pointer (unsure if necessary)
 addi $27, $0, 25 # $r27 will be used to count moves stored
 # either store 25 in $r27 initially and add 0 with every sw
 # or store 0, and add 25 every time
@@ -35,6 +35,67 @@ addi $27, $0, 25 # $r27 will be used to count moves stored
 # keep track of a counter in a register to see 
 # how many moves you've used? store moves in dmem starting
 # at address 24, after the cube state is stored?
+
+#FOR TESTING
+addi $t0, $0, 0 # green
+addi $t1, $0, 1 # white
+addi $t2, $0, 2 # orange
+addi $t3, $0, 3 # yellow  
+addi $t4, $0, 4 # red 
+addi $t5, $0, 5 # blue 
+
+sw $t0, 1($0)
+nop
+sw $t0, 2($0)
+nop
+sw $t0, 3($0)
+nop
+sw $t0, 4($0)
+nop
+sw $t1, 5($0)
+nop
+sw $t1, 6($0)
+nop
+sw $t1, 7($0)
+nop
+sw $t1, 8($0)
+nop
+sw $t2, 9($0)
+nop
+sw $t2, 10($0)
+nop
+sw $t2, 11($0)
+nop
+sw $t2, 12($0)
+nop
+sw $t3, 13($0)
+nop
+sw $t3, 14($0)
+nop
+sw $t3, 15($0)
+nop
+sw $t3, 16($0)
+nop
+sw $t4, 17($0)
+nop
+sw $t4, 18($0)
+nop
+sw $t4, 19($0)
+nop
+sw $t4, 20($0)
+nop
+sw $t5, 21($0)
+nop
+sw $t5, 22($0)
+nop
+sw $t5, 23($0)
+nop
+sw $t5, 24($0)
+nop
+
+jal R
+
+#End testing
 
 #first, get GYO to FrontTopRightUp
 #	have to check to see if it's already in that spot
@@ -51,13 +112,19 @@ SolveFrontTopRightCorner:
 	#sw $a1, 13($0)
 	#sw $a2, 10($0)
 	#END TESTING
+
+	#TESting
+	jal BackTopRightBack
+	bne $v0, $0, BackTopRightBack2FrontTopRightUp
+	nop
+	#end
 	jal FrontTopRightUp
 	bne $v0, $0, SolveFrontTopLeftCorner
 	nop
 	
 	# at the end of each 2FrontTopRightUp, jump to SolveFrontTopRightCorner
 	# so that it checks again to make sure it actually worked
-	# note though that if the movements don't work you'll be stuck in an 
+	# note though that if the movhements don't work you'll be stuck in an 
 	# infinite loop
 
 	jal FrontTopLeftFront
@@ -151,8 +218,6 @@ SolveFrontTopLeftCorner:
 	addi $a0, $0, 0 #green
 	addi $a1, $0, 2 #orange
 	addi $a2, $0, 1 #white
-	#for testing
-	#j exitSolve2by2
 
 	jal FrontTopLeftUp
 	bne $v0, $0, SolveBackTopRightCorner
@@ -463,8 +528,12 @@ FrontTopLeftFront: #takes in color args from $a0, $a1, $a2, returns $v0
 
 	exitFrontTopLeftFront:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 
 FrontTopLeftUp:
 	addi $sp, $sp, -4
@@ -482,8 +551,12 @@ FrontTopLeftUp:
 
 	exitFrontTopLeftUp:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 
 FrontTopLeftLeft:
 	addi $sp, $sp, -4
@@ -501,8 +574,12 @@ FrontTopLeftLeft:
 
 	exitFrontTopLeftLeft:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 
 FrontTopRightFront:
 	addi $sp, $sp, -4
@@ -520,8 +597,12 @@ FrontTopRightFront:
 
 	exitFrontTopRightFront:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -538,8 +619,12 @@ FrontTopRightUp:
 
 	exitFrontTopRightUp:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 FrontTopRightRight:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -556,8 +641,12 @@ FrontTopRightRight:
 
 	exitFrontTopRightRight:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 
 FrontBottomLeftFront:
 	addi $sp, $sp, -4
@@ -575,8 +664,12 @@ FrontBottomLeftFront:
 
 	exitFrontBottomLeftFront:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 FrontBottomLeftDown:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -593,8 +686,12 @@ FrontBottomLeftDown:
 
 	exitFrontBottomLeftDown:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 FrontBottomLeftLeft:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -611,8 +708,12 @@ FrontBottomLeftLeft:
 
 	exitFrontBottomLeftLeft:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 
 FrontBottomRightFront:
 	addi $sp, $sp, -4
@@ -630,8 +731,12 @@ FrontBottomRightFront:
 
 	exitFrontBottomRightFront:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    	nop
+    	nop
 FrontBottomRightDown:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -648,8 +753,12 @@ FrontBottomRightDown:
 
 	exitFrontBottomRightDown:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 FrontBottomRightRight:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -666,8 +775,12 @@ FrontBottomRightRight:
 
 	exitFrontBottomRightRight:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 BackTopLeftBack:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -684,8 +797,12 @@ BackTopLeftBack:
 
 	exitBackTopLeftBack:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -702,8 +819,12 @@ BackTopLeftUp:
 
 	exitBackTopLeftUp:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 BackTopLeftLeft:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -720,8 +841,12 @@ BackTopLeftLeft:
 
 	exitBackTopLeftLeft:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 
 BackTopRightBack:
 	addi $sp, $sp, -4
@@ -739,8 +864,12 @@ BackTopRightBack:
 
 	exitBackTopRightBack:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -757,8 +886,12 @@ BackTopRightUp:
 
 	exitBackTopRightUp:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 BackTopRightRight:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -775,8 +908,12 @@ BackTopRightRight:
 
 	exitBackTopRightRight:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 
 BackBottomLeftBack:
 	addi $sp, $sp, -4
@@ -794,8 +931,12 @@ BackBottomLeftBack:
 
 	exitBackBottomLeftBack:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 BackBottomLeftDown:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -812,8 +953,12 @@ BackBottomLeftDown:
 
 	exitBackBottomLeftDown:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 BackBottomLeftLeft:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -830,8 +975,12 @@ BackBottomLeftLeft:
 
 	exitBackBottomLeftLeft:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 
 BackBottomRightBack:
 	addi $sp, $sp, -4
@@ -849,8 +998,12 @@ BackBottomRightBack:
 
 	exitBackBottomRightBack:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 BackBottomRightDown:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -867,8 +1020,12 @@ BackBottomRightDown:
 
 	exitBackBottomRightDown:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 BackBottomRightRight:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -885,8 +1042,12 @@ BackBottomRightRight:
 
 	exitBackBottomRightRight:
 		lw $ra 0($sp)
+		nop
+		nop
 		addi $sp, $sp, 4
 		jr $ra
+    nop
+    nop
 
 
 
@@ -901,8 +1062,12 @@ FrontTopLeftFront2FrontTopRightUp:
 	jal D
 	jal Fc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 FrontTopLeftUp2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -912,15 +1077,23 @@ FrontTopLeftUp2FrontTopRightUp:
 	jal D
 	jal Fc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 FrontTopLeftLeft2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner    
+	nop
+    nop
 FrontTopRightFront2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -931,8 +1104,12 @@ FrontTopRightFront2FrontTopRightUp:
 	jal R
 	jal Bc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 FrontTopRightRight2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -943,8 +1120,12 @@ FrontTopRightRight2FrontTopRightUp:
 	jal Fc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+	nop
+    nop
 FrontBottomLeftFront2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -953,8 +1134,12 @@ FrontBottomLeftFront2FrontTopRightUp:
 	jal Fc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 FrontBottomLeftDown2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -966,8 +1151,12 @@ FrontBottomLeftDown2FrontTopRightUp:
 	jal R
 	jal Bc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 FrontBottomLeftLeft2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -976,17 +1165,25 @@ FrontBottomLeftLeft2FrontTopRightUp:
 	jal R
 	jal Bc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 FrontBottomRightFront2FrontTopRightUp:
-	addi $sp, $sp, -4
-	sw $ra, 0($sp)
-	jal B
-	jal R
-	jal Bc
-	lw $ra, 0($sp)
-	addi $sp, $sp, 4
-	jr $ra
+	addi $sp, $sp, -4 #857
+	sw $ra, 0($sp) #858
+	jal B #859
+	jal R #860
+	jal Bc #861
+	lw $ra, 0($sp) #862
+		nop #863
+		nop #864
+	addi $sp, $sp, 4 #865
+	j SolveFrontTopLeftCorner #867
+    nop #868
+    nop #869
 FrontBottomRightDown2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1000,8 +1197,12 @@ FrontBottomRightDown2FrontTopRightUp:
 	jal Fc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 FrontBottomRightRight2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1009,8 +1210,12 @@ FrontBottomRightRight2FrontTopRightUp:
 	jal Fc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackTopLeftBack2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1023,8 +1228,12 @@ BackTopLeftBack2FrontTopRightUp:
 	jal R
 	jal Bc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackTopLeftUp2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1037,8 +1246,12 @@ BackTopLeftUp2FrontTopRightUp:
 	jal R
 	jal Bc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackTopLeftLeft2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1051,15 +1264,23 @@ BackTopLeftLeft2FrontTopRightUp:
 	jal Fc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackTopRightBack2FrontTopRightUp: 
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackTopRightUp2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1069,8 +1290,12 @@ BackTopRightUp2FrontTopRightUp:
 	jal Dc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackTopRightRight2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1080,8 +1305,12 @@ BackTopRightRight2FrontTopRightUp:
 	jal Dc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackBottomLeftBack2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1091,8 +1320,12 @@ BackBottomLeftBack2FrontTopRightUp:
 	jal R
 	jal Bc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackBottomLeftDown2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1108,8 +1341,12 @@ BackBottomLeftDown2FrontTopRightUp:
 	jal Fc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackBottomLeftLeft2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1119,8 +1356,12 @@ BackBottomLeftLeft2FrontTopRightUp:
 	jal Fc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackBottomRightBack2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1129,8 +1370,12 @@ BackBottomRightBack2FrontTopRightUp:
 	jal Fc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackBottomRightDown2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1145,8 +1390,12 @@ BackBottomRightDown2FrontTopRightUp:
 	jal Fc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 BackBottomRightRight2FrontTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1155,8 +1404,12 @@ BackBottomRightRight2FrontTopRightUp:
 	jal R
 	jal Bc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveFrontTopLeftCorner
+    nop
+    nop
 FrontTopLeftFront2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1167,8 +1420,12 @@ FrontTopLeftFront2FrontTopLeftUp:
 	jal Lc
 	jal B
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontTopLeftLeft2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1179,8 +1436,12 @@ FrontTopLeftLeft2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontTopRightFront2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1190,8 +1451,12 @@ FrontTopRightFront2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontTopRightUp2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1200,8 +1465,12 @@ FrontTopRightUp2FrontTopLeftUp:
 	jal R
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontTopRightRight2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1213,8 +1482,12 @@ FrontTopRightRight2FrontTopLeftUp:
 	jal Lc
 	jal B
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontBottomLeftFront2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1222,8 +1495,12 @@ FrontBottomLeftFront2FrontTopLeftUp:
 	jal Lc
 	jal B
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontBottomLeftDown2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1236,8 +1513,12 @@ FrontBottomLeftDown2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontBottomLeftLeft2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1245,8 +1526,12 @@ FrontBottomLeftLeft2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontBottomRightFront2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1255,8 +1540,12 @@ FrontBottomRightFront2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontBottomRightDown2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1271,8 +1560,12 @@ FrontBottomRightDown2FrontTopLeftUp:
 	jal Lc
 	jal B
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontBottomRightRight2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1281,15 +1574,23 @@ FrontBottomRightRight2FrontTopLeftUp:
 	jal Lc
 	jal B
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackTopLeftBack2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackTopLeftUp2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1299,8 +1600,12 @@ BackTopLeftUp2FrontTopLeftUp:
 	jal D
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackTopLeftLeft2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1310,8 +1615,12 @@ BackTopLeftLeft2FrontTopLeftUp:
 	jal D
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackTopRightBack2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1324,8 +1633,12 @@ BackTopRightBack2FrontTopLeftUp:
 	jal Lc
 	jal B
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackTopRightUp2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1337,8 +1650,12 @@ BackTopRightUp2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackTopRightRight2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1351,8 +1668,12 @@ BackTopRightRight2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackBottomLeftBack2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1361,8 +1682,12 @@ BackBottomLeftBack2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackBottomLeftDown2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1377,16 +1702,24 @@ BackBottomLeftDown2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackBottomLeftLeft2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal D
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackBottomRightBack2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1396,8 +1729,12 @@ BackBottomRightBack2FrontTopLeftUp:
 	jal Lc
 	jal B
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackBottomRightDown2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1411,8 +1748,12 @@ BackBottomRightDown2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 BackBottomRightRight2FrontTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1422,15 +1763,23 @@ BackBottomRightRight2FrontTopLeftUp:
 	jal F
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopRightCorner
+    nop
+    nop
 FrontTopLeftFront2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontTopLeftUp2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1440,8 +1789,12 @@ FrontTopLeftUp2BackTopLeftUp:
 	jal Dc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontTopLeftLeft2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1451,8 +1804,12 @@ FrontTopLeftLeft2BackTopLeftUp:
 	jal Dc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontTopRightFront2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1465,8 +1822,12 @@ FrontTopRightFront2BackTopLeftUp:
 	jal L
 	jal Fc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontTopRightUp2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1478,8 +1839,12 @@ FrontTopRightUp2BackTopLeftUp:
 	jal L
 	jal Fc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontTopRightRight2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1492,8 +1857,12 @@ FrontTopRightRight2BackTopLeftUp:
 	jal Bc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontBottomLeftFront2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1502,8 +1871,12 @@ FrontBottomLeftFront2BackTopLeftUp:
 	jal Bc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontBottomLeftDown2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1518,8 +1891,12 @@ FrontBottomLeftDown2BackTopLeftUp:
 	jal Bc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontBottomLeftLeft2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1528,8 +1905,12 @@ FrontBottomLeftLeft2BackTopLeftUp:
 	jal L
 	jal Fc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontBottomRightFront2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1539,8 +1920,12 @@ FrontBottomRightFront2BackTopLeftUp:
 	jal L
 	jal Fc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontBottomRightDown2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1555,8 +1940,12 @@ FrontBottomRightDown2BackTopLeftUp:
 	jal Bc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontBottomRightRight2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1566,8 +1955,12 @@ FrontBottomRightRight2BackTopLeftUp:
 	jal Bc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackTopLeftBack2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1578,8 +1971,12 @@ BackTopLeftBack2BackTopLeftUp:
 	jal L
 	jal Fc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackTopLeftLeft2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1590,8 +1987,12 @@ BackTopLeftLeft2BackTopLeftUp:
 	jal Bc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackTopRightBack2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1601,8 +2002,12 @@ BackTopRightBack2BackTopLeftUp:
 	jal D
 	jal Bc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackTopRightUp2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1610,15 +2015,23 @@ BackTopRightUp2BackTopLeftUp:
 	jal R
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackTopRightRight2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal B
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackBottomLeftBack2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1626,8 +2039,12 @@ BackBottomLeftBack2BackTopLeftUp:
 	jal L
 	jal Fc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackBottomLeftDown2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1641,8 +2058,12 @@ BackBottomLeftDown2BackTopLeftUp:
 	jal Bc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackBottomLeftLeft2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1650,8 +2071,12 @@ BackBottomLeftLeft2BackTopLeftUp:
 	jal Bc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackBottomRightBack2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1660,8 +2085,12 @@ BackBottomRightBack2BackTopLeftUp:
 	jal Bc
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackBottomRightDown2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1675,8 +2104,12 @@ BackBottomRightDown2BackTopLeftUp:
 	jal L
 	jal Fc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 BackBottomRightRight2BackTopLeftUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1684,8 +2117,12 @@ BackBottomRightRight2BackTopLeftUp:
 	jal B
 	jal R
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j exitSolve2by2
+    nop
+    nop
 FrontTopLeftFront2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1698,8 +2135,12 @@ FrontTopLeftFront2BackTopRightUp:
 	jal Rc
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontTopLeftUp2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1711,8 +2152,12 @@ FrontTopLeftUp2BackTopRightUp:
 	jal Rc
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontTopLeftLeft2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1725,8 +2170,12 @@ FrontTopLeftLeft2BackTopRightUp:
 	jal B
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontTopRightFront2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1738,8 +2187,12 @@ FrontTopRightFront2BackTopRightUp:
 	jal B
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontTopRightUp2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1751,8 +2204,12 @@ FrontTopRightUp2BackTopRightUp:
 	jal B
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontTopRightRight2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1762,8 +2219,12 @@ FrontTopRightRight2BackTopRightUp:
 	jal D
 	jal Rc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontBottomLeftFront2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1773,8 +2234,12 @@ FrontBottomLeftFront2BackTopRightUp:
 	jal Rc
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontBottomLeftDown2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1783,8 +2248,12 @@ FrontBottomLeftDown2BackTopRightUp:
 	jal Rc
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontBottomLeftLeft2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1793,8 +2262,12 @@ FrontBottomLeftLeft2BackTopRightUp:
 	jal D
 	jal B
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontBottomRightFront2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1803,8 +2276,12 @@ FrontBottomRightFront2BackTopRightUp:
 	jal B
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontBottomRightDown2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1813,8 +2290,12 @@ FrontBottomRightDown2BackTopRightUp:
 	jal D
 	jal Fc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 FrontBottomRightRight2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1823,8 +2304,12 @@ FrontBottomRightRight2BackTopRightUp:
 	jal Rc
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackTopLeftBack2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1834,8 +2319,12 @@ BackTopLeftBack2BackTopRightUp:
 	jal Dc
 	jal B
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackTopLeftUp2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1847,15 +2336,23 @@ BackTopLeftUp2BackTopRightUp:
 	jal Fc
 	jal Bc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackTopLeftLeft2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	jal Bc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackTopRightBack2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1866,8 +2363,12 @@ BackTopRightBack2BackTopRightUp:
 	jal Rc
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackTopRightRight2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1878,8 +2379,12 @@ BackTopRightRight2BackTopRightUp:
 	jal B
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackBottomLeftBack2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1888,8 +2393,12 @@ BackBottomLeftBack2BackTopRightUp:
 	jal Bc
 	jal L
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackBottomLeftDown2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1902,8 +2411,12 @@ BackBottomLeftDown2BackTopRightUp:
 	jal B
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackBottomLeftLeft2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1912,8 +2425,12 @@ BackBottomLeftLeft2BackTopRightUp:
 	jal Rc
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackBottomRightBack2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1921,8 +2438,12 @@ BackBottomRightBack2BackTopRightUp:
 	jal Rc
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackBottomRightDown2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1934,8 +2455,12 @@ BackBottomRightDown2BackTopRightUp:
 	jal Rc
 	jal F
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 BackBottomRightRight2BackTopRightUp:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -1943,16 +2468,20 @@ BackBottomRightRight2BackTopRightUp:
 	jal B
 	jal Lc
 	lw $ra, 0($sp)
+		nop
+		nop
 	addi $sp, $sp, 4
-	jr $ra
+	j SolveBackTopLeftCorner
+    nop
+    nop
 
 
 # moves
 L:  # 0000 - 0
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 1($0)
 	lw $t1, 3($0)
@@ -1984,17 +2513,19 @@ L:  # 0000 - 0
 	sw $s0, 0($27)		# storing L in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 
 Lc: # 0001 - 1
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 1($0)
 	lw $t1, 3($0)
@@ -2026,16 +2557,18 @@ Lc: # 0001 - 1
 	sw $s0, 0($27)		# storing Lc in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 R:  # 0010 - 2
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 2($0)
 	lw $t1, 4($0)
@@ -2067,17 +2600,19 @@ R:  # 0010 - 2
 	sw $s0, 0($27)		# storing R in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 
 Rc: # 0011 - 3
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 2($0)
 	lw $t1, 4($0)
@@ -2109,17 +2644,19 @@ Rc: # 0011 - 3
 	sw $s0, 0($27)		# storing Rc in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 
 D:  # 0100 - 4
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 7($0)
 	lw $t1, 8($0)
@@ -2151,17 +2688,20 @@ D:  # 0100 - 4
 	sw $s0, 0($27)		# storing D in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
+    nop
 
 Dc: # 0101 - 5
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 7($0)
 	lw $t1, 8($0)
@@ -2193,16 +2733,18 @@ Dc: # 0101 - 5
 	sw $s0, 0($27)		# storing Dc in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 U:  # 0110 - 6
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 1($0)
 	lw $t1, 2($0)
@@ -2234,16 +2776,18 @@ U:  # 0110 - 6
 	sw $s0, 0($27)		# storing U in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 Uc: # 0111 - 7
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 1($0)
 	lw $t1, 2($0)
@@ -2275,16 +2819,18 @@ Uc: # 0111 - 7
 	sw $s0, 0($27)		# storing Uc in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 F:  # 1000 - 8
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 3($0)
 	lw $t1, 4($0)
@@ -2316,16 +2862,18 @@ F:  # 1000 - 8
 	sw $s0, 0($27)		# storing F in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 Fc: # 1001 - 9
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 3($0)
 	lw $t1, 4($0)
@@ -2357,16 +2905,18 @@ Fc: # 1001 - 9
 	sw $s0, 0($27)		# storing Fc in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 B:  # 1010 - 10
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 1($0)
 	lw $t1, 2($0)
@@ -2398,17 +2948,19 @@ B:  # 1010 - 10
 	sw $s0, 0($27)		# storing B in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 
 Bc: # 1011 - 11
-	addi $sp, $sp, -12
-	sw $ra, 0($sp)
-	sw $s0, 4($sp)
-	sw $s1, 8($sp)
+	#addi $sp, $sp, -12
+	#sw $ra, 0($sp)
+	#sw $s0, 4($sp)
+	#sw $s1, 8($sp)
 
 	lw $t0, 1($0)
 	lw $t1, 2($0)
@@ -2440,11 +2992,13 @@ Bc: # 1011 - 11
 	sw $s0, 0($27)		# storing Bc in memory
 	addi $27, $27, 1 	# incrementing counter to store move location
 
-	lw   $ra, 0($sp)    # read registers from stack
-	lw   $s0, 4($sp)
-    lw   $s1, 8($sp)
-    addi $sp, $sp, 12   # bring back stack pointer
+	#lw   $ra, 0($sp)    # read registers from stack
+	#lw   $s0, 4($sp)
+    #lw   $s1, 8($sp)
+    #addi $sp, $sp, 12   # bring back stack pointer
     jr $ra
+    nop
+    nop
 
 exitSolve2by2:
 	addi $s0, $0, 15 # store stop code after moves
