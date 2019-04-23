@@ -30,6 +30,7 @@ addi $27, $0, 25 # $r27 will be used to count moves stored
 #first move is in data location 25
 # assume that somehow the 24 colors have been put 
 # into the appropriate positions in memory (0-23)
+# number of moves stored in data memory 24
 
 # keep track of a counter in a register to see 
 # how many moves you've used? store moves in dmem starting
@@ -52,6 +53,7 @@ SolveFrontTopRightCorner:
 	#END TESTING
 	jal FrontTopRightUp
 	bne $v0, $0, SolveFrontTopLeftCorner
+	nop
 	
 	# at the end of each 2FrontTopRightUp, jump to SolveFrontTopRightCorner
 	# so that it checks again to make sure it actually worked
@@ -145,13 +147,282 @@ SolveFrontTopRightCorner:
 
 SolveFrontTopLeftCorner:
 	add $v0, $0, $0 #re-initialize output argument
+
+	addi $a0, $0, 0 #green
+	addi $a1, $0, 2 #orange
+	addi $a2, $0, 1 #white
 	#for testing
-	j exitSolve2by2
+	#j exitSolve2by2
+
+	jal FrontTopLeftUp
+	bne $v0, $0, SolveBackTopRightCorner
+	nop
+
+	jal FrontTopLeftFront
+	bne $v0, $0, FrontTopLeftFront2FrontTopLeftUp
+	nop
+	#jal FrontTopLeftUp
+	#bne $v0, $0, FrontTopLeftUp2FrontTopLeftUp
+	#nop
+	jal FrontTopLeftLeft
+	bne $v0, $0, FrontTopLeftLeft2FrontTopLeftUp
+	nop
+
+	jal FrontTopRightFront
+	bne $v0, $0, FrontTopRightFront2FrontTopLeftUp
+	nop
+	jal FrontTopRightUp
+	bne $v0, $0, FrontTopRightUp2FrontTopLeftUp
+	nop
+	jal FrontTopRightRight
+	bne $v0, $0, FrontTopRightRight2FrontTopLeftUp
+	nop
+
+	jal FrontBottomLeftFront
+	bne $v0, $0, FrontBottomLeftFront2FrontTopLeftUp
+	nop
+	jal FrontBottomLeftDown
+	bne $v0, $0, FrontBottomLeftDown2FrontTopLeftUp
+	nop
+	jal FrontBottomLeftLeft
+	bne $v0, $0, FrontBottomLeftLeft2FrontTopLeftUp
+	nop
+
+	jal FrontBottomRightFront
+	bne $v0, $0, FrontBottomRightFront2FrontTopLeftUp
+	nop
+	jal FrontBottomRightDown
+	bne $v0, $0, FrontBottomRightDown2FrontTopLeftUp
+	nop
+	jal FrontBottomRightRight
+	bne $v0, $0, FrontBottomRightRight2FrontTopLeftUp
+	nop
+
+	jal BackTopLeftBack
+	bne $v0, $0, BackTopLeftBack2FrontTopLeftUp
+	nop
+	jal BackTopLeftUp
+	bne $v0, $0, BackTopLeftUp2FrontTopLeftUp
+	nop
+	jal BackTopLeftLeft
+	bne $v0, $0, BackTopLeftLeft2FrontTopLeftUp
+	nop
+
+	jal BackTopRightBack
+	bne $v0, $0, BackTopRightBack2FrontTopLeftUp
+	nop
+	jal BackTopRightUp
+	bne $v0, $0, BackTopRightUp2FrontTopLeftUp
+	nop
+	jal BackTopRightRight
+	bne $v0, $0, BackTopRightRight2FrontTopLeftUp
+	nop
+
+	jal BackBottomLeftBack
+	bne $v0, $0, BackBottomLeftBack2FrontTopLeftUp
+	nop
+	jal BackBottomLeftDown
+	bne $v0, $0, BackBottomLeftDown2FrontTopLeftUp
+	nop
+	jal BackBottomLeftLeft
+	bne $v0, $0, BackBottomLeftLeft2FrontTopLeftUp
+	nop
+
+	jal BackBottomRightBack
+	bne $v0, $0, BackBottomRightBack2FrontTopLeftUp
+	nop
+	jal BackBottomRightDown
+	bne $v0, $0, BackBottomRightDown2FrontTopLeftUp
+	nop
+	jal BackBottomRightRight
+	bne $v0, $0, BackBottomRightRight2FrontTopLeftUp
+	nop
 
 SolveBackTopRightCorner:
+	add $v0, $0, $0 #re-initialize output argument
 
-SolveBackTopLeftCorner:
+	addi $a0, $0, 0 #green
+	addi $a1, $0, 4 #red
+	addi $a2, $0, 3 #yellow
 
+	jal BackTopRightUp
+	bne $v0, $0, SolveBackTopLeftCorner
+	nop
+
+	jal FrontTopLeftFront
+	bne $v0, $0, FrontTopLeftFront2BackTopRightUp
+	nop
+	jal FrontTopLeftUp
+	bne $v0, $0, FrontTopLeftUp2BackTopRightUp
+	nop
+	jal FrontTopLeftLeft
+	bne $v0, $0, FrontTopLeftLeft2BackTopRightUp
+	nop
+
+	jal FrontTopRightFront
+	bne $v0, $0, FrontTopRightFront2BackTopRightUp
+	nop
+	jal FrontTopRightUp
+	bne $v0, $0, FrontTopRightUp2BackTopRightUp
+	nop
+	jal FrontTopRightRight
+	bne $v0, $0, FrontTopRightRight2BackTopRightUp
+	nop
+
+	jal FrontBottomLeftFront
+	bne $v0, $0, FrontBottomLeftFront2BackTopRightUp
+	nop
+	jal FrontBottomLeftDown
+	bne $v0, $0, FrontBottomLeftDown2BackTopRightUp
+	nop
+	jal FrontBottomLeftLeft
+	bne $v0, $0, FrontBottomLeftLeft2BackTopRightUp
+	nop
+
+	jal FrontBottomRightFront
+	bne $v0, $0, FrontBottomRightFront2BackTopRightUp
+	nop
+	jal FrontBottomRightDown
+	bne $v0, $0, FrontBottomRightDown2BackTopRightUp
+	nop
+	jal FrontBottomRightRight
+	bne $v0, $0, FrontBottomRightRight2BackTopRightUp
+	nop
+
+	jal BackTopLeftBack
+	bne $v0, $0, BackTopLeftBack2BackTopRightUp
+	nop
+	jal BackTopLeftUp
+	bne $v0, $0, BackTopLeftUp2BackTopRightUp
+	nop
+	jal BackTopLeftLeft
+	bne $v0, $0, BackTopLeftLeft2BackTopRightUp
+	nop
+
+	jal BackTopRightBack
+	bne $v0, $0, BackTopRightBack2BackTopRightUp
+	nop
+	#jal BackTopRightUp
+	#bne $v0, $0, BackTopRightUp2BackTopRightUp
+	#nop
+	jal BackTopRightRight
+	bne $v0, $0, BackTopRightRight2BackTopRightUp
+	nop
+
+	jal BackBottomLeftBack
+	bne $v0, $0, BackBottomLeftBack2BackTopRightUp
+	nop
+	jal BackBottomLeftDown
+	bne $v0, $0, BackBottomLeftDown2BackTopRightUp
+	nop
+	jal BackBottomLeftLeft
+	bne $v0, $0, BackBottomLeftLeft2BackTopRightUp
+	nop
+
+	jal BackBottomRightBack
+	bne $v0, $0, BackBottomRightBack2BackTopRightUp
+	nop
+	jal BackBottomRightDown
+	bne $v0, $0, BackBottomRightDown2BackTopRightUp
+	nop
+	jal BackBottomRightRight
+	bne $v0, $0, BackBottomRightRight2BackTopRightUp
+	nop
+
+
+
+SolveBackTopLeftCorner: #green white red
+	add $v0, $0, $0 #re-initialize output argument
+
+	addi $a0, $0, 0 #green
+	addi $a1, $0, 1 #white
+	addi $a2, $0, 4 #red
+
+	jal BackTopLeftUp
+	bne $v0, $0, exitSolve2by2
+	nop
+
+	jal FrontTopLeftFront
+	bne $v0, $0, FrontTopLeftFront2BackTopLeftUp
+	nop
+	jal FrontTopLeftUp
+	bne $v0, $0, FrontTopLeftUp2BackTopLeftUp
+	nop
+	jal FrontTopLeftLeft
+	bne $v0, $0, FrontTopLeftLeft2BackTopLeftUp
+	nop
+
+	jal FrontTopRightFront
+	bne $v0, $0, FrontTopRightFront2BackTopLeftUp
+	nop
+	jal FrontTopRightUp
+	bne $v0, $0, FrontTopRightUp2BackTopLeftUp
+	nop
+	jal FrontTopRightRight
+	bne $v0, $0, FrontTopRightRight2BackTopLeftUp
+	nop
+
+	jal FrontBottomLeftFront
+	bne $v0, $0, FrontBottomLeftFront2BackTopLeftUp
+	nop
+	jal FrontBottomLeftDown
+	bne $v0, $0, FrontBottomLeftDown2BackTopLeftUp
+	nop
+	jal FrontBottomLeftLeft
+	bne $v0, $0, FrontBottomLeftLeft2BackTopLeftUp
+	nop
+
+	jal FrontBottomRightFront
+	bne $v0, $0, FrontBottomRightFront2BackTopLeftUp
+	nop
+	jal FrontBottomRightDown
+	bne $v0, $0, FrontBottomRightDown2BackTopLeftUp
+	nop
+	jal FrontBottomRightRight
+	bne $v0, $0, FrontBottomRightRight2BackTopLeftUp
+	nop
+
+	jal BackTopLeftBack
+	bne $v0, $0, BackTopLeftBack2BackTopLeftUp
+	nop
+	#jal BackTopLeftUp
+	#bne $v0, $0, BackTopLeftUp2BackTopLeftUp
+	#nop
+	jal BackTopLeftLeft
+	bne $v0, $0, BackTopLeftLeft2BackTopLeftUp
+	nop
+
+	jal BackTopRightBack
+	bne $v0, $0, BackTopRightBack2BackTopLeftUp
+	nop
+	jal BackTopRightUp
+	bne $v0, $0, BackTopRightUp2BackTopLeftUp
+	nop
+	jal BackTopRightRight
+	bne $v0, $0, BackTopRightRight2BackTopLeftUp
+	nop
+
+	jal BackBottomLeftBack
+	bne $v0, $0, BackBottomLeftBack2BackTopLeftUp
+	nop
+	jal BackBottomLeftDown
+	bne $v0, $0, BackBottomLeftDown2BackTopLeftUp
+	nop
+	jal BackBottomLeftLeft
+	bne $v0, $0, BackBottomLeftLeft2BackTopLeftUp
+	nop
+
+	jal BackBottomRightBack
+	bne $v0, $0, BackBottomRightBack2BackTopLeftUp
+	nop
+	jal BackBottomRightDown
+	bne $v0, $0, BackBottomRightDown2BackTopLeftUp
+	nop
+	jal BackBottomRightRight
+	bne $v0, $0, BackBottomRightRight2BackTopLeftUp
+	nop
+
+	j exitSolve2by2
 #then, get GOW to FrontTopLeftUp
 #	have to check to see if it's already in that spot
 #	if not, check each other method to see what spot it is in
@@ -2176,4 +2447,9 @@ Bc: # 1011 - 11
     jr $ra
 
 exitSolve2by2:
-	nop
+	addi $26, $0, 25	 #adding in 25 to subtract from address count to get
+	sub $28, $27, $26	 #subtracts 25 from address counter ($27 - $26) to get move count
+	addi $26, $0, 24 	#adding in 24 to store move count in data
+	sw $28, 0($26) 		#storing move count3 in dmem
+
+	div $1 $1 $1
