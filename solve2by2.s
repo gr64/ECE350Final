@@ -2447,9 +2447,10 @@ Bc: # 1011 - 11
     jr $ra
 
 exitSolve2by2:
+	addi $s0, $0, 15 # store stop code after moves
+	sw $s0, 0($27)
 	addi $26, $0, 25	 #adding in 25 to subtract from address count to get
 	sub $28, $27, $26	 #subtracts 25 from address counter ($27 - $26) to get move count
-	addi $26, $0, 24 	#adding in 24 to store move count in data
-	sw $28, 0($26) 		#storing move count3 in dmem
+	sw $28, 0($0) 		#storing move count3 in dmem
 
 	div $1 $1 $1

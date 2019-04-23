@@ -152,51 +152,77 @@ always@(posedge VGA_CLK_n) begin
 		storage_counter <= storage_counter + 1;
 		if(storage_counter == 1) begin
 			vga_data_out <= sq_1;
-			vga_dmem_addr <= storage_counter;
 		end
-		
-//		if(storage_counter == 24) begin
-//			done <= 1'b1; //don't want to store twice; should done be the enable signal?
-//		end
-//		else if(storage_counter == 25) begin
-//			vga_data_out <= 9;
-//			//done <= 1'b1;
-//		end
-//		else if(storage_counter == 26) begin
-//			vga_data_out <= 10;
-//		end
-//		else if(storage_counter == 27) begin
-//			vga_data_out <= 11;
-//		end
-//		else if(storage_counter == 28) begin
-//			vga_data_out <= 3;
-//		end
-//		else if(storage_counter == 29) begin
-//			vga_data_out <= 4;
-//		end
-//		else if(storage_counter == 30) begin
-//			vga_data_out <= 5;
-//		end
-//		else if(storage_counter == 31) begin
-//			vga_data_out <= 6;
-//		end
-//		else if(storage_counter == 32) begin
-//			vga_data_out <= 7;
-//		end
-//		else if(storage_counter == 33) begin
-//			vga_data_out <= 8;
-//		end
-//		else if(storage_counter == 34) begin
-//			vga_data_out <= 9;
-//		end
-//		else if(storage_counter == 35) begin
-//			vga_data_out <= 10;
-//		end
-//		else if(storage_counter == 36) begin
-//			vga_data_out <= 11;
-//			done <= 1'b1;
-//		end
-		done <= 1'b1;
+		else if(storage_counter == 2) begin
+			vga_data_out <= sq_2;
+		end
+		else if(storage_counter == 3) begin
+			vga_data_out <= sq_3;
+		end
+		else if(storage_counter == 4) begin
+			vga_data_out <= sq_4;
+		end
+		else if(storage_counter == 5) begin
+			vga_data_out <= sq_5;
+		end
+		else if(storage_counter == 6) begin
+			vga_data_out <= sq_6;
+		end
+		else if(storage_counter == 7) begin
+			vga_data_out <= sq_7;
+		end
+		else if(storage_counter == 8) begin
+			vga_data_out <= sq_8;
+		end
+		else if(storage_counter == 9) begin
+			vga_data_out <= sq_9;
+		end
+		else if(storage_counter == 10) begin
+			vga_data_out <= sq_10;
+		end
+		else if(storage_counter == 11) begin
+			vga_data_out <= sq_11;
+		end
+		else if(storage_counter == 12) begin
+			vga_data_out <= sq_12;
+		end
+		else if(storage_counter == 13) begin
+			vga_data_out <= sq_13;
+		end
+		else if(storage_counter == 14) begin
+			vga_data_out <= sq_14;
+		end
+		else if(storage_counter == 15) begin
+			vga_data_out <= sq_15;
+		end
+		else if(storage_counter == 16) begin
+			vga_data_out <= sq_16;
+		end
+		else if(storage_counter == 17) begin
+			vga_data_out <= sq_17;
+		end
+		else if(storage_counter == 18) begin
+			vga_data_out <= sq_18;
+		end
+		else if(storage_counter == 19) begin
+			vga_data_out <= sq_19;
+		end
+		else if(storage_counter == 20) begin
+			vga_data_out <= sq_20;
+		end
+		else if(storage_counter == 21) begin
+			vga_data_out <= sq_21;
+		end
+		else if(storage_counter == 22) begin
+			vga_data_out <= sq_22;
+		end
+		else if(storage_counter == 23) begin
+			vga_data_out <= sq_23;
+		end
+		else if(storage_counter == 24) begin
+			vga_data_out <= sq_24;
+			done <= 1'b1
+		end
 		vga_dmem_addr <= storage_counter;
 	end
 	enable <= done;
