@@ -32,9 +32,12 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 	//loops
 	reg finished_move_flag;
 	
+	reg done;
+	
 	initial begin
 		//flag begins at 0
 		finished_move_flag <= 1'b0;
+		done <= 1'b0;
 		
 		//dmem_addresses begin at 25
 		dmem_address <= 11'd25;
@@ -78,7 +81,7 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 	
 	
 	always @(posedge clk) begin
-	if(enable) begin
+	if(enable & ~done) begin
 		//LEFT SERVO IS 1, RIGHT SERVO IS 2, TOP SERVO IS 3, BOTTOM SERVO IS 4 (regs?)
 //		s1 <= left_servo_forward;
 //		f1 <= left_servo_rotate;
@@ -109,6 +112,14 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 			//move to next dmem_address
 			dmem_address <= dmem_address + 12'd1;
 			
+		end
+		
+		// MOVE: DONE!
+		else if(dmem_out == 4'b1111) begin
+			left_servo_forward <= back;
+			right_servo_forward <= back;
+			
+			done <= 1'b1;
 		end
 	
 		// MOVE: L

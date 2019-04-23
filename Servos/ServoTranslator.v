@@ -108,6 +108,12 @@ module ServoTranslator(dmem_out,enable, clk, rst,
 			dmem_address = dmem_address + 32'b1;
 			
 		end
+		
+		//MOVE: DONE
+		if(dmem_out == 4'b1111) begin
+			top_servo_forward <= back;
+			bottom_servo_forward <= back;
+		end
 	
 		// MOVE: L
 		if(dmem_out == 4'b0000) begin

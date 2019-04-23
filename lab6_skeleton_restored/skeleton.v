@@ -91,20 +91,20 @@ module skeleton(resetn,
 	// keyboard controller
 	PS2_Interface myps2(clock, resetn, ps2_clock, ps2_data, ps2_key_data, ps2_key_pressed, ps2_out);
 	
-	// lcd controller
+	// lcd  controller
 	lcd mylcd(clock, ~resetn, 1'b1, ps2_out, lcd_data, lcd_rw, lcd_en, lcd_rs, lcd_on, lcd_blon);
 	
 	// example for sending ps2 data to the first two seven segment displays
 	Hexadecimal_To_Seven_Segment hex1(4'd13, seg1);
-	Hexadecimal_To_Seven_Segment hex2(ps2_out[7:4], seg2);
+	Hexadecimal_To_Seven_Segment hex2(assert_done, seg2); //assert_done is when processor is done
 	
 	// the other seven segment displays are currently set to 0
-	Hexadecimal_To_Seven_Segment hex3(q_dmem[3:0], seg3);
-	Hexadecimal_To_Seven_Segment hex4(finished_LED, seg4);
-	Hexadecimal_To_Seven_Segment hex5(address_dmem[3:0], seg5);
-	Hexadecimal_To_Seven_Segment hex6(address_dmem[7:4], seg6);
-	Hexadecimal_To_Seven_Segment hex7(4'b0, seg7);
-	Hexadecimal_To_Seven_Segment hex8(enable, seg8);
+	Hexadecimal_To_Seven_Segment hex3(q_dmem[3:0], seg3); //data from dmem
+	Hexadecimal_To_Seven_Segment hex4(finished_LED, seg4); //when servo finishes
+	Hexadecimal_To_Seven_Segment hex5(address_dmem[3:0], seg5); //address indexing into dmem
+	Hexadecimal_To_Seven_Segment hex6(address_dmem[7:4], seg6); //address indexing into dmem
+	Hexadecimal_To_Seven_Segment hex7(4'b0, seg7); // nada
+	Hexadecimal_To_Seven_Segment hex8(enable, seg8); //when vga is done
 	
 	// some LEDs that you could use for debugging if you wanted
 	assign leds = 8'b00101011;
@@ -151,7 +151,7 @@ module skeleton(resetn,
     imem my_imem(
         .address    (address_imem),            // address of data
 		  .clken 	  (1'b1),
-        .clock      (clock),                  // you may need to invert the clock
+        .clock      (proc_clock),                  // you may need to invert the clock
         .q          (q_imem)                   // the raw instruction
     );
 
@@ -166,15 +166,18 @@ module skeleton(resetn,
 	 //0 for vga data, 1 for proc data; can switch these if necessary
 	 assign sel_dmem_data = 1'b0; //temporary
 	 mux_2 dmem_datamux(enable, vga_data_out, proc_data, data_dmem);
+	 //Muxing clock input to processor
+	 mux_2 processorclk(enable, 1'b0, VGA_CLK, proc_clock);
 	 
 	 //will eventually need two muxes for address cause you need that for reading and writing
-	 mux_2 dmem_addrmux(enable, vga_dmem_addr, servo_dmem_addr, address_dmem);
+	 mux_2 dmem_addrmux(enable, vga_dmem_addr, proc_address_dmem, address_dmemtemp);
+	 mux_2 dmem_addrmux2(assert_done,address_dmemtemp,servo_dmem_addr,address_dmem);
 	 mux_2 dmem_wrenmux(enable, 1'b1, proc_wren, wren_out1);
-	 mux_2 dmem_wrenmux2(,wren_out1,1'b0,wren);
+	 mux_2 dmem_wrenmux2(assert_done,wren_out1,1'b0,wren);
 	 
     dmem my_dmem(
         .address    (address_dmem),       // address of data
-        .clock      (~clock),                  // may need to invert the clock
+        .clock      (~VGA_CLK),                  // may need to invert the clock
         .data	    (data_dmem),    // data you want to write
         .wren	    (wren),      // write enable
         .q          (q_dmem)    // data from dmem
@@ -185,6 +188,7 @@ module skeleton(resetn,
     wire [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
     wire [31:0] data_writeReg;
     wire [31:0] data_readRegA, data_readRegB;
+	 wire assert_done;
     regfile my_regfile(
         ~clock,
         ctrl_writeEnable,
@@ -199,7 +203,7 @@ module skeleton(resetn,
 
     processor my_processor(
         // Control signals
-        clock,                          // I: The master clock
+        proc_clock,                          // I: The master clock
         ~resetn,                          // I: A reset signal
 
         // Imem
@@ -224,7 +228,8 @@ module skeleton(resetn,
 		  //extra outputs for testing
 		  alu_inputA, alu_inputB, alu_output,
 		  select_pc,
-		  fd_inst_in, fd_inst_out
+		  fd_inst_in, fd_inst_out,
+		  assert_done
     );								 
 	
 //	input enable,clk,rst;

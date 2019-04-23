@@ -48,14 +48,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "seg2[1]",
-					"strict" : false
-				},
-				{
-					"name" : "seg2[2]",
-					"strict" : false
-				},
-				{
 					"name" : "seg2[3]",
 					"strict" : false
 				},
@@ -65,10 +57,6 @@
 				},
 				{
 					"name" : "seg2[5]",
-					"strict" : false
-				},
-				{
-					"name" : "seg2[6]",
 					"strict" : false
 				},
 				{

@@ -158,44 +158,45 @@ always@(posedge VGA_CLK_n) begin
 //		if(storage_counter == 24) begin
 //			done <= 1'b1; //don't want to store twice; should done be the enable signal?
 //		end
-		else if(storage_counter == 25) begin
-			vga_data_out <= 9;
-			//done <= 1'b1;
-		end
-		else if(storage_counter == 26) begin
-			vga_data_out <= 10;
-		end
-		else if(storage_counter == 27) begin
-			vga_data_out <= 11;
-		end
-		else if(storage_counter == 28) begin
-			vga_data_out <= 3;
-		end
-		else if(storage_counter == 29) begin
-			vga_data_out <= 4;
-		end
-		else if(storage_counter == 30) begin
-			vga_data_out <= 5;
-		end
-		else if(storage_counter == 31) begin
-			vga_data_out <= 6;
-		end
-		else if(storage_counter == 32) begin
-			vga_data_out <= 7;
-		end
-		else if(storage_counter == 33) begin
-			vga_data_out <= 8;
-		end
-		else if(storage_counter == 34) begin
-			vga_data_out <= 9;
-		end
-		else if(storage_counter == 35) begin
-			vga_data_out <= 10;
-		end
-		else if(storage_counter == 36) begin
-			vga_data_out <= 11;
-			done <= 1'b1;
-		end
+//		else if(storage_counter == 25) begin
+//			vga_data_out <= 9;
+//			//done <= 1'b1;
+//		end
+//		else if(storage_counter == 26) begin
+//			vga_data_out <= 10;
+//		end
+//		else if(storage_counter == 27) begin
+//			vga_data_out <= 11;
+//		end
+//		else if(storage_counter == 28) begin
+//			vga_data_out <= 3;
+//		end
+//		else if(storage_counter == 29) begin
+//			vga_data_out <= 4;
+//		end
+//		else if(storage_counter == 30) begin
+//			vga_data_out <= 5;
+//		end
+//		else if(storage_counter == 31) begin
+//			vga_data_out <= 6;
+//		end
+//		else if(storage_counter == 32) begin
+//			vga_data_out <= 7;
+//		end
+//		else if(storage_counter == 33) begin
+//			vga_data_out <= 8;
+//		end
+//		else if(storage_counter == 34) begin
+//			vga_data_out <= 9;
+//		end
+//		else if(storage_counter == 35) begin
+//			vga_data_out <= 10;
+//		end
+//		else if(storage_counter == 36) begin
+//			vga_data_out <= 11;
+//			done <= 1'b1;
+//		end
+		done <= 1'b1;
 		vga_dmem_addr <= storage_counter;
 	end
 	enable <= done;
